@@ -1,0 +1,18 @@
+
+I
+java:S1874'"3Remove this use of "getDrawable"; it is deprecated.(åšò’
+F
+java:S1874("0Remove this use of "getColor"; it is deprecated.(î´Â
+X
+java:S1126:"BReplace this if-then-else statement by a single method invocation.(ì¡ãã
+V	java:S125?"<This block of commented-out lines of code should be removed.(×ğ†øøÿÿÿÿ
+C
+java:S1604)"(Make this anonymous inner class a lambda(½…æïúÿÿÿÿ
+C
+java:S1604/"(Make this anonymous inner class a lambda(ê÷ˆ×ùÿÿÿÿ
+C
+java:S16047"(Make this anonymous inner class a lambda(¦·˜Ôøÿÿÿÿ
+C
+java:S1604M"(Make this anonymous inner class a lambda(‰õïúÿÿÿÿ
+`
+java:S2259P"JA "NullPointerException" could be thrown; "singleMember" is nullable here.(³ÃÁß

@@ -1,0 +1,135 @@
+
+I
+java:S1874C"3Remove this use of "getDrawable"; it is deprecated.(åšò’
+L
+java:S1874D"6Remove this use of "setColorFilter"; it is deprecated.(î´Â
+M
+java:S1874D"0Remove this use of "getColor"; it is deprecated.(î´Â8¨¬£ÿ/
+S
+java:S1854€"=Remove this useless assignment to local variable "genderStr".(ÆÇ‡2
+D
+java:S1481€".Remove this unused "genderStr" local variable.(ÆÇ‡2
+R	java:S125"<This block of commented-out lines of code should be removed.(‡’ÈŸ
+R	java:S125›"<This block of commented-out lines of code should be removed.(‡’ÈŸ
+R	java:S125©"<This block of commented-out lines of code should be removed.(‡’ÈŸ
+R	java:S125·"<This block of commented-out lines of code should be removed.(‡’ÈŸ
+R	java:S125Å"<This block of commented-out lines of code should be removed.(‡’ÈŸ
+R	java:S125Ó"<This block of commented-out lines of code should be removed.(‡’ÈŸ
+R	java:S125á"<This block of commented-out lines of code should be removed.(‡’ÈŸ
+R	java:S125ï"<This block of commented-out lines of code should be removed.(‡’ÈŸ
+R	java:S125ı"<This block of commented-out lines of code should be removed.(‡’ÈŸ
+R	java:S125‹"<This block of commented-out lines of code should be removed.(‡’ÈŸ
+R	java:S125™"<This block of commented-out lines of code should be removed.(‡’ÈŸ
+R	java:S125§"<This block of commented-out lines of code should be removed.(‡’ÈŸ
+R	java:S125µ"<This block of commented-out lines of code should be removed.(‡’ÈŸ
+j
+java:S3776Â"SRefactor this method to reduce its Cognitive Complexity from 102 to the 15 allowed.(ş¦—²
+T	java:S106æ"9Replace this use of System.out or System.err by a logger.(ñ‹›¥ıÿÿÿÿ
+T	java:S106ü"9Replace this use of System.out or System.err by a logger.(¢èÕ÷øÿÿÿÿ
+T	java:S106•"9Replace this use of System.out or System.err by a logger.(‘ÙËùÿÿÿÿ
+O	java:S106¾"9Replace this use of System.out or System.err by a logger.(®± ¹
+T	java:S106è"9Replace this use of System.out or System.err by a logger.(”Ë«ıøÿÿÿÿ
+o
+java:S2293s"YReplace the type specification in this constructor call with the diamond operator ("<>").(¡‰à°
+u
+java:S2293ß"YReplace the type specification in this constructor call with the diamond operator ("<>").(ûõœøÿÿÿÿÿ
+p
+java:S2293ô"YReplace the type specification in this constructor call with the diamond operator ("<>").(ß¯§”
+u
+java:S2293Š"YReplace the type specification in this constructor call with the diamond operator ("<>").(èüÿÿÿÿ
+u
+java:S2293£"YReplace the type specification in this constructor call with the diamond operator ("<>").(Šâàçüÿÿÿÿ
+p
+java:S2293·"YReplace the type specification in this constructor call with the diamond operator ("<>").(Í·•†
+u
+java:S2293Ì"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ¾¿‚şÿÿÿÿ
+u
+java:S2293à"YReplace the type specification in this constructor call with the diamond operator ("<>").(ç³Øçıÿÿÿÿ
+p
+java:S2293ö"YReplace the type specification in this constructor call with the diamond operator ("<>").(ïø‘á
+u
+java:S2293‹"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÂÜõ“ûÿÿÿÿ
+u
+java:S2293”"YReplace the type specification in this constructor call with the diamond operator ("<>").(¦Çäçşÿÿÿÿ
+p
+java:S2293œ"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô…á½
+p
+java:S2293±"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÉÜœ
+s
+java:S1192æ"WDefine a constant instead of duplicating this literal "enumeroooooooooooooooo" 5 times.(ñ‹›¥ıÿÿÿÿ
+_
+java:S1192Ô"HDefine a constant instead of duplicating this literal "status" 10 times.(šÌç‚
+C
+java:S1604E"(Make this anonymous inner class a lambda(½…æïúÿÿÿÿ
+C
+java:S1604b"(Make this anonymous inner class a lambda(çªÑ•ùÿÿÿÿ
+C
+java:S1604_"(Make this anonymous inner class a lambda(»Ôêáúÿÿÿÿ
+C
+java:S1604w"(Make this anonymous inner class a lambda(ääã¸ûÿÿÿÿ
+>
+java:S1604}"(Make this anonymous inner class a lambda(şÏÔÑ
+D
+java:S1604„"(Make this anonymous inner class a lambda(õ²¶şÿÿÿÿ
+D
+java:S1604Š"(Make this anonymous inner class a lambda(§û‹òùÿÿÿÿ
+D
+java:S1604’"(Make this anonymous inner class a lambda(–¬÷úúÿÿÿÿ
+D
+java:S1604˜"(Make this anonymous inner class a lambda(ÈÉ¸õùÿÿÿÿ
+D
+java:S1604 "(Make this anonymous inner class a lambda(Ò»ŞËÿÿÿÿÿ
+?
+java:S1604¦"(Make this anonymous inner class a lambda(¡«®
+D
+java:S1604®"(Make this anonymous inner class a lambda(ÒŒ‡¹şÿÿÿÿ
+D
+java:S1604´"(Make this anonymous inner class a lambda(–½¼†üÿÿÿÿ
+?
+java:S1604¼"(Make this anonymous inner class a lambda(„©¤
+?
+java:S1604Â"(Make this anonymous inner class a lambda(åÙÁ
+D
+java:S1604Ê"(Make this anonymous inner class a lambda(Ò»ŞËÿÿÿÿÿ
+?
+java:S1604Ğ"(Make this anonymous inner class a lambda(¡«®
+?
+java:S1604Ø"(Make this anonymous inner class a lambda(Ì¡üæ
+D
+java:S1604Ş"(Make this anonymous inner class a lambda(ä¹¡—ûÿÿÿÿ
+?
+java:S1604æ"(Make this anonymous inner class a lambda(øÉ³ï
+?
+java:S1604ì"(Make this anonymous inner class a lambda(Ï¥í 
+?
+java:S1604ô"(Make this anonymous inner class a lambda(¡×›«
+D
+java:S1604ú"(Make this anonymous inner class a lambda(ìïíıùÿÿÿÿ
+?
+java:S1604‚"(Make this anonymous inner class a lambda(½¢¶ë
+D
+java:S1604ˆ"(Make this anonymous inner class a lambda(„’‹şÿÿÿÿ
+D
+java:S1604"(Make this anonymous inner class a lambda(Ç¦‡üÿÿÿÿ
+?
+java:S1604–"(Make this anonymous inner class a lambda(£œ‡¶
+?
+java:S1604"(Make this anonymous inner class a lambda(§ƒÓÜ
+?
+java:S1604¤"(Make this anonymous inner class a lambda(Ú§¢ë
+D
+java:S1604¬"(Make this anonymous inner class a lambda(Ïå°óøÿÿÿÿ
+D
+java:S1604²"(Make this anonymous inner class a lambda(¯ôÂ‡şÿÿÿÿ
+F
+java:S1604º"(Make this anonymous inner class a lambda(íáÏ8¼üúñ0
+D
+java:S1604Ä"(Make this anonymous inner class a lambda(‰õïúÿÿÿÿ
+D
+java:S1604½"(Make this anonymous inner class a lambda(‰õïúÿÿÿÿ
+\
+java:S1155Ç">Use isEmpty() to check whether the collection is empty or not.(³ÃÁß8×©¬£ÿ/
+a
+java:S1155À">Use isEmpty() to check whether the collection is empty or not.(Øãü¡ûÿÿÿÿ8Ø©¬£ÿ/
+f
+java:S2259À"JA "NullPointerException" could be thrown; "singleMember" is nullable here.(Øãü¡ûÿÿÿÿ

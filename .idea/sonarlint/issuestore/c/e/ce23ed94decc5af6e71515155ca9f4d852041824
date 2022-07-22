@@ -1,0 +1,147 @@
+
+h
+java:S1659:"FDeclare "districId" and all following declarations on a separate line.(¾—Õüÿÿÿÿ8˜ùó½‚0
+P
+java:S1874D"3Remove this use of "getDrawable"; it is deprecated.(åšò’8õ¯›ì0
+S
+java:S1874E"6Remove this use of "setColorFilter"; it is deprecated.(î´Â8õ¯›ì0
+M
+java:S1874E"0Remove this use of "getColor"; it is deprecated.(î´Â8õ¯›ì0
+_
+java:S1854i"=Remove this useless assignment to local variable "genderStr".(Ôê÷æûÿÿÿÿ8›°›ì0
+P
+java:S1481i".Remove this unused "genderStr" local variable.(Ôê÷æûÿÿÿÿ8›°›ì0
+_
+java:S1854u"=Remove this useless assignment to local variable "genderStr".(‰õ÷ úÿÿÿÿ8›°›ì0
+P
+java:S1481u".Remove this unused "genderStr" local variable.(‰õ÷ úÿÿÿÿ8›°›ì0
+`
+java:S1854"=Remove this useless assignment to local variable "genderStr".(„Ë¸øÿÿÿÿ8ª°›ì0
+Q
+java:S1481".Remove this unused "genderStr" local variable.(„Ë¸øÿÿÿÿ8ª°›ì0
+`
+java:S1854"=Remove this useless assignment to local variable "genderStr".(µó¶†ıÿÿÿÿ8ª°›ì0
+Q
+java:S1481".Remove this unused "genderStr" local variable.(µó¶†ıÿÿÿÿ8º°›ì0
+`
+java:S1854™"=Remove this useless assignment to local variable "genderStr".(‰÷Ëùşÿÿÿÿ8º°›ì0
+Q
+java:S1481™".Remove this unused "genderStr" local variable.(‰÷Ëùşÿÿÿÿ8º°›ì0
+Y	java:S125¨"<This block of commented-out lines of code should be removed.(¹÷‚²8º°›ì0
+[
+java:S1117Š"=Rename "villageId" which hides the field declared at line 58.(Ï”…8ìùó½‚0
+^	java:S125¤"<This block of commented-out lines of code should be removed.(ŠóÂúÿÿÿÿ8Ù°›ì0
+v
+java:S2293W"YReplace the type specification in this constructor call with the diamond operator ("<>").(¡‰à°8é°›ì0
+|
+java:S2293»"YReplace the type specification in this constructor call with the diamond operator ("<>").(¶¦¿Õùÿÿÿÿ8é°›ì0
+w
+java:S2293Å"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÿÀŠ8é°›ì0
+|
+java:S2293Ú"YReplace the type specification in this constructor call with the diamond operator ("<>").(„¬‘Üşÿÿÿÿ8şùó½‚0
+|
+java:S2293í"YReplace the type specification in this constructor call with the diamond operator ("<>").(¡“Ä‡ıÿÿÿÿ8şùó½‚0
+|
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").( úàúÿÿÿÿ8ÿùó½‚0
+|
+java:S2293”"YReplace the type specification in this constructor call with the diamond operator ("<>").(„òßÿùÿÿÿÿ8ÿùó½‚0
+w
+java:S2293¯"YReplace the type specification in this constructor call with the diamond operator ("<>").(¡‰à°8ÿùó½‚0
+|
+java:S2293µ"YReplace the type specification in this constructor call with the diamond operator ("<>").(î³›îıÿÿÿÿ8ÿùó½‚0
+|
+java:S2293»"YReplace the type specification in this constructor call with the diamond operator ("<>").(ïÎğìûÿÿÿÿ8ÿùó½‚0
+|
+java:S2293Â"YReplace the type specification in this constructor call with the diamond operator ("<>").(æï¬ßúÿÿÿÿ8ÿùó½‚0
+|
+java:S2293È"YReplace the type specification in this constructor call with the diamond operator ("<>").(‚¨Îˆüÿÿÿÿ8€úó½‚0
+J
+java:S1604F"(Make this anonymous inner class a lambda(½…æïúÿÿÿÿ8ø°›ì0
+E
+java:S1604`"(Make this anonymous inner class a lambda(Úëöõ8†±›ì0
+D
+java:S1604f"(Make this anonymous inner class a lambda(°Ûäi8†±›ì0
+E
+java:S1604l"(Make this anonymous inner class a lambda(§Ñ…º8†±›ì0
+E
+java:S1604r"(Make this anonymous inner class a lambda(¾Œä…8Š±›ì0
+J
+java:S1604x"(Make this anonymous inner class a lambda(¡¼ÆÖşÿÿÿÿ8Š±›ì0
+E
+java:S1604~"(Make this anonymous inner class a lambda(íâ´Â8Š±›ì0
+K
+java:S1604„"(Make this anonymous inner class a lambda(ª¿ìÇúÿÿÿÿ8Š±›ì0
+K
+java:S1604Š"(Make this anonymous inner class a lambda(–İÑ¶ıÿÿÿÿ8Š±›ì0
+K
+java:S1604"(Make this anonymous inner class a lambda(ä‚·ûÿÿÿÿ8Š±›ì0
+K
+java:S1604–"(Make this anonymous inner class a lambda(Ë”§Éüÿÿÿÿ8Š±›ì0
+F
+java:S1604"(Make this anonymous inner class a lambda(Ñ´«»8Š±›ì0
+K
+java:S1604£"(Make this anonymous inner class a lambda(€°ûÕüÿÿÿÿ8±›ì0
+K
+java:S1604¿"(Make this anonymous inner class a lambda(ú“†’üÿÿÿÿ8‡úó½‚0
+F
+java:S1604Å"(Make this anonymous inner class a lambda(Áî·8ˆúó½‚0
+K
+java:S1604Í"(Make this anonymous inner class a lambda(†Úœşÿÿÿÿ8ˆúó½‚0
+F
+java:S1604Ó"(Make this anonymous inner class a lambda(©·‹¤8ˆúó½‚0
+K
+java:S1604Û"(Make this anonymous inner class a lambda(ıÜ™Óúÿÿÿÿ8ˆúó½‚0
+F
+java:S1604á"(Make this anonymous inner class a lambda(×°ô8ˆúó½‚0
+K
+java:S1604é"(Make this anonymous inner class a lambda(¼ä²”úÿÿÿÿ8ˆúó½‚0
+F
+java:S1604ï"(Make this anonymous inner class a lambda(…–ÄÖ8ˆúó½‚0
+K
+java:S1604÷"(Make this anonymous inner class a lambda(”®¸ïûÿÿÿÿ8ˆúó½‚0
+E
+java:S1604ı"(Make this anonymous inner class a lambda(±¢Ö8ˆúó½‚0
+F
+java:S1604…"(Make this anonymous inner class a lambda(íáÏ8†±›ì0
+K
+java:S1604"(Make this anonymous inner class a lambda(‰õïúÿÿÿÿ8±›ì0
+F
+java:S1604½"(Make this anonymous inner class a lambda(áôŸ8±›ì0
+F
+java:S1604Ò"(Make this anonymous inner class a lambda(á¾í8‰úó½‚0
+F
+java:S1604å"(Make this anonymous inner class a lambda(á¾í8‰úó½‚0
+F
+java:S1604ù"(Make this anonymous inner class a lambda(“ëª×8‰úó½‚0
+K
+java:S1604Œ"(Make this anonymous inner class a lambda(Ú¥®‡úÿÿÿÿ8‰úó½‚0
+K
+java:S1604Ÿ"(Make this anonymous inner class a lambda(‰õïúÿÿÿÿ8Šúó½‚0
+a
+java:S1155’">Use isEmpty() to check whether the collection is empty or not.(Øãü¡ûÿÿÿÿ8’±›ì0
+a
+java:S1155À">Use isEmpty() to check whether the collection is empty or not.(Ü°†©ûÿÿÿÿ8’±›ì0
+a
+java:S1155Õ">Use isEmpty() to check whether the collection is empty or not.(Ü°†©ûÿÿÿÿ8‹úó½‚0
+a
+java:S1155è">Use isEmpty() to check whether the collection is empty or not.(Ü°†©ûÿÿÿÿ8‹úó½‚0
+a
+java:S1155ü">Use isEmpty() to check whether the collection is empty or not.(Ü°†©ûÿÿÿÿ8Œúó½‚0
+a
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(Ü°†©ûÿÿÿÿ8Œúó½‚0
+a
+java:S1155¢">Use isEmpty() to check whether the collection is empty or not.(Øãü¡ûÿÿÿÿ8Œúó½‚0
+m
+java:S2259’"JA "NullPointerException" could be thrown; "singleMember" is nullable here.(Øãü¡ûÿÿÿÿ8æ±›ì0
+k
+java:S2259À"HA "NullPointerException" could be thrown; "vastiDataa" is nullable here.(Ü°†©ûÿÿÿÿ8æ±›ì0
+k
+java:S2259Õ"HA "NullPointerException" could be thrown; "vastiDataa" is nullable here.(Ü°†©ûÿÿÿÿ8Úúó½‚0
+k
+java:S2259è"HA "NullPointerException" could be thrown; "vastiDataa" is nullable here.(Ü°†©ûÿÿÿÿ8Úúó½‚0
+k
+java:S2259ü"HA "NullPointerException" could be thrown; "vastiDataa" is nullable here.(Ü°†©ûÿÿÿÿ8Úúó½‚0
+m
+java:S2259¢"JA "NullPointerException" could be thrown; "singleMember" is nullable here.(Øãü¡ûÿÿÿÿ8Ûúó½‚0
+k
+java:S2259"HA "NullPointerException" could be thrown; "vastiDataa" is nullable here.(Ü°†©ûÿÿÿÿ8Ûúó½‚0

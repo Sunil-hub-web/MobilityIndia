@@ -1,0 +1,1083 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+    </data>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".health.healthview.AddHealthActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/purple_500"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/white">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="60dp"
+            android:gravity="center"
+            android:text="Add Health"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/_20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="@dimen/_10dp"
+                android:background="@drawable/backgroundscreen"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="serif"
+                            android:gravity="center|center_vertical"
+                            android:text="Screening"
+                            android:textColor="#768Ac2"
+                            android:textStyle="bold" />
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:layout_marginBottom="@dimen/_20dp"
+                            android:hint="Date of Screening"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/startdateofshg"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/ic_calender"
+                                android:drawableTint="@color/purple_500"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/backgroundscreen"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="serif"
+                            android:gravity="center|center_vertical"
+                            android:text="Assessment"
+                            android:textColor="#768Ac2"
+                            android:textStyle="bold" />
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:hint="Date of Assessment "
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/dateofassiment"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/ic_calender"
+                                android:drawableTint="@color/purple_500"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tl_name"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Who did the assessment"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/whodidassesmenta"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_20dp"
+                            android:hint="Where was it done"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/wherewasitdonea"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/backgroundscreen"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="serif"
+                            android:gravity="center|center_vertical"
+                            android:text="Medical Referral"
+                            android:textColor="#768Ac2"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_10dp"
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:layout_marginRight="@dimen/_10dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:background="@drawable/backgroundonoff"
+                            android:gravity="center"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight=".6"
+                                android:fontFamily="serif"
+                                android:gravity="left"
+                                android:paddingLeft="@dimen/_20dp"
+                                android:text="Medical Referral"
+                                android:textStyle="bold" />
+
+                            <com.github.angads25.toggle.LabeledSwitch
+                                android:id="@+id/referincal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/_15dp"
+                                android:layout_marginTop="@dimen/_10dp"
+                                android:layout_marginRight="@dimen/_15dp"
+                                android:layout_marginBottom="@dimen/_10dp"
+                                android:layout_weight="1.4"
+                                android:textSize="14sp"
+                                app:colorBorder="#00c4a6"
+                                app:colorOn="@color/purple_500"
+                                app:textOff="No"
+                                app:textOn="Yes"/>
+
+
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Referred to which place"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/refertowhichplace"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Prescription"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/presecription"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/backgroundscreen"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="serif"
+                            android:gravity="center|center_vertical"
+                            android:text="Trial"
+                            android:textColor="#768Ac2"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Trial for What"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/trailforwhat"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:hint="Trial Date "
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/traildate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/ic_calender"
+                                android:drawableTint="@color/purple_500"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/backgroundscreen"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="serif"
+                            android:gravity="center|center_vertical"
+                            android:text="GAIT Training"
+                            android:textColor="#768Ac2"
+                            android:textStyle="bold" />
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_60dp"
+                            android:hint="Famiely Livelihood"
+                            android:padding="5dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/gaitfrequency"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/dropdown"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:imeOptions="actionNext"
+                                android:inputType="textAutoComplete"
+                                android:longClickable="false"
+                                android:padding="14dp"
+                                android:textColor="@color/textcolor"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="How many is done?"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/howanydone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/backgroundscreen"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="serif"
+                            android:gravity="center|center_vertical"
+                            android:text="Therapy Services"
+                            android:textColor="#768Ac2"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Number of times"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/thrpynumberoftime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Number of Sessions"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/numberofsession"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/backgroundscreen"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="serif"
+                            android:gravity="center|center_vertical"
+                            android:text="Fitment"
+                            android:textColor="#768Ac2"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Who did it"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/fitmentwho"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:maxLength="30" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Where was it done"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/fitmentwhere"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:maxLength="30" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_60dp"
+                            android:hint="What kind of device"
+                            android:padding="5dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/fitmentkind"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/dropdown"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:imeOptions="actionNext"
+                                android:inputType="textAutoComplete"
+                                android:longClickable="false"
+                                android:padding="14dp"
+                                android:textColor="@color/textcolor"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/backgroundscreen"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="serif"
+                            android:gravity="center|center_vertical"
+                            android:text="Fallow Up"
+                            android:textColor="#768Ac2"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_60dp"
+                            android:hint="What kind of device"
+                            android:padding="5dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/fallowwhat"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/dropdown"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:imeOptions="actionNext"
+                                android:inputType="textAutoComplete"
+                                android:longClickable="false"
+                                android:padding="14dp"
+                                android:textColor="@color/textcolor"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:background="@drawable/backgroundonoff"
+                            android:gravity="center"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight=".6"
+                                android:fontFamily="serif"
+                                android:gravity="left"
+                                android:paddingLeft="@dimen/_20dp"
+                                android:text="Fallow Sheet Updated"
+                                android:textStyle="bold" />
+
+                            <com.github.angads25.toggle.LabeledSwitch
+                                android:id="@+id/fallowsheetupdated"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/_15dp"
+                                android:layout_marginTop="@dimen/_10dp"
+                                android:layout_marginRight="@dimen/_15dp"
+                                android:layout_marginBottom="@dimen/_10dp"
+                                android:layout_weight="1.4"
+                                android:textSize="14sp"
+                                app:colorBorder="#00c4a6"
+                                app:colorOn="@color/purple_500"
+                                app:textOff="No"
+                                app:textOn="Yes"/>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/backgroundscreen"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="serif"
+                            android:gravity="center|center_vertical"
+                            android:text="Corrective Surgery"
+                            android:textColor="#768Ac2"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:background="@drawable/backgroundonoff"
+                            android:gravity="center"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight=".6"
+                                android:fontFamily="serif"
+                                android:gravity="left"
+                                android:paddingLeft="@dimen/_20dp"
+                                android:text="Corrective Surgery"
+                                android:textStyle="bold" />
+
+                            <com.github.angads25.toggle.LabeledSwitch
+                                android:id="@+id/correctivesurgery"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/_15dp"
+                                android:layout_marginTop="@dimen/_10dp"
+                                android:layout_marginRight="@dimen/_15dp"
+                                android:layout_marginBottom="@dimen/_10dp"
+                                android:layout_weight="1.4"
+                                android:textSize="14sp"
+                                app:colorBorder="#00c4a6"
+                                app:colorOn="@color/purple_500"
+                                app:textOff="No"
+                                app:textOn="Yes"/>
+
+
+                        </LinearLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Where was it done?"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/surgerywhere"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="What Kind of surgery was done?"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/surgerywhat"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/backgroundscreen"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="serif"
+                            android:gravity="center|center_vertical"
+                            android:text="Home Modificcation"
+                            android:textColor="#768Ac2"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:background="@drawable/backgroundonoff"
+                            android:gravity="center"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:id="@+id/recommend"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight=".6"
+                                android:fontFamily="serif"
+                                android:gravity="left"
+                                android:paddingLeft="@dimen/_20dp"
+                                android:text="Recommend"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+
+                            <com.github.angads25.toggle.LabeledSwitch
+                                android:id="@+id/homemodification"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/_15dp"
+                                android:layout_marginTop="@dimen/_10dp"
+                                android:layout_marginRight="@dimen/_15dp"
+                                android:layout_marginBottom="@dimen/_10dp"
+                                android:layout_weight="1.4"
+                                android:textSize="14sp"
+                                app:colorBorder="#00c4a6"
+                                app:colorOn="@color/purple_500"
+                                app:textOff="No"
+                                app:textOn="Yes"/>
+
+
+                        </LinearLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Where is it?"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/homemodificationwhere"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/backgroundscreen"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="serif"
+                            android:gravity="center|center_vertical"
+                            android:text="Individual Health Plan"
+                            android:textColor="#768Ac2"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:background="@drawable/backgroundonoff"
+                            android:gravity="center"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight=".6"
+                                android:fontFamily="serif"
+                                android:gravity="left"
+                                android:paddingLeft="@dimen/_20dp"
+                                android:text="IHP"
+                                android:textStyle="bold" />
+
+                            <com.github.angads25.toggle.LabeledSwitch
+                                android:id="@+id/ihp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/_15dp"
+                                android:layout_marginTop="@dimen/_10dp"
+                                android:layout_marginRight="@dimen/_15dp"
+                                android:layout_marginBottom="@dimen/_10dp"
+                                android:layout_weight="1.4"
+                                android:textSize="14sp"
+                                app:colorBorder="#00c4a6"
+                                app:colorOn="@color/purple_500"
+                                app:textOff="No"
+                                app:textOn="Yes"/>
+
+
+                        </LinearLayout>
+
+
+
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="@dimen/_10dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="bottom|center_horizontal"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:weightSum="2">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/viewBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:text="Back"
+                    app:backgroundTint="@color/graycolor"
+                    app:cornerRadius="@dimen/_12sp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonnext"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:text="Add"
+                    app:backgroundTint="@color/purple_700"
+                    app:cornerRadius="@dimen/_12sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
+</layout>
