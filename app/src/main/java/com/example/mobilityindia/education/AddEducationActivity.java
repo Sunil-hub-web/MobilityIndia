@@ -59,32 +59,32 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-    public class AddEducationActivity extends AppCompatActivity {
-        private static final int PROFILE_IMAGE_REQ_CODE = 101;
-        ActivityAddEducationBinding binding;
-        String classaccessible = "", skilldevelopment = "", sittingmodification = "", accseetotlm = "", accesstotoilet = "",
-                accesstolibrary = "", schoolenroll = "", acesstosportactivity = "", childpartialament = "", summercamp = "", vocationcourse = "",
-                individualeducattionplan = "", curricularactivities = "", memberofCEC = "";
-        EducationData educationData;
-        String FinalString;
-        List<String> imagelist;
-        LocalRepo localRepo;
-        String getvalue = "1";
+public class AddEducationActivity extends AppCompatActivity {
+    private static final int PROFILE_IMAGE_REQ_CODE = 101;
+    ActivityAddEducationBinding binding;
+    String classaccessible = "", skilldevelopment = "", sittingmodification = "", accseetotlm = "", accesstotoilet = "",
+            accesstolibrary = "", schoolenroll = "", acesstosportactivity = "", childpartialament = "", summercamp = "", vocationcourse = "",
+            individualeducattionplan = "", curricularactivities = "", memberofCEC = "", activity1 = "", activity2 = "", activity3 = "", activity4 = "", activity5 = "";
+    EducationData educationData;
+    String FinalString;
+    List<String> imagelist;
+    LocalRepo localRepo;
+    String getvalue = "1";
 
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            binding = DataBindingUtil.setContentView(this, R.layout.activity_add_education);
-            setContentView(binding.getRoot());
-            setSupportActionBar(binding.toolbar);
-            imagelist = new ArrayList<>();
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-            binding.toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_baseline_arrow_back_24));
-            binding.toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
-            binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-                @Override
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_add_education);
+        setContentView(binding.getRoot());
+        setSupportActionBar(binding.toolbar);
+        imagelist = new ArrayList<>();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        binding.toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_baseline_arrow_back_24));
+        binding.toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
+        binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 onBackPressed();
             }
@@ -95,12 +95,12 @@ import retrofit2.Response;
             @Override
             public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
                 // Implement your switching logic here
-                if(isOn){
+                if (isOn) {
                     schoolenroll = "Yes";
                     binding.schoollayoutid.setVisibility(View.VISIBLE);
                     // CommonClass.weathershgornot =weathershg;
                     //switch  is on
-                }else{
+                } else {
                     schoolenroll = "No";
                     binding.schoollayoutid.setVisibility(View.GONE);
                     //  CommonClass.weathershgornot =weathershg;
@@ -123,19 +123,19 @@ import retrofit2.Response;
         });
 
 
-            String[] itemNames = getResources().getStringArray(R.array.selectonehome);
-            ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, itemNames);
-            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            binding.attendingclassregularly.setAdapter(adapter2);
+        String[] itemNames = getResources().getStringArray(R.array.selectonehome);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, itemNames);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        binding.attendingclassregularly.setAdapter(adapter2);
 
-            binding.classaccessible.setOnToggledListener(new OnToggledListener() {
-                @Override
-                public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
-                    // Implement your switching logic here
-                    if (isOn) {
-                        classaccessible = "Yes";
-                        // CommonClass.weathershgornot =weathershg;
-                        //switch  is on
+        binding.classaccessible.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    classaccessible = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
 
                        /* binding.Sittingmodification.setVisibility(View.VISIBLE);
                         binding.AccesstoTLM.setVisibility(View.VISIBLE);
@@ -145,10 +145,10 @@ import retrofit2.Response;
                         binding.cocurricularactivities.setVisibility(View.VISIBLE);
                         binding.childmemberCEC.setVisibility(View.VISIBLE);*/
 
-                    } else {
-                        classaccessible = "No";
-                        //  CommonClass.weathershgornot =weathershg;
-                        //switch is off
+                } else {
+                    classaccessible = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
 
                         /*binding.Sittingmodification.setVisibility(View.GONE);
                         binding.AccesstoTLM.setVisibility(View.GONE);
@@ -157,83 +157,83 @@ import retrofit2.Response;
                         binding.AccesstoSportActivity.setVisibility(View.GONE);
                         binding.cocurricularactivities.setVisibility(View.GONE);
                         binding.childmemberCEC.setVisibility(View.GONE);*/
-                    }
                 }
-            });
+            }
+        });
 
-            binding.curricularactivities.setOnToggledListener(new OnToggledListener() {
-                @Override
-                public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
-                    // Implement your switching logic here
-                    if (isOn) {
-                        curricularactivities = "Yes";
-                        // CommonClass.weathershgornot =weathershg;
-                        //switch  is on
-                    } else {
-                        curricularactivities = "No";
-                        //  CommonClass.weathershgornot =weathershg;
-                        //switch is off
-                    }
-                }
-            });
-
-            binding.Childrengramsabha.setOnToggledListener(new OnToggledListener() {
-                @Override
-                public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
-                    // Implement your switching logic here
-                    if (isOn) {
-                        skilldevelopment = "Yes";
-                        // CommonClass.weathershgornot =weathershg;
-                        //switch  is on
-                    } else {
-                        skilldevelopment = "No";
-                        //  CommonClass.weathershgornot =weathershg;
-                        //switch is off
-                    }
-                }
-            });
-
-            binding.memberofCEC.setOnToggledListener(new OnToggledListener() {
-                @Override
-                public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
-                    // Implement your switching logic here
-                    if (isOn) {
-                        memberofCEC = "Yes";
-                        // CommonClass.weathershgornot =weathershg;
-                        //switch  is on
-                    } else {
-                        memberofCEC = "No";
-                        //  CommonClass.weathershgornot =weathershg;
-                        //switch is off
-                    }
-                }
-            });
-
-            binding.sittingmodification.setOnToggledListener(new OnToggledListener() {
-                @Override
-                public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
-                    // Implement your switching logic here
-                    if (isOn) {
-                        sittingmodification = "Yes";
-                        // CommonClass.weathershgornot =weathershg;
-                        //switch  is on
-                    } else {
-                        sittingmodification = "No";
-                        //  CommonClass.weathershgornot =weathershg;
-                        //switch is off
-                    }
-                }
-            });
-
-            binding.accseetotlm.setOnToggledListener(new OnToggledListener() {
-                @Override
-                public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+        binding.curricularactivities.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
                 // Implement your switching logic here
-                if(isOn){
+                if (isOn) {
+                    curricularactivities = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    curricularactivities = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+
+        binding.Childrengramsabha.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    skilldevelopment = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    skilldevelopment = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+
+        binding.memberofCEC.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    memberofCEC = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    memberofCEC = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+
+        binding.sittingmodification.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    sittingmodification = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    sittingmodification = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+
+        binding.accseetotlm.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
                     accseetotlm = "Yes";
                     // CommonClass.weathershgornot =weathershg;
                     //switch  is on
-                }else{
+                } else {
                     accseetotlm = "No";
                     //  CommonClass.weathershgornot =weathershg;
                     //switch is off
@@ -245,11 +245,11 @@ import retrofit2.Response;
             @Override
             public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
                 // Implement your switching logic here
-                if(isOn){
+                if (isOn) {
                     accesstotoilet = "Yes";
                     // CommonClass.weathershgornot =weathershg;
                     //switch  is on
-                }else{
+                } else {
                     accesstotoilet = "No";
                     //  CommonClass.weathershgornot =weathershg;
                     //switch is off
@@ -261,11 +261,11 @@ import retrofit2.Response;
             @Override
             public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
                 // Implement your switching logic here
-                if(isOn){
+                if (isOn) {
                     accesstolibrary = "Yes";
                     // CommonClass.weathershgornot =weathershg;
                     //switch  is on
-                }else{
+                } else {
                     accesstolibrary = "No";
                     //  CommonClass.weathershgornot =weathershg;
                     //switch is off
@@ -277,11 +277,11 @@ import retrofit2.Response;
             @Override
             public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
                 // Implement your switching logic here
-                if(isOn){
+                if (isOn) {
                     acesstosportactivity = "Yes";
                     // CommonClass.weathershgornot =weathershg;
                     //switch  is on
-                }else{
+                } else {
                     acesstosportactivity = "No";
                     //  CommonClass.weathershgornot =weathershg;
                     //switch is off
@@ -293,11 +293,11 @@ import retrofit2.Response;
             @Override
             public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
                 // Implement your switching logic here
-                if(isOn){
+                if (isOn) {
                     childpartialament = "Yes";
                     // CommonClass.weathershgornot =weathershg;
                     //switch  is on
-                }else{
+                } else {
                     childpartialament = "No";
                     //  CommonClass.weathershgornot =weathershg;
                     //switch is off
@@ -309,12 +309,88 @@ import retrofit2.Response;
             @Override
             public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
                 // Implement your switching logic here
-                if(isOn){
+                if (isOn) {
                     summercamp = "Yes";
                     // CommonClass.weathershgornot =weathershg;
                     //switch  is on
-                }else{
+                } else {
                     summercamp = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+
+        binding.Activity1.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    activity1 = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    activity1 = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+        binding.Activity2.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    activity2 = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    activity2 = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+        binding.Activity3.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    activity3 = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    activity3 = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+        binding.Activity4.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    activity4 = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    activity4 = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+        binding.Activity5.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    activity5 = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    activity5 = "No";
                     //  CommonClass.weathershgornot =weathershg;
                     //switch is off
                 }
@@ -345,12 +421,12 @@ import retrofit2.Response;
             @Override
             public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
                 // Implement your switching logic here
-                if(isOn){
+                if (isOn) {
                     individualeducattionplan = "Yes";
                     binding.ihpview.setVisibility(View.VISIBLE);
                     // CommonClass.weathershgornot =weathershg;
                     //switch  is on
-                }else{
+                } else {
                     individualeducattionplan = "No";
                     binding.ihpview.setVisibility(View.GONE);
                     //  CommonClass.weathershgornot =weathershg;
@@ -363,11 +439,11 @@ import retrofit2.Response;
             @Override
             public void onClick(View v) {
 
-                if(AppUtils.isNetworkAvailable(AddEducationActivity.this)) {
+                if (AppUtils.isNetworkAvailable(AddEducationActivity.this)) {
                     addlivelihoodApi();
 
-                }else{
-                     localbeneficaryDataCall();
+                } else {
+                    localbeneficaryDataCall();
                 }
             }
         });
@@ -442,8 +518,7 @@ import retrofit2.Response;
 
     }
 
-    private void addlivelihoodApi()
-    {
+    private void addlivelihoodApi() {
         ProgressDialog pd = new ProgressDialog(AddEducationActivity.this);
         pd.setMessage("Loading...");
         pd.setCancelable(false);
@@ -459,8 +534,8 @@ import retrofit2.Response;
         mapData.put("attendingclass", binding.attendingclassregularly.getText().toString());
         mapData.put("schoolaccess", classaccessible);
 
-      //  mapData.put("sitting", skilldevelopment);
-        mapData.put("sitting",sittingmodification);
+        //  mapData.put("sitting", skilldevelopment);
+        mapData.put("sitting", sittingmodification);
         mapData.put("tlm", accseetotlm);
 
         mapData.put("toilet", accesstotoilet);
@@ -468,40 +543,45 @@ import retrofit2.Response;
 
 
         mapData.put("sports", acesstosportactivity);
-        mapData.put("schoolother",binding.anyother.getText().toString());
+        mapData.put("cocurricular", curricularactivities);
+        mapData.put("schoolother", binding.anyother.getText().toString());
+        mapData.put("cec", memberofCEC);
 
         mapData.put("parliament", childpartialament);
+        mapData.put("gramsabha", skilldevelopment);
         mapData.put("summercamp", summercamp);
-
-        mapData.put("vocational", vocationcourse);
-        mapData.put("vocationaldetail", binding.mentiondetailvocationcourse.getText().toString());
-
+        mapData.put("activity_one", activity1);
+        mapData.put("activity_two", activity2);
+        mapData.put("activity_three", activity3);
+        mapData.put("activity_four", activity4);
+        mapData.put("activity_five", activity5);
 
         mapData.put("iep", individualeducattionplan);
-        mapData.put("iepdoc","" );
+        mapData.put("iepdoc", "");
         // baad me open ker dena
-        mapData.put("iepdoc",imagelist);
+        mapData.put("iepdoc", imagelist);
 
         CommonClass.APP_TOKEN = CommonClass.getToken(AddEducationActivity.this);
         ApiRequest apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
-        apiRequest.addEducationData(CommonClass.APP_TOKEN,mapData).enqueue(new Callback<EducationResponse>() {
+        apiRequest.addEducationData(CommonClass.APP_TOKEN, mapData).enqueue(new Callback<EducationResponse>() {
             @Override
             public void onResponse(Call<EducationResponse> call, Response<EducationResponse> response) {
                 Log.d("TAG", "onResponse response:: " + response.body());
                 if (response.body() != null) {
-                    if(response.body().isStatus()){
-                        Toast.makeText(AddEducationActivity.this,"Education  Added ",Toast.LENGTH_SHORT).show();
+                    if (response.body().isStatus()) {
+                        Toast.makeText(AddEducationActivity.this, "Education  Added ", Toast.LENGTH_SHORT).show();
                         onBackPressed();
                         pd.dismiss();
 
-                    }else{
-                        Toast.makeText(AddEducationActivity.this,"Education not Added ",Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(AddEducationActivity.this, "Education not Added ", Toast.LENGTH_SHORT).show();
                         pd.dismiss();
                     }
 
 
                 }
             }
+
             @Override
             public void onFailure(Call<EducationResponse> call, Throwable t) {
                 pd.dismiss();
@@ -509,10 +589,9 @@ import retrofit2.Response;
         });
 
 
-
     }
 
-    private void capturePhoto(){
+    private void capturePhoto() {
         ImagePicker.with(this)
                 .saveDir(AddEducationActivity.this.getExternalFilesDir(Environment.DIRECTORY_DCIM))
                 .cropSquare()
@@ -523,17 +602,17 @@ import retrofit2.Response;
                         return null;
                     }
                 }).setDismissListener(new DismissListener() {
-            @Override
-            public void onDismiss() {
-                Log.d("ImagePicker", "Dialog Dismiss");
-            }
-        })
+                    @Override
+                    public void onDismiss() {
+                        Log.d("ImagePicker", "Dialog Dismiss");
+                    }
+                })
                 // Image resolution will be less than 512 x 512
                 .maxResultSize(512, 512)
                 .start(PROFILE_IMAGE_REQ_CODE);
     }
 
-    public void openPdf(){
+    public void openPdf() {
         Intent intentpdf = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intentpdf.setType("application/pdf");
         intentpdf.addCategory(Intent.CATEGORY_OPENABLE);
@@ -545,7 +624,7 @@ import retrofit2.Response;
 //        /////////this is right for doc  ////////////////////////
 
         String[] mimeTypes =
-                {"application/msword","application/vnd.openxmlformats-officedocument.wordprocessingml.document" // .doc & .docx
+                {"application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document" // .doc & .docx
                 };
 
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
@@ -561,9 +640,9 @@ import retrofit2.Response;
             for (String mimeType : mimeTypes) {
                 mimeTypesStr += mimeType + "|";
             }
-            intent.setType(mimeTypesStr.substring(0,mimeTypesStr.length() - 1));
+            intent.setType(mimeTypesStr.substring(0, mimeTypesStr.length() - 1));
         }
-        startActivityForResult(Intent.createChooser(intent,"ChooseFile"), 30);
+        startActivityForResult(Intent.createChooser(intent, "ChooseFile"), 30);
 
 
     }
@@ -593,28 +672,27 @@ import retrofit2.Response;
                         String Document = Base64.encodeToString(bytes, Base64.DEFAULT);
                         FinalString = "data:application/" + extension + ";base64," + ansValue;
                         imagelist.add(FinalString);
-                        if(getvalue.equals("1")){
+                        if (getvalue.equals("1")) {
                             binding.imagesiew.setVisibility(View.VISIBLE);
                             binding.frame1.setVisibility(View.VISIBLE);
                             binding.imageview1.setImageDrawable(getResources().getDrawable(R.drawable.pdfimg));
                             getvalue = "2";
-                        }else if(getvalue.equals("2")){
+                        } else if (getvalue.equals("2")) {
                             binding.frame2.setVisibility(View.VISIBLE);
                             binding.imageview2.setImageDrawable(getResources().getDrawable(R.drawable.pdfimg));
                             getvalue = "3";
-                        }else if(getvalue.equals("3")){
+                        } else if (getvalue.equals("3")) {
                             binding.frame3.setVisibility(View.VISIBLE);
                             binding.imageview3.setImageDrawable(getResources().getDrawable(R.drawable.pdfimg));
                             getvalue = "4";
-                        }else if(getvalue.equals("4")){
+                        } else if (getvalue.equals("4")) {
                             binding.frame4.setVisibility(View.VISIBLE);
                             binding.imageview4.setImageDrawable(getResources().getDrawable(R.drawable.pdfimg));
                             getvalue = "5";
-                        }else if(getvalue.equals("5")){
+                        } else if (getvalue.equals("5")) {
                             binding.frame5.setVisibility(View.VISIBLE);
                             binding.imageview5.setImageDrawable(getResources().getDrawable(R.drawable.pdfimg));
                         }
-
 
 
                     } catch (Exception e) {
@@ -644,29 +722,28 @@ import retrofit2.Response;
                         Log.d("data", "onActivityResult: Base64string=" + Base64.encodeToString(bytes, Base64.DEFAULT));
                         String ansValue = Base64.encodeToString(bytes, Base64.DEFAULT);
                         String Document = Base64.encodeToString(bytes, Base64.DEFAULT);
-                        if(extension.equalsIgnoreCase("doc"))
-                        {
+                        if (extension.equalsIgnoreCase("doc")) {
                             FinalString = "data:application/msword" + ";base64," + ansValue;
                             imagelist.add(FinalString);
                         }
-                        if(getvalue.equals("1")){
+                        if (getvalue.equals("1")) {
                             binding.imagesiew.setVisibility(View.VISIBLE);
                             binding.frame1.setVisibility(View.VISIBLE);
                             binding.imageview1.setImageDrawable(getResources().getDrawable(R.drawable.documentdetail));
                             getvalue = "2";
-                        }else if(getvalue.equals("2")){
+                        } else if (getvalue.equals("2")) {
                             binding.frame2.setVisibility(View.VISIBLE);
                             binding.imageview2.setImageDrawable(getResources().getDrawable(R.drawable.documentdetail));
                             getvalue = "3";
-                        }else if(getvalue.equals("3")){
+                        } else if (getvalue.equals("3")) {
                             binding.frame3.setVisibility(View.VISIBLE);
                             binding.imageview3.setImageDrawable(getResources().getDrawable(R.drawable.documentdetail));
                             getvalue = "4";
-                        }else if(getvalue.equals("4")){
+                        } else if (getvalue.equals("4")) {
                             binding.frame4.setVisibility(View.VISIBLE);
                             binding.imageview4.setImageDrawable(getResources().getDrawable(R.drawable.documentdetail));
                             getvalue = "5";
-                        }else if(getvalue.equals("5")){
+                        } else if (getvalue.equals("5")) {
                             binding.frame5.setVisibility(View.VISIBLE);
                             binding.imageview5.setImageDrawable(getResources().getDrawable(R.drawable.documentdetail));
                         }
@@ -698,24 +775,24 @@ import retrofit2.Response;
 
                         String imagePath = "data:image/jpeg;base64," + Utils.getEncoded64ImageStringFromBitmap(bitmap);
                         imagelist.add(imagePath);
-                        if(getvalue.equals("1")){
+                        if (getvalue.equals("1")) {
                             binding.frame1.setVisibility(View.VISIBLE);
                             binding.imageview1.setVisibility(View.VISIBLE);
                             binding.imageview1.setImageBitmap(bitmap);
                             getvalue = "2";
-                        }else if(getvalue.equals("2")){
+                        } else if (getvalue.equals("2")) {
                             binding.frame2.setVisibility(View.VISIBLE);
                             binding.imageview2.setImageBitmap(bitmap);
                             getvalue = "3";
-                        }else if(getvalue.equals("3")){
+                        } else if (getvalue.equals("3")) {
                             binding.frame3.setVisibility(View.VISIBLE);
                             binding.imageview3.setImageBitmap(bitmap);
                             getvalue = "3";
-                        }else if(getvalue.equals("4")){
+                        } else if (getvalue.equals("4")) {
                             binding.frame4.setVisibility(View.VISIBLE);
                             binding.imageview4.setImageBitmap(bitmap);
                             getvalue = "3";
-                        }else if(getvalue.equals("5")){
+                        } else if (getvalue.equals("5")) {
                             binding.frame5.setVisibility(View.VISIBLE);
                             binding.imageview5.setImageBitmap(bitmap);
                         }
@@ -744,8 +821,7 @@ import retrofit2.Response;
         return byteBuffer.toByteArray();
     }
 
-    public void localbeneficaryDataCall()
-    {
+    public void localbeneficaryDataCall() {
         EducationData educationData = new EducationData();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd ");
         Date date = new Date();

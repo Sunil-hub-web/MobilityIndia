@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -511,7 +512,7 @@ public class AddbasicprofilebenificiaryActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 disabilityID = typedisabilityID.get(position);
-             //   getSubDisability(disabilityID);
+                //   getSubDisability(disabilityID);
                 CommonClass.typeofdisability = disabilityID;
             }
         });
@@ -591,11 +592,14 @@ public class AddbasicprofilebenificiaryActivity extends AppCompatActivity {
         ArrayAdapter<String> adapterpurposevisit = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, purposeofvisit);
         adapterpurposevisit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.purposeofvisit.setAdapter(adapterpurposevisit);
+        //binding.purposeofvisit.setThreshold(1);
+        binding.purposeofvisit.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+
         binding.purposeofvisit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.purposeofvisit.showDropDown();
 
+                binding.purposeofvisit.showDropDown();
 /*                AlertDialog.Builder builder = new AlertDialog.Builder(AddbasicprofilebenificiaryActivity.this);
                 builder.setTitle("Select purposeofvisit");
                 builder.setCancelable(false);
@@ -661,7 +665,28 @@ public class AddbasicprofilebenificiaryActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 purposeId = purposeofvisitID.get(position);
-                CommonClass.purposeofvisit = purposeId;
+
+                ArrayList<String> idarray = new ArrayList<>();
+                idarray.add(purposeId);
+
+                StringBuffer sb = new StringBuffer();
+
+                for (String s : idarray) {
+
+                    sb.append(s);
+                    sb.append(",");
+                }
+
+                String services_Id = sb.toString();
+
+                // remove last character (,)
+                services_Id = services_Id.substring(0, services_Id.length() - 1);
+
+                CommonClass.purposeofvisit = services_Id;
+
+                Log.d("purposeofvisitdata",services_Id);
+
+
             }
         });
 
@@ -718,19 +743,11 @@ public class AddbasicprofilebenificiaryActivity extends AppCompatActivity {
 
                     Toast.makeText(AddbasicprofilebenificiaryActivity.this, "Please Enter Subdisability", Toast.LENGTH_SHORT).show();
 
-                } else if (binding.percentofdisability.getText().toString().trim().equals("") || binding.typeofsubdisability.getText().toString() == null) {
+                } /*else if (binding.percentofdisability.getText().toString().trim().equals("") || binding.typeofsubdisability.getText().toString() == null) {
 
                     Toast.makeText(AddbasicprofilebenificiaryActivity.this, "Please Enter Percent of disability", Toast.LENGTH_SHORT).show();
 
-                } else if (binding.IFSCCode.getText().toString().trim().equals("") || binding.typeofsubdisability.getText().toString() == null) {
-
-                    Toast.makeText(AddbasicprofilebenificiaryActivity.this, "Please Enter IFSCCode", Toast.LENGTH_SHORT).show();
-
-                } else if (isValidIFSCode(binding.IFSCCode.getText().toString().trim())) {
-
-                    Toast.makeText(AddbasicprofilebenificiaryActivity.this, "Please Enter Valide IFSCCode", Toast.LENGTH_SHORT).show();
-
-                } else {
+                }*/ else {
 
                     CommonClass.shgnameee = binding.shgnamee.getText().toString();
                     CommonClass.parent = binding.parentname.getText().toString();
@@ -760,6 +777,16 @@ public class AddbasicprofilebenificiaryActivity extends AppCompatActivity {
                     CommonClass.nameofpwdcwd = binding.nameofpwdcwd.getText().toString().trim();
 
                     if (selectedItem.equals("yes")) {
+
+                        if (binding.IFSCCode.getText().toString().trim().equals("") || binding.typeofsubdisability.getText().toString() == null) {
+
+                            Toast.makeText(AddbasicprofilebenificiaryActivity.this, "Please Enter IFSCCode", Toast.LENGTH_SHORT).show();
+
+                        } else if (isValidIFSCode(binding.IFSCCode.getText().toString().trim())) {
+
+                            Toast.makeText(AddbasicprofilebenificiaryActivity.this, "Please Enter Valide IFSCCode", Toast.LENGTH_SHORT).show();
+
+                        }
 
                         CommonClass.bankname = binding.AccountNumber.getText().toString();
                         CommonClass.accountHolderName = binding.HolderName.getText().toString();

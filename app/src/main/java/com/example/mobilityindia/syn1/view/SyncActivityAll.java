@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -85,11 +86,12 @@ public class SyncActivityAll extends AppCompatActivity {
     AttendanceClass attendanceClass;
     JSONArray jsonArray = new JSONArray();
     JSONArray jsonArray1 = new JSONArray();
-    int progress = 0;
     LocalRepo localRepo;
     private ApiRequest apiRequest;
     ActionPlanData actionPlanData;
     ActionPlanMonth actionPlanMonth;
+    ProgressBar progressView;
+    int progress = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -654,22 +656,6 @@ public class SyncActivityAll extends AppCompatActivity {
         });
     }
 
-    private void setProgressValue(final int progress) {
-
-        // thread is used to change the progress value
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                setProgressValue(progress + 1);
-            }
-        });
-        thread.start();
-    }
 
 
     // Benificiary Data

@@ -31,6 +31,7 @@ import com.github.angads25.toggle.LabeledSwitch;
 import com.github.angads25.toggle.interfaces.OnToggledListener;
 import com.whiteelephant.monthpicker.MonthPickerDialog;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
@@ -48,6 +49,7 @@ public class AddshgbeneficiaryActivity extends AppCompatActivity {
     LocalRepo localRepo;
     String currentdate = "";
     String weathershg = "No";
+    int selected;
     private ActivityAddshgbeneficiaryBinding binding;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -118,6 +120,8 @@ public class AddshgbeneficiaryActivity extends AppCompatActivity {
                                 // on date set }
 
                                 binding.startdateofcbo.setText(String.valueOf(selectedYear));
+
+                                selected = selectedYear;
                             }
                         }, today.get(Calendar.YEAR), today.get(Calendar.MONTH));
 
@@ -160,7 +164,7 @@ public class AddshgbeneficiaryActivity extends AppCompatActivity {
                         }, today.get(Calendar.YEAR), today.get(Calendar.MONTH));
 
                 builder.setActivatedMonth(Calendar.JULY)
-                        .setMinYear(1990)
+                        .setMinYear(selected)
                         .setActivatedYear(today.get(Calendar.YEAR))
                         .setMaxYear(2030)
                         .setTitle("Select Year")
@@ -179,7 +183,8 @@ public class AddshgbeneficiaryActivity extends AppCompatActivity {
                 CommonClass.edoshg = binding.edocbo.getText().toString();
 
                 if (AppUtils.isNetworkAvailable(AddshgbeneficiaryActivity.this)) {
-                    addbeneficaryApiCall();
+                    //addbeneficaryApiCall();
+                    localbeneficaryDataCall();
                 } else {
                     localbeneficaryDataCall();
                 }
@@ -200,22 +205,26 @@ public class AddshgbeneficiaryActivity extends AppCompatActivity {
         SessinoManager sessinoManager = new SessinoManager(AddshgbeneficiaryActivity.this);
         String userId = sessinoManager.getUSERID();
 
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String Datetime = sdf.format(c.getTime());
+
         BeneData beneData = new BeneData();
         String randoNoStr = getRandomNumber();
         beneData.setTempId(randoNoStr);
-        beneData.setBeneficiaryId(randoNoStr);
+        beneData.setRegistrationDate(Datetime);
         beneData.setName(CommonClass.shgnameee);
         beneData.setParentName(CommonClass.parent);
         beneData.setRelation(CommonClass.startdateofshgg);
         beneData.setDob(CommonClass.dojshg);
-        beneData.setAge(CommonClass.age);
         beneData.setGender(CommonClass.gender);
         beneData.setCaste(CommonClass.caste);
         beneData.setReligion(CommonClass.reigion);
         beneData.setAdhaarNo(CommonClass.adhaarno);
-        beneData.setEconomicStatus(CommonClass.ecconomicstatus);
         beneData.setAnnualIncome(CommonClass.annualincome);
+        beneData.setEconomicStatus(CommonClass.ecconomicstatus);
         beneData.setMaritalStatus(CommonClass.meritalstatus);
+        beneData.setEducationName(CommonClass.edu);
         beneData.setOccupation(CommonClass.occuption);
         beneData.setTypeOfDisability(CommonClass.typeofdisability);
         beneData.setTypeOfSubDisability(CommonClass.typeofsubdisability);
@@ -225,6 +234,12 @@ public class AddshgbeneficiaryActivity extends AppCompatActivity {
         beneData.setTypeOfBeneficiary(CommonClass.typeofbenificary);
         beneData.setPurposeOfVisit(CommonClass.purposeofvisit);
         beneData.setPurposeVisitDetails(CommonClass.purposevisitdetails);
+        beneData.setHaveBankAcc(CommonClass.havebankacc);
+        beneData.setAccHolderName(CommonClass.accountHolderName);
+        beneData.setAccNum(CommonClass.shgbankno);
+        beneData.setIfsc(CommonClass.ifscCode);
+        beneData.setAccType(CommonClass.accountType);
+        beneData.setNameOfPwdCwd(CommonClass.nameofpwdcwd);
         beneData.setVillageId(CommonClass.villageID);
         beneData.setAddress(CommonClass.address);
         beneData.setSchoolAnganwadiName(CommonClass.schoolname);
@@ -252,12 +267,6 @@ public class AddshgbeneficiaryActivity extends AppCompatActivity {
         beneData.setCboName(CommonClass.shgname);
         beneData.setStartYearOfCbo(CommonClass.startdateofshg);
         beneData.setYearJoinCbo(CommonClass.dojshg);
-        beneData.setHaveBankAcc(CommonClass.havebankacc);
-        beneData.setAccHolderName(CommonClass.accountHolderName);
-        beneData.setAccNum(CommonClass.shgbankno);
-        beneData.setIfsc(CommonClass.ifscCode);
-        beneData.setAccType(CommonClass.accountType);
-        beneData.setNameOfPwdCwd(CommonClass.nameofpwdcwd);
         beneData.setUser_id(userId);
         localRepo.insertBene(beneData);
         Toast.makeText(getApplicationContext(), "Internet is not Available Data save in your Local", Toast.LENGTH_SHORT).show();

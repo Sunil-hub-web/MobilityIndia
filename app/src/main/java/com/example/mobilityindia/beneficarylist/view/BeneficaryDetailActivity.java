@@ -116,6 +116,7 @@ public class BeneficaryDetailActivity extends AppCompatActivity {
                 {
                     binding.name.setText(singleMember.get(0).name);
                     binding.benificaryregno.setText(singleMember.get(0).registrationNo);
+                    binding.benificaryregdate.setText(singleMember.get(0).registrationDate);
                 }
             }
         });

@@ -142,6 +142,11 @@ public class Attendance extends AppCompatActivity {
         Log.d("hdksd", dateTime);
 
         if (dateTime.equals("DEFAULT")) {
+
+            binding.clockInBtn.setText("Clock In");
+            binding.clockInBtn.setEnabled(true);
+            binding.clockInBtn.setBackgroundTintList(Attendance.this.getResources().getColorStateList(R.color.dimbluecolor));
+
         } else {
             //binding.ViewDate.setText(sessinoManager.getDATETIME());
             binding.clockInBtn.setText("Clock Out");
@@ -344,8 +349,10 @@ public class Attendance extends AppCompatActivity {
                                 dateTime = "DEFAULT";
 
                                 binding.clockInBtn.setText("Clock In");
-                                binding.clockInBtn.setBackgroundTintList(Attendance.this.getResources().getColorStateList(R.color.Green));
-                                binding.clockInBtn.setVisibility(View.GONE);
+                                binding.clockInBtn.setBackgroundTintList(Attendance.this.getResources().getColorStateList(R.color.graycolor));
+                               // binding.clockInBtn.setVisibility(View.GONE);
+
+                                binding.clockInBtn.setEnabled(false);
 
                                 //uploaddata();
 

@@ -78,7 +78,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
         villageIDlist = new ArrayList<>();
         localRepo = new LocalRepo(AddMoreprofilebeneficaryActivity.this);
 
-        String[] itemNames = getResources().getStringArray(R.array.selectone);
+        String[] itemNames = getResources().getStringArray(R.array.selectone1);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, itemNames);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.rationcard.setAdapter(adapter2);
@@ -161,6 +161,17 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 stateid = stateIDlist.get(position);
                 getDistData(stateid);
+
+                String districId1 = stateid;
+
+                if(districId1.equals(stateid)){
+                }else{
+                    binding.district.setText("");
+                    binding.hobli.setText("");
+                    binding.village.setText("");
+                    binding.block.setText("");
+                    binding.gp.setText("");
+                }
             }
         });
 
@@ -196,6 +207,17 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 districId = distIDlist.get(position);
                 getBlockData(districId);
+
+                String districId1 = districId;
+
+                if(districId1.equals(districId)){
+                }else{
+                   // binding.district.setText("");
+                    binding.hobli.setText("");
+                    binding.village.setText("");
+                    binding.block.setText("");
+                    binding.gp.setText("");
+                }
             }
         });
 
@@ -211,6 +233,17 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 blockId = blockIdlist.get(position);
                 getHobliData(blockId);
+
+                String districId1 = blockId;
+
+                if(districId1.equals(blockId)){
+                }else{
+                    // binding.district.setText("");
+                    binding.hobli.setText("");
+                    binding.village.setText("");
+                    //binding.block.setText("");
+                    binding.gp.setText("");
+                }
             }
         });
 
@@ -271,8 +304,66 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 //                        binding.familymemberadultm.setText("");
 //                    }
 //                }
+                if(binding.email.getText().toString().trim().equals("")){
 
-                if (isValidEmail(binding.email.getText().toString().trim())) {
+                    CommonClass.villageID = villageId;
+                    CommonClass.address = binding.address.getText().toString();
+                    CommonClass.schoolname = binding.school.getText().toString();
+                    CommonClass.contactNo1 = binding.contact1.getText().toString();
+                    CommonClass.contactNo2 = binding.contact2.getText().toString();
+                    CommonClass.email = binding.email.getText().toString();
+
+                    CommonClass.rationcard = binding.rationcard.getText().toString();
+                    CommonClass.sanitation = binding.sanitation.getText().toString();
+                    CommonClass.appliance = binding.appliance.getText().toString();
+                    CommonClass.surgery = binding.surgery.getText().toString();
+                    CommonClass.govtfacility = binding.govtfacility.getText().toString();
+
+
+                    CommonClass.familymemberadultm = binding.familymemberadultm.getText().toString();
+                    CommonClass.familymemberadultf = binding.familymemberadultf.getText().toString();
+                    CommonClass.fmlymemberchildrnm = binding.fmlymemberchildrnm.getText().toString();
+                    CommonClass.fmlymembrchilf = binding.fmlymembrchilf.getText().toString();
+                    CommonClass.childrnundergeducationm = binding.childrnundergeducationm.getText().toString();
+                    CommonClass.childrenundergoeeseducationf = binding.childrenundergoeeseducationf.getText().toString();
+                    CommonClass.drpuotlessthen14m = binding.drpuotlessthen14m.getText().toString();
+                    CommonClass.dropoutlessthen14f = binding.dropoutlessthen14f.getText().toString();
+                    CommonClass.dropoutm = binding.dropoutm.getText().toString();
+                    CommonClass.dropoutf = binding.dropoutf.getText().toString();
+                    CommonClass.earingmemberflym = binding.earingmemberflym.getText().toString();
+                    CommonClass.earingmemberflyf = binding.earingmemberflyf.getText().toString();
+
+                    startActivity(new Intent(AddMoreprofilebeneficaryActivity.this, AddshgbeneficiaryActivity.class));  CommonClass.villageID = villageId;
+                    CommonClass.address = binding.address.getText().toString();
+                    CommonClass.schoolname = binding.school.getText().toString();
+                    CommonClass.contactNo1 = binding.contact1.getText().toString();
+                    CommonClass.contactNo2 = binding.contact2.getText().toString();
+                    CommonClass.email = binding.email.getText().toString();
+
+                    CommonClass.rationcard = binding.rationcard.getText().toString();
+                    CommonClass.sanitation = binding.sanitation.getText().toString();
+                    CommonClass.appliance = binding.appliance.getText().toString();
+                    CommonClass.surgery = binding.surgery.getText().toString();
+                    CommonClass.govtfacility = binding.govtfacility.getText().toString();
+
+
+                    CommonClass.familymemberadultm = binding.familymemberadultm.getText().toString();
+                    CommonClass.familymemberadultf = binding.familymemberadultf.getText().toString();
+                    CommonClass.fmlymemberchildrnm = binding.fmlymemberchildrnm.getText().toString();
+                    CommonClass.fmlymembrchilf = binding.fmlymembrchilf.getText().toString();
+                    CommonClass.childrnundergeducationm = binding.childrnundergeducationm.getText().toString();
+                    CommonClass.childrenundergoeeseducationf = binding.childrenundergoeeseducationf.getText().toString();
+                    CommonClass.drpuotlessthen14m = binding.drpuotlessthen14m.getText().toString();
+                    CommonClass.dropoutlessthen14f = binding.dropoutlessthen14f.getText().toString();
+                    CommonClass.dropoutm = binding.dropoutm.getText().toString();
+                    CommonClass.dropoutf = binding.dropoutf.getText().toString();
+                    CommonClass.earingmemberflym = binding.earingmemberflym.getText().toString();
+                    CommonClass.earingmemberflyf = binding.earingmemberflyf.getText().toString();
+
+                    startActivity(new Intent(AddMoreprofilebeneficaryActivity.this, AddshgbeneficiaryActivity.class));
+
+                }else if (isValidEmail(binding.email.getText().toString().trim())) {
+
 
                     CommonClass.villageID = villageId;
                     CommonClass.address = binding.address.getText().toString();
@@ -303,9 +394,10 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                     startActivity(new Intent(AddMoreprofilebeneficaryActivity.this, AddshgbeneficiaryActivity.class));
 
+
                 } else {
 
-                    Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Enter Valide Emaild", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Enter Valide Email id", Toast.LENGTH_SHORT).show();
                 }
             }
         });
