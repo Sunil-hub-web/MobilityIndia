@@ -83,6 +83,8 @@ public class Attendance extends AppCompatActivity {
 
     LocalRepo localRepo;
 
+    private GpsTracker gpsTracker;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,12 +109,14 @@ public class Attendance extends AppCompatActivity {
             }
         }
 
-        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            //Write Function To enable gps
-            locationPermission();
-            requestLocationPermission();
-
+        try {
+            if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 101);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
         }
+
 
         setSupportActionBar(binding.toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -232,33 +236,79 @@ public class Attendance extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss aa");
+                String Datetime = sdf.format(c.getTime());
+
+                SimpleDateFormat sdate = new SimpleDateFormat("yyyy-MM-dd");
+                String date = sdate.format(c.getTime());
+
+                SimpleDateFormat stime = new SimpleDateFormat("hh:mm:ss aa");
+                String time = stime.format(c.getTime());
+
                 if (binding.clockInBtn.getText().toString().trim().equals("Clock In")) {
 
-                    if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                        //Write Function To enable gps
-                        locationPermission();
-                        requestLocationPermission();
+                    gpsTracker = new GpsTracker(Attendance.this);
+
+                    if (gpsTracker.canGetLocation()) {
+
+                        double latitude = gpsTracker.getLatitude();
+                        double longitude = gpsTracker.getLongitude();
+                        //binding.ViewDate.setText(date + "  " + time);
+
+                        AttendanceClass attendanceClass = new AttendanceClass();
+                        attendanceClass.setUser_id(userId);
+                        attendanceClass.setDate_attendance(date);
+                        attendanceClass.setClockin(time);
+                        attendanceClass.setClockin_lat(latitude);
+                        attendanceClass.setClockin_long(longitude);
+                        attendanceClass.setCity(address_txt);
+
+                        //localdataBase.attendanceDao().insert(attendanceClass);
+
+                        localRepo.deleteAttendance(attendanceClass);
+                        localRepo.insertAttandance(attendanceClass);
+
+                        Log.d("jdjbkjndski", date + time + latitude + longitude + address_txt);
+
+                        Toast.makeText(Attendance.this, "Data Save Success", Toast.LENGTH_SHORT).show();
+
+                        binding.clockInBtn.setText("Clock Out");
+                        binding.clockInBtn.setBackgroundTintList(Attendance.this.getResources().getColorStateList(R.color.redcolor));
+
+                        dateTime = date + "  " + time;
+                        sessinoManager.setDATETIME(dateTime);
 
                     } else {
-                        //GPS is already On then
-                        getLocation("Clock In");
+                        gpsTracker.showSettingsAlert();
                     }
-
                 }
+
                 else{
 
-                    if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                        //Write Function To enable gps
-                        locationPermission();
-                        requestLocationPermission();
+                    AttendanceClass attendanceClass = new AttendanceClass();
+                    //binding.ViewDate.setText(date + "  " + time);
+                    //localdataBase.attendanceDao().update(time, latitude, longitude, address_txt, date);
+                    localRepo.deleteAttendance(attendanceClass);
+                    localRepo.updateAttendance(time, latitude, longitude, address_txt, date);
 
-                    } else {
 
-                        //GPS is already On then
-                        getLocation("Clock Out");
-                    }
+                    Toast.makeText(Attendance.this, "Data Save Success", Toast.LENGTH_SHORT).show();
+
+                    Log.d("jdjbkjndski", date + time + latitude + longitude + address_txt);
+
+                    sessinoManager.setDATETIME("DEFAULT");
+                    dateTime = "DEFAULT";
+
+                    binding.clockInBtn.setText("Clock In");
+                    binding.clockInBtn.setBackgroundTintList(Attendance.this.getResources().getColorStateList(R.color.graycolor));
+                    // binding.clockInBtn.setVisibility(View.GONE);
+
+                    binding.clockInBtn.setEnabled(false);
+
+                    //uploaddata();
+
                 }
-
 
             }
         });
@@ -295,68 +345,6 @@ public class Attendance extends AppCompatActivity {
                             //set address On Text View
                             address_txt = addresses.get(0).getLocality() + "," + addresses.get(0).getSubLocality();
 
-                            Calendar c = Calendar.getInstance();
-                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss aa");
-                            String Datetime = sdf.format(c.getTime());
-
-                            SimpleDateFormat sdate = new SimpleDateFormat("yyyy-MM-dd");
-                            String date = sdate.format(c.getTime());
-
-                            SimpleDateFormat stime = new SimpleDateFormat("hh:mm:ss aa");
-                            String time = stime.format(c.getTime());
-
-                            if (ClockIn.equalsIgnoreCase("Clock In")) {
-
-                                //binding.ViewDate.setText(date + "  " + time);
-
-                                AttendanceClass attendanceClass = new AttendanceClass();
-                                attendanceClass.setUser_id(userId);
-                                attendanceClass.setDate_attendance(date);
-                                attendanceClass.setClockin(time);
-                                attendanceClass.setClockin_lat(latitude);
-                                attendanceClass.setClockin_long(longitude);
-                                attendanceClass.setCity(address_txt);
-
-                                //localdataBase.attendanceDao().insert(attendanceClass);
-
-                                localRepo.deleteAttendance(attendanceClass);
-                                localRepo.insertAttandance(attendanceClass);
-
-                                Log.d("jdjbkjndski", date + time + latitude + longitude + address_txt);
-
-                                Toast.makeText(Attendance.this, "Data Save Success", Toast.LENGTH_SHORT).show();
-
-                                binding.clockInBtn.setText("Clock Out");
-                                binding.clockInBtn.setBackgroundTintList(Attendance.this.getResources().getColorStateList(R.color.redcolor));
-
-                                dateTime = date + "  " + time;
-                                sessinoManager.setDATETIME(dateTime);
-
-                            } else {
-
-                                AttendanceClass attendanceClass = new AttendanceClass();
-                                //binding.ViewDate.setText(date + "  " + time);
-                                //localdataBase.attendanceDao().update(time, latitude, longitude, address_txt, date);
-                                localRepo.deleteAttendance(attendanceClass);
-                                localRepo.updateAttendance(time, latitude, longitude, address_txt, date);
-
-
-                                Toast.makeText(Attendance.this, "Data Save Success", Toast.LENGTH_SHORT).show();
-
-                                Log.d("jdjbkjndski", date + time + latitude + longitude + address_txt);
-
-                                sessinoManager.setDATETIME("DEFAULT");
-                                dateTime = "DEFAULT";
-
-                                binding.clockInBtn.setText("Clock In");
-                                binding.clockInBtn.setBackgroundTintList(Attendance.this.getResources().getColorStateList(R.color.graycolor));
-                               // binding.clockInBtn.setVisibility(View.GONE);
-
-                                binding.clockInBtn.setEnabled(false);
-
-                                //uploaddata();
-
-                            }
 
                         } catch (IOException e) {
                             e.printStackTrace();

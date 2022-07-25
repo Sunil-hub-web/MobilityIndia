@@ -72,6 +72,7 @@ public class AddbasicprofilebenificiaryActivity extends AppCompatActivity {
     ArrayList<Integer> purposeofvisit1 = new ArrayList<>();
     String[] str_purposeofvisit;
     List<String> purposeofvisitID;
+    ArrayList<String> idarray = new ArrayList<>();
     boolean[] selectDay;
     LocalRepo localRepo;
     String disabilityID = "", selectedItem, accountType;
@@ -665,27 +666,7 @@ public class AddbasicprofilebenificiaryActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 purposeId = purposeofvisitID.get(position);
-
-                ArrayList<String> idarray = new ArrayList<>();
                 idarray.add(purposeId);
-
-                StringBuffer sb = new StringBuffer();
-
-                for (String s : idarray) {
-
-                    sb.append(s);
-                    sb.append(",");
-                }
-
-                String services_Id = sb.toString();
-
-                // remove last character (,)
-                services_Id = services_Id.substring(0, services_Id.length() - 1);
-
-                CommonClass.purposeofvisit = services_Id;
-
-                Log.d("purposeofvisitdata",services_Id);
-
 
             }
         });
@@ -772,7 +753,23 @@ public class AddbasicprofilebenificiaryActivity extends AppCompatActivity {
                     CommonClass.idcardno = binding.idcardno.getText().toString();
                     CommonClass.phpammount = binding.phpammount.getText().toString();
                     CommonClass.typeofbenificary = binding.typeofbenificary.getText().toString();
-                    CommonClass.purposeofvisit = purposeId;
+                    StringBuffer sb = new StringBuffer();
+
+                    for (String s : idarray) {
+
+                        sb.append(s);
+                        sb.append(",");
+                    }
+
+                    String services_Id = sb.toString();
+
+                    // remove last character (,)
+                    services_Id = services_Id.substring(0, services_Id.length() - 1);
+
+                    CommonClass.purposeofvisit = services_Id;
+
+                    Log.d("purposeofvisitdata",services_Id);
+                    //CommonClass.purposeofvisit = purposeId;
                     CommonClass.purposevisitdetails = binding.VisitDetails.getText().toString().trim();
                     CommonClass.nameofpwdcwd = binding.nameofpwdcwd.getText().toString().trim();
 

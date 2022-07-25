@@ -661,7 +661,6 @@ public class SyncActivityAll extends AppCompatActivity {
     // Benificiary Data
     public void callBeneFiciaryData() {
         //isprogress.setValue(0);
-
         Map<String, Object> mapData = new HashMap<>();
         mapData.put("user_id", userId);
         //final MutableLiveData<CaseResponse> data = new MutableLiveData<>();
