@@ -20,6 +20,7 @@ import com.example.mobilityindia.syn1.view.allresponse.activityreport.ExapmleAct
 import com.example.mobilityindia.syn1.view.allresponse.benificiary.Example_Benificiary;
 import com.example.mobilityindia.syn1.view.allresponse.block.Example_Block;
 import com.example.mobilityindia.syn1.view.allresponse.distic.Example_Distic;
+import com.example.mobilityindia.syn1.view.allresponse.eduction.Example_Eduction;
 import com.example.mobilityindia.syn1.view.allresponse.gp.Example_Gp;
 import com.example.mobilityindia.syn1.view.allresponse.village.Example_Village;
 import com.example.mobilityindia.sync.model.ActivityReportResponse;
@@ -212,5 +213,12 @@ public interface ApiRequest
     @POST("api/addEducation")
     Call<EducationResponse> addEducationData(@Header("Authorization") String token, @FieldMap Map<String,Object> user);
 
+    @FormUrlEncoded
+    @POST("api/listEducationService")
+    Call<Example_Eduction> listEducationService(@Header("Authorization") String token, @FieldMap Map<String,Object> user);
+
+    @Headers({"Accept:application/json"})
+    @GET("api/gettraining")
+    Call<JsonObject> gettraining(@Header("Authorization") String token);
 
 }

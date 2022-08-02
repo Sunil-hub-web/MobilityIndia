@@ -76,7 +76,7 @@ public class AddSocialActivity extends AppCompatActivity {
             }
         });
 
-        binding.partofpwd.setOnToggledListener(new OnToggledListener() {
+       /* binding.partofpwd.setOnToggledListener(new OnToggledListener() {
             @Override
             public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
                 // Implement your switching logic here
@@ -90,7 +90,7 @@ public class AddSocialActivity extends AppCompatActivity {
                     //switch is off
                 }
             }
-        });
+        });*/
 
         binding.partofanylocal.setOnToggledListener(new OnToggledListener() {
             @Override

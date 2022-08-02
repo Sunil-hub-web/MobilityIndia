@@ -22,6 +22,7 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.example.mobilityindia.R;
 import com.example.mobilityindia.constant.CommonClass;
@@ -49,7 +50,9 @@ public class EditEducationActivity extends AppCompatActivity {
     ActivityEditEducationBinding binding;
     LocalRepo localRepo;
     String classaccessible = "" ,skilldevelopment = "",sittingmodification = "",accseetotlm ="",accesstotoilet ="",
-            accesstolibrary ="",schoolenroll = "",acesstosportactivity ="",childpartialament ="",summercamp ="",vocationcourse ="",individualeducattionplan ="";
+            accesstolibrary ="",schoolenroll = "",acesstosportactivity ="",childpartialament ="",summercamp ="",vocationcourse ="",individualeducattionplan ="",
+            memberofCEC = "", activity1 = "", activity2 = "", activity3 = "", activity4 = "", activity5 = "",curricularactivities,
+            createdat = "",benificiaryId = "",userId = "",id = "";
     EducationData educationData;
     String FinalString;
 
@@ -72,6 +75,9 @@ public class EditEducationActivity extends AppCompatActivity {
         localRepo = new LocalRepo(EditEducationActivity.this);
         educationData = new EducationData();
         callofflinedata();
+        String date = CommonClass.datestring;
+        Log.d("hsvxva",date);
+
 
         binding.schoolenroll.setOnToggledListener(new OnToggledListener() {
             @Override
@@ -79,10 +85,12 @@ public class EditEducationActivity extends AppCompatActivity {
                 // Implement your switching logic here
                 if(isOn){
                     schoolenroll = "Yes";
+                    binding.schoollayoutid.setVisibility(View.VISIBLE);
                     // CommonClass.weathershgornot =weathershg;
                     //switch  is on
                 }else{
                     schoolenroll = "No";
+                    binding.schoollayoutid.setVisibility(View.GONE);
                     //  CommonClass.weathershgornot =weathershg;
                     //switch is off
                 }
@@ -105,7 +113,7 @@ public class EditEducationActivity extends AppCompatActivity {
             }
         });
 
-        binding.skilldevelopment.setOnToggledListener(new OnToggledListener() {
+        binding.Childrengramsabha.setOnToggledListener(new OnToggledListener() {
             @Override
             public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
                 // Implement your switching logic here
@@ -233,7 +241,99 @@ public class EditEducationActivity extends AppCompatActivity {
             }
         });
 
-        binding.vocationcourse.setOnToggledListener(new OnToggledListener() {
+        binding.Activity1.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    activity1 = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    activity1 = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+        binding.Activity2.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    activity2 = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    activity2 = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+        binding.Activity3.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    activity3 = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    activity3 = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+        binding.Activity4.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    activity4 = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    activity4 = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+        binding.Activity5.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    activity5 = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    activity5 = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+
+        binding.memberofCEC.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    memberofCEC = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    memberofCEC = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+
+       /* binding.vocationcourse.setOnToggledListener(new OnToggledListener() {
             @Override
             public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
                 // Implement your switching logic here
@@ -248,7 +348,7 @@ public class EditEducationActivity extends AppCompatActivity {
                 }
             }
         });
-
+*/
         binding.individualeducattionplan.setOnToggledListener(new OnToggledListener() {
             @Override
             public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
@@ -267,26 +367,59 @@ public class EditEducationActivity extends AppCompatActivity {
             }
         });
 
+        binding.curricularactivities.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    curricularactivities = "Yes";
+                    // CommonClass.weathershgornot =weathershg;
+                    //switch  is on
+                } else {
+                    curricularactivities = "No";
+                    //  CommonClass.weathershgornot =weathershg;
+                    //switch is off
+                }
+            }
+        });
+
         binding.buttonnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 educationData.setSchool(schoolenroll);
                 educationData.setEnrollmentno(binding.enrollmentno.getText().toString());
                 educationData.setAttendingclass(binding.attendingclassregularly.getText().toString());
-                educationData.setCec(classaccessible);
-             //   educationData.s(skilldevelopment);
+                educationData.setSchoolaccess(classaccessible);
+                //   educationData.s(skilldevelopment);
                 educationData.setSitting(sittingmodification);
                 educationData.setTlm(accseetotlm);
                 educationData.setToilet(accesstotoilet);
                 educationData.setLibrary(accesstolibrary);
                 educationData.setSports(acesstosportactivity);
-               // educationData.set(acesstosportactivity);
+                educationData.setCocurricular(curricularactivities);
+                educationData.setSchoolother(binding.anyother.getText().toString());
+                educationData.setCec(memberofCEC);
+                // educationData.set(acesstosportactivity);
                 educationData.setParliament(childpartialament);
+                educationData.setGramsabha(skilldevelopment);
                 educationData.setSummercamp(summercamp);
-                educationData.setVocational(vocationcourse);
-                educationData.setVocationaldetail(binding.mentiondetailvocationcourse.getText().toString());
+                educationData.setActivityOne(activity1);
+                educationData.setActivityTwo(activity2);
+                educationData.setActivityThree(activity3);
+                educationData.setActivityFour(activity4);
+                educationData.setActivityFive(activity5);
                 educationData.setIep(individualeducattionplan);
-                callupdatelocaledata();
+                //callupdatelocaledata();
+                educationData.setCreatedAt(createdat);
+                educationData.setBenificiaryId(benificiaryId);
+                educationData.setUser_id(userId);
+                educationData.setId(id);
+
+                localRepo.updateEducationData(educationData);
+
+
+                Toast.makeText(EditEducationActivity.this, "Data Update Local", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -335,10 +468,10 @@ public class EditEducationActivity extends AppCompatActivity {
 
     private void callofflinedata()
     {
-        localRepo.getducationcreatedate((CommonClass.datestring)).observe(this, new Observer<List<EducationData>>() {
+        localRepo.getducationcreatedate(CommonClass.datestring).observe(this, new Observer<List<EducationData>>() {
             @Override
             public void onChanged(@Nullable List<EducationData> singleMember) {
-                if(singleMember.size() > 0)
+                if(singleMember.size() != 0)
                 {
 
                     educationData = singleMember.get(0);
@@ -357,16 +490,16 @@ public class EditEducationActivity extends AppCompatActivity {
                     CommonClass.healthId = healthId;
 
                     binding.attendingclassregularly.setText(singleMember.get(0).getAttendingclass());
-                    String[] itemNames = getResources().getStringArray(R.array.selectonehome);
+                   /* String[] itemNames = getResources().getStringArray(R.array.selectonehome);
                     ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, itemNames);
                     adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    binding.attendingclassregularly.setAdapter(adapter2);
+                    binding.attendingclassregularly.setAdapter(adapter2);*/
 
 
 
 
                     classaccessible = singleMember.get(0).getCec();
-                    binding.classaccessible.setOn(classaccessible.equalsIgnoreCase("yes") || classaccessible.equalsIgnoreCase("true"));
+                   // binding.classaccessible.setOn(classaccessible.equalsIgnoreCase("yes") || classaccessible.equalsIgnoreCase("true"));
 
                     ///////swagitikaask
 //                    skilldevelopment = singleMember.get(0).getCec();
@@ -377,47 +510,45 @@ public class EditEducationActivity extends AppCompatActivity {
 //                    }
 
                     sittingmodification = singleMember.get(0).getSitting();
-                    binding.sittingmodification.setOn(sittingmodification.equalsIgnoreCase("yes") || sittingmodification.equalsIgnoreCase("true"));
+                    //binding.sittingmodification.setOn(sittingmodification.equalsIgnoreCase("yes") || sittingmodification.equalsIgnoreCase("true"));
 
                     accseetotlm = singleMember.get(0).getTlm();
-                    binding.accseetotlm.setOn(accseetotlm.equalsIgnoreCase("yes") || accseetotlm.equalsIgnoreCase("true"));
+                    //binding.accseetotlm.setOn(accseetotlm.equalsIgnoreCase("yes") || accseetotlm.equalsIgnoreCase("true"));
 
                     accesstotoilet = singleMember.get(0).getToilet();
-                    binding.accesstotoilet.setOn(accesstotoilet.equalsIgnoreCase("yes") || accesstotoilet.equalsIgnoreCase("true"));
+                    //binding.accesstotoilet.setOn(accesstotoilet.equalsIgnoreCase("yes") || accesstotoilet.equalsIgnoreCase("true"));
 
                     accesstolibrary = singleMember.get(0).getLibrary();
-                    binding.accesstolibrary.setOn(accesstolibrary.equalsIgnoreCase("yes") || accesstolibrary.equalsIgnoreCase("true"));
-
-
-
-
+                    //binding.accesstolibrary.setOn(accesstolibrary.equalsIgnoreCase("yes") || accesstolibrary.equalsIgnoreCase("true"));
 
                     acesstosportactivity = singleMember.get(0).getSports();
-                    binding.acesstosportactivity.setOn(acesstosportactivity.equalsIgnoreCase("yes") || acesstosportactivity.equalsIgnoreCase("true"));
+                    //binding.acesstosportactivity.setOn(acesstosportactivity.equalsIgnoreCase("yes") || acesstosportactivity.equalsIgnoreCase("true"));
 
                     // binding.anyother.setText(singleMember.get(0).get());
 
 
                     childpartialament = singleMember.get(0).getParliament();
-                    binding.childpartialament.setOn(childpartialament.equalsIgnoreCase("yes") || childpartialament.equalsIgnoreCase("true"));
+                    //binding.childpartialament.setOn(childpartialament.equalsIgnoreCase("yes") || childpartialament.equalsIgnoreCase("true"));
 
                     summercamp = singleMember.get(0).getSummercamp();
-                    binding.summercamp.setOn(summercamp.equalsIgnoreCase("yes") || summercamp.equalsIgnoreCase("true"));
+                    //binding.summercamp.setOn(summercamp.equalsIgnoreCase("yes") || summercamp.equalsIgnoreCase("true"));
 
-                    vocationcourse = singleMember.get(0).getVocational();
-                    if(vocationcourse.equalsIgnoreCase("yes")||vocationcourse.equalsIgnoreCase("true")){
+                   // vocationcourse = singleMember.get(0).getVocational();
+                  /*  if(vocationcourse.equalsIgnoreCase("yes")||vocationcourse.equalsIgnoreCase("true")){
                         binding.vocationcourse.setOn(true);
                     }else{
                         binding.vocationcourse.setOn(false);
-                    }
+                    }*/
 
                     individualeducattionplan = singleMember.get(0).getIep();
-                    binding.individualeducattionplan.setOn(individualeducattionplan.equalsIgnoreCase("yes") || individualeducattionplan.equalsIgnoreCase("true"));
+                    //binding.individualeducattionplan.setOn(individualeducattionplan.equalsIgnoreCase("yes") || individualeducattionplan.equalsIgnoreCase("true"));
 
-                    binding.mentiondetailvocationcourse.setText(singleMember.get(0).getVocationaldetail());
+                   // binding.mentiondetailvocationcourse.setText(singleMember.get(0).getVocationaldetail());
 
-
-
+                    createdat = singleMember.get(0).getCreatedAt();
+                    benificiaryId = singleMember.get(0).getBenificiaryId();
+                    userId = singleMember.get(0).getUser_id();
+                    id = singleMember.get(0).getUser_id();
 
                 }
             }

@@ -166,6 +166,11 @@ public class CommonClass
         return context.getSharedPreferences("masterData", Context.MODE_PRIVATE).getString("purposevisitmaster","");
     }
 
+    public static String getSocalTranning(Context context)
+    {
+        return context.getSharedPreferences("masterData", Context.MODE_PRIVATE).getString("socaltranning","");
+    }
+
 
 
 

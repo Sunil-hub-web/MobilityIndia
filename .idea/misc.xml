@@ -99,14 +99,22 @@
         <entry key="..\:/Users/SERVERDIAL/AndroidStudioProjects/MobilityIndia/app/src/main/res/layout/erroedialog.xml" value="0.20416666666666666" />
         <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/activity_add_education.xml" value="0.15185185185185185" />
         <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/activity_add_health.xml" value="0.22" />
+        <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/activity_add_livelihood.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/activity_add_social.xml" value="0.20416666666666666" />
         <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/activity_addbasicprofilebenificiary.xml" value="0.15185185185185185" />
         <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/activity_addshgbeneficiary.xml" value="0.15185185185185185" />
         <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/activity_beneficary_detail.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/activity_edit_education.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/activity_education.xml" value="0.15185185185185185" />
+        <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/activity_education_main.xml" value="0.20416666666666666" />
         <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/activity_more.xml" value="0.20416666666666666" />
         <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/activity_shgview.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/activity_social_main.xml" value="0.20416666666666666" />
         <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/activity_sync_all.xml" value="0.20416666666666666" />
         <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/attendance_dialoug.xml" value="0.20416666666666666" />
         <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/clickinout_show.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/day_row_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/MobilityIndia-master/app/src/main/res/layout/healthlayout.xml" value="0.20416666666666666" />
         <entry key="..\:/newFolder/mobility-india-main/mobility-india-main/app/src/main/res/drawable-v24/ic_baseline_arrow_back_24.xml" value="0.1455" />
         <entry key="..\:/newFolder/mobility-india-main/mobility-india-main/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1465" />
         <entry key="..\:/newFolder/mobility-india-main/mobility-india-main/app/src/main/res/layout/activity_action_plan.xml" value="0.20416666666666666" />

@@ -28,7 +28,7 @@ public interface EducationDao {
     LiveData<List<EducationData>> getAllEducationList();
 
 
-    @Query("SELECT * FROM education_table WHERE created_at =:str")
+    @Query("SELECT * FROM education_table WHERE benificiary_id =:str")
     LiveData<List<EducationData>> getSelectedEducationList(String str);
 
     @Query("SELECT created_at FROM education_table WHERE benificiary_id =:str")

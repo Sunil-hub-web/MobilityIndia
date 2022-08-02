@@ -724,11 +724,11 @@ public class AddbasicprofilebenificiaryActivity extends AppCompatActivity {
 
                     Toast.makeText(AddbasicprofilebenificiaryActivity.this, "Please Enter Subdisability", Toast.LENGTH_SHORT).show();
 
-                } /*else if (binding.percentofdisability.getText().toString().trim().equals("") || binding.typeofsubdisability.getText().toString() == null) {
+                } else if (binding.youhavebankaccount.getText().toString().trim().equals("") || binding.typeofsubdisability.getText().toString() == null) {
 
-                    Toast.makeText(AddbasicprofilebenificiaryActivity.this, "Please Enter Percent of disability", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddbasicprofilebenificiaryActivity.this, "Please Select your Bank Account", Toast.LENGTH_SHORT).show();
 
-                }*/ else {
+                } else {
 
                     CommonClass.shgnameee = binding.shgnamee.getText().toString();
                     CommonClass.parent = binding.parentname.getText().toString();

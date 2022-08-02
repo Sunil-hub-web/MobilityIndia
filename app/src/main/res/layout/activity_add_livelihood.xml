@@ -30,7 +30,7 @@
             android:layout_height="match_parent"
             android:layout_marginRight="60dp"
             android:gravity="center"
-            android:text="Add Livelihood"
+            android:text="Add Livelihood Service"
             android:textColor="#ffffff"
             android:textSize="18sp"
             android:textStyle="bold" />

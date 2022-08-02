@@ -3,7 +3,9 @@ package com.example.mobilityindia.education;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +18,7 @@ import com.example.mobilityindia.R;
 import com.example.mobilityindia.constant.CommonClass;
 import com.example.mobilityindia.databinding.ActivityEducationMainBinding;
 import com.example.mobilityindia.education.educationadapter.EducationAdapter;
+import com.example.mobilityindia.sync.model.EducationData;
 import com.example.mobilityindia.sync.repository.LocalRepo;
 
 import java.util.ArrayList;
@@ -52,6 +55,10 @@ public class EducationMainActivity extends AppCompatActivity {
         });
         getdatehealthdate();
 
+        String benid = CommonClass.benfeciary_ID;
+
+        Log.d("sunilbenid",benid);
+
     }
 
     @Override
@@ -62,18 +69,25 @@ public class EducationMainActivity extends AppCompatActivity {
 
     private void getdatehealthdate()
     {
-        localRepo.getEducationcreatedList(CommonClass.benfeciary_ID).observe(this, new Observer<List<String>>() {
-            @Override
-            public void onChanged(@Nullable List<String> caselist) {
-                System.out.println("SIZE>>>>>> "+caselist.size());
 
-                if(caselist.size() > 0)
-                {
-                    binding.recycleview.setLayoutManager(new LinearLayoutManager(EducationMainActivity.this, RecyclerView.VERTICAL, false));
-                    EducationAdapter healthAdapter = new EducationAdapter(new ArrayList<>(caselist),EducationMainActivity.this);
-                    binding.recycleview.setAdapter(healthAdapter);
-                    healthAdapter.notifyDataSetChanged();
-                }
+        localRepo.getSelectedCreatd(CommonClass.benfeciary_ID).observe(EducationMainActivity.this, new Observer<List<String>>() {
+            @Override
+            public void onChanged(List<String> educationData) {
+
+             if(educationData.size() != 0 ){
+
+                 binding.recycleview.setLayoutManager(new LinearLayoutManager(EducationMainActivity.this, RecyclerView.VERTICAL, false));
+                 EducationAdapter healthAdapter = new EducationAdapter(educationData,EducationMainActivity.this);
+                 binding.recycleview.setAdapter(healthAdapter);
+                 healthAdapter.notifyDataSetChanged();
+
+
+             }else{
+
+                 Toast.makeText(EducationMainActivity.this, "Eduction List Not There", Toast.LENGTH_SHORT).show();
+             }
+
+
             }
         });
 

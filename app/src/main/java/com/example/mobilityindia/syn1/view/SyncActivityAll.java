@@ -16,6 +16,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -32,6 +34,10 @@ import com.example.mobilityindia.attendance.database.RoomDB;
 import com.example.mobilityindia.beneficarylist.beneficaryresponce.BeneficaryResponse;
 import com.example.mobilityindia.constant.CommonClass;
 import com.example.mobilityindia.databinding.ActivitySyncAllBinding;
+import com.example.mobilityindia.education.AddEducationActivity;
+import com.example.mobilityindia.education.EducationMainActivity;
+import com.example.mobilityindia.education.educationadapter.EducationAdapter;
+import com.example.mobilityindia.education.educationresponce.EducationResponse;
 import com.example.mobilityindia.landingpage.view.LandingPageActivity;
 import com.example.mobilityindia.retrofit.ApiRequest;
 import com.example.mobilityindia.retrofit.RetrofitRequest;
@@ -44,6 +50,7 @@ import com.example.mobilityindia.syn1.view.allresponse.benificiary.Example_Benif
 import com.example.mobilityindia.syn1.view.allresponse.block.Datum_Block;
 import com.example.mobilityindia.syn1.view.allresponse.block.Example_Block;
 import com.example.mobilityindia.syn1.view.allresponse.distic.Example_Distic;
+import com.example.mobilityindia.syn1.view.allresponse.eduction.Example_Eduction;
 import com.example.mobilityindia.syn1.view.allresponse.gp.Datum_Gp;
 import com.example.mobilityindia.syn1.view.allresponse.gp.Example_Gp;
 import com.example.mobilityindia.syn1.view.allresponse.village.Datum_Villaga;
@@ -54,6 +61,7 @@ import com.example.mobilityindia.sync.model.ActivityReportAttendanceData;
 import com.example.mobilityindia.sync.model.BeneData;
 import com.example.mobilityindia.sync.model.BlockData;
 import com.example.mobilityindia.sync.model.DistData;
+import com.example.mobilityindia.sync.model.EducationData;
 import com.example.mobilityindia.sync.model.GPData;
 import com.example.mobilityindia.sync.model.VillageData;
 import com.example.mobilityindia.sync.model.WorkPlanData;
@@ -68,6 +76,7 @@ import org.json.JSONObject;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -86,6 +95,7 @@ public class SyncActivityAll extends AppCompatActivity {
     AttendanceClass attendanceClass;
     JSONArray jsonArray = new JSONArray();
     JSONArray jsonArray1 = new JSONArray();
+    JSONArray jsonArray2 = new JSONArray();
     LocalRepo localRepo;
     private ApiRequest apiRequest;
     ActionPlanData actionPlanData;
@@ -118,6 +128,8 @@ public class SyncActivityAll extends AppCompatActivity {
         //Initialize database
         localdataBase = RoomDB.getInstance(this);
         localRepo = new LocalRepo(SyncActivityAll.this);
+
+        binding.progressView.setVisibility(View.GONE);
         // setProgressValue(progress);
 
         binding.btnProceed.setVisibility(View.GONE);
@@ -164,6 +176,7 @@ public class SyncActivityAll extends AppCompatActivity {
                     callGPMasterData();
                     callVillageMasterData();
                     callBeneFiciaryData();
+                    getdatehealthdate();
 
                     /*localRepo.deleteAllAttendance();
 
@@ -1268,5 +1281,82 @@ public class SyncActivityAll extends AppCompatActivity {
         });
     }
 
+
+    private void getdatehealthdate() {
+
+        //isprogress.setValue(0);
+        Map<String, Object> mapData = new HashMap<>();
+        mapData.put("user_id", userId);
+        //final MutableLiveData<CaseResponse> data = new MutableLiveData<>();
+        apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
+        apiRequest.listEducationService(CommonClass.APP_TOKEN,mapData).enqueue(new Callback<Example_Eduction>() {
+            @Override
+            public void onResponse(Call<Example_Eduction> call, retrofit2.Response<Example_Eduction> response) {
+
+                Log.d("TAG", "Eductionresponse" + response.body().getEducationdata().toString());
+                Log.d("TAG", "onResponse response Eduction:" + response.body().toString());
+
+
+                if(response.body() != null){
+
+                    EducationData educationData = new EducationData();
+                    localRepo.deleteEducation(educationData);
+                    localRepo.deleteEducation();
+
+                    for (EducationData data : response.body().getEducationdata()) {
+
+                        localRepo.insertEducationData(data);
+
+                        Log.d("sunilEduction", data.toString());
+
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Example_Eduction> call, Throwable t) {
+
+                Toast.makeText(SyncActivityAll.this, ""+t, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+    }
+
+    //Socal tranning
+    public void callSocialTranning() {
+        //isprogress.setValue(0);
+        Map<String, Object> mapData = new HashMap<>();
+        //final MutableLiveData<CaseResponse> data = new MutableLiveData<>();
+        apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
+        apiRequest.gettraining(CommonClass.APP_TOKEN).enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, retrofit2.Response<JsonObject> response) {
+                Log.d("TAG", "onResponseresponse:: " + response.body());
+
+                if (response.isSuccessful()) {
+
+                    if (response.body() != null) {
+
+                        //Snackbar.make(binding.relativeLayout,response.body().toString(),Snackbar.LENGTH_LONG).setTextColor(Color.BLUE).show();
+
+                        getSharedPreferences("masterData", MODE_PRIVATE).edit().putString("socaltranning", response.body().toString()).commit();
+
+
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                Toast.makeText(SyncActivityAll.this, "" + t, Toast.LENGTH_SHORT).show();
+                //isprogress.setValue(10);
+            }
+        });
+    }
 
 }

@@ -3,6 +3,7 @@ package com.example.mobilityindia.education.educationadapter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,15 +16,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mobilityindia.R;
 import com.example.mobilityindia.constant.CommonClass;
 import com.example.mobilityindia.education.EducationActivity;
+import com.example.mobilityindia.sync.model.EducationData;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.ViewHolder> {
     private final Activity context;
-    private ArrayList<String> data = new ArrayList<>();
+    private List<String> data = new ArrayList<>();
 
-    public EducationAdapter(ArrayList<String> data, Activity context) {
+    public EducationAdapter(List<String> data, Activity context) {
         this.data = data;
         this.context = context;
     }
@@ -37,11 +40,19 @@ public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.textView.setText(data.get(position));
+
+        String educationData = data.get(position);
+
+        Log.d("sunilarraydata0",educationData);
+
+        holder.textView.setText(educationData);
+
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CommonClass.datestring = data.get(position);
+
+                CommonClass.datestring = educationData;
+
                 Intent intent = new Intent(context, EducationActivity.class);
                 context.startActivity(intent);
             }

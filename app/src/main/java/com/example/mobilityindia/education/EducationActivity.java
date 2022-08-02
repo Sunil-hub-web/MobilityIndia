@@ -56,12 +56,13 @@ public class EducationActivity extends AppCompatActivity {
 
     private void callofflinedata()
     {
-        localRepo.getducationcreatedate((CommonClass.datestring)).observe(this, new Observer<List<EducationData>>() {
+        localRepo.getSelectedEducationList((CommonClass.benfeciary_ID)).observe(this, new Observer<List<EducationData>>() {
             @Override
             public void onChanged(@Nullable List<EducationData> singleMember) {
                 if(singleMember.size() > 0)
                 {
                     schoolenroll = singleMember.get(0).getSchool();
+
                     if(schoolenroll.equalsIgnoreCase("yes")||schoolenroll.equalsIgnoreCase("true")){
                         binding.schoolenroll.setOn(true);
                         binding.schoollayoutid.setVisibility(View.VISIBLE);
@@ -77,7 +78,7 @@ public class EducationActivity extends AppCompatActivity {
 
 
                     classaccessible = singleMember.get(0).getCec();
-                    binding.classaccessible.setOn(classaccessible.equalsIgnoreCase("yes") || classaccessible.equalsIgnoreCase("true"));
+//                    binding.classaccessible.setOn(classaccessible.equalsIgnoreCase("yes") || classaccessible.equalsIgnoreCase("true"));
 
                                  ///////swagitikaask
 //                    skilldevelopment = singleMember.get(0).getCec();
@@ -108,17 +109,17 @@ public class EducationActivity extends AppCompatActivity {
 
 
                     childpartialament = singleMember.get(0).getParliament();
-                    binding.childpartialament.setOn(childpartialament.equalsIgnoreCase("yes") || childpartialament.equalsIgnoreCase("true"));
+                    //binding.childpartialament.setOn(childpartialament.equalsIgnoreCase("yes") || childpartialament.equalsIgnoreCase("true"));
 
                     summercamp = singleMember.get(0).getSummercamp();
-                    binding.summercamp.setOn(summercamp.equalsIgnoreCase("yes") || summercamp.equalsIgnoreCase("true"));
+                    //binding.summercamp.setOn(summercamp.equalsIgnoreCase("yes") || summercamp.equalsIgnoreCase("true"));
 
-                    vocationcourse = singleMember.get(0).getVocational();
-                    binding.vocationcourse.setOn(vocationcourse.equalsIgnoreCase("yes") || vocationcourse.equalsIgnoreCase("true"));
+                    //vocationcourse = singleMember.get(0).getVocational();
+                    //binding.vocationcourse.setOn(vocationcourse.equalsIgnoreCase("yes") || vocationcourse.equalsIgnoreCase("true"));
 
                     individualeducattionplan = singleMember.get(0).getIep();
-                    binding.individualeducattionplan.setOn(individualeducattionplan.equalsIgnoreCase("yes") || individualeducattionplan.equalsIgnoreCase("true"));
-                    binding.mentiondetailvocationcourse.setText(singleMember.get(0).getVocationaldetail());
+                    //binding.individualeducattionplan.setOn(individualeducattionplan.equalsIgnoreCase("yes") || individualeducattionplan.equalsIgnoreCase("true"));
+                    //binding.mentiondetailvocationcourse.setText(singleMember.get(0).getVocationaldetail());
 
                 }
             }

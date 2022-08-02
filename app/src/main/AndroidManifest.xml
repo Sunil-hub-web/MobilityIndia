@@ -25,7 +25,25 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
 
-        <activity android:name=".education.EducationMainActivity"></activity>
+
+        <activity
+            android:name=".livelihood.LivelihoodMailActivity"
+            android:exported="true"
+            ></activity>
+        <activity
+            android:name=".livelihood.LivelihoodActivity"
+            android:exported="true"
+            ></activity>
+        <activity
+            android:name=".social.view.SocialActivity"
+            android:exported="true"
+            ></activity>
+        <activity
+            android:name=".social.view.SocialMainActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".education.EducationMainActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".syn1.view.SyncActivityAll"
             android:exported="true"></activity>
@@ -61,12 +79,6 @@
             android:exported="true" />
         <activity
             android:name=".education.EducationActivity"
-            android:exported="true" />
-        <activity
-            android:name=".livelihood.LivelihoodActivity"
-            android:exported="true" />
-        <activity
-            android:name=".social.view.SocialActivity"
             android:exported="true" />
         <activity
             android:name=".health.healthview.HealthActivity"

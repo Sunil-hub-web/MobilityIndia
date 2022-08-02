@@ -27,6 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.mobilityindia.R;
+import com.example.mobilityindia.SessinoManager;
 import com.example.mobilityindia.constant.AppUtils;
 import com.example.mobilityindia.constant.CommonClass;
 import com.example.mobilityindia.databinding.ActivityAddEducationBinding;
@@ -440,9 +441,12 @@ public class AddEducationActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (AppUtils.isNetworkAvailable(AddEducationActivity.this)) {
+
                     addlivelihoodApi();
+                    localbeneficaryDataCall();
 
                 } else {
+
                     localbeneficaryDataCall();
                 }
             }
@@ -519,6 +523,7 @@ public class AddEducationActivity extends AppCompatActivity {
     }
 
     private void addlivelihoodApi() {
+
         ProgressDialog pd = new ProgressDialog(AddEducationActivity.this);
         pd.setMessage("Loading...");
         pd.setCancelable(false);
@@ -827,27 +832,39 @@ public class AddEducationActivity extends AppCompatActivity {
         Date date = new Date();
 
         String randoNoStr = getRandomNumber();
-        educationData.setId(randoNoStr);
+        //educationData.setId(randoNoStr);
 
-        educationData.setBenificiary_id(CommonClass.benfeciary_ID);
-        educationData.setCreatedAt(formatter.format(date));
+        SessinoManager sessinoManager = new SessinoManager(AddEducationActivity.this);
+        String userId = sessinoManager.getUSERID();
+
+        educationData.setBenificiaryId(CommonClass.benfeciary_ID);
+        educationData.setUser_id(userId);
+        //educationData.setCreatedAt(formatter.format(date));
 
         educationData.setSchool(schoolenroll);
         educationData.setEnrollmentno(binding.enrollmentno.getText().toString());
         educationData.setAttendingclass(binding.attendingclassregularly.getText().toString());
-        educationData.setCec(classaccessible);
+        educationData.setSchoolaccess(classaccessible);
         //   educationData.s(skilldevelopment);
         educationData.setSitting(sittingmodification);
         educationData.setTlm(accseetotlm);
         educationData.setToilet(accesstotoilet);
         educationData.setLibrary(accesstolibrary);
         educationData.setSports(acesstosportactivity);
+        educationData.setCocurricular(curricularactivities);
+        educationData.setSchoolother(binding.anyother.getText().toString());
+        educationData.setCec(memberofCEC);
         // educationData.set(acesstosportactivity);
         educationData.setParliament(childpartialament);
+        educationData.setGramsabha(skilldevelopment);
         educationData.setSummercamp(summercamp);
-        educationData.setVocational(vocationcourse);
-        educationData.setVocationaldetail(binding.mentiondetailvocationcourse.getText().toString());
+        educationData.setActivityOne(activity1);
+        educationData.setActivityTwo(activity2);
+        educationData.setActivityThree(activity3);
+        educationData.setActivityFour(activity4);
+        educationData.setActivityFive(activity5);
         educationData.setIep(individualeducattionplan);
+        //educationData.setIepdoc(imagelist);
 
         localRepo.insertEducationData(educationData);
         Toast.makeText(getApplicationContext(), "Internet is not Available Data save in your Local", Toast.LENGTH_SHORT).show();

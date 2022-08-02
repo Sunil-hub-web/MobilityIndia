@@ -8,6 +8,7 @@ import androidx.room.Room;
 
 import com.example.mobilityindia.attendance.database.AttendanceClass;
 import com.example.mobilityindia.local.AppDatabase;
+import com.example.mobilityindia.syn1.view.allresponse.eduction.EductionDemo;
 import com.example.mobilityindia.sync.model.ActionPlanData;
 import com.example.mobilityindia.sync.model.ActionPlanMonth;
 import com.example.mobilityindia.sync.model.ActivityReportAttendanceData;
@@ -607,6 +608,26 @@ public class LocalRepo {
         }.execute();
     }
 
+    public void deleteEducation(EducationData data) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                appDatabase.educationDao().deleteEducation(data);
+                return null;
+            }
+        }.execute();
+    }
+
+    public void deleteEducation() {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                appDatabase.educationDao().deleteEducation();
+                return null;
+            }
+        }.execute();
+    }
+
     public void updateSocialData(SocialData data){
         new AsyncTask<Void, Void, Void>() {
             @Override
@@ -672,7 +693,11 @@ public class LocalRepo {
 
     /////////////////////////////////
 
-    public LiveData<List<String>> getEducationcreatedList(String dateStr) {
+    public LiveData<List<EducationData>> getSelectedEducationList(String dateStr) {
+        return appDatabase.educationDao().getSelectedEducationList(dateStr);
+    }
+
+    public LiveData<List<String>> getSelectedCreatd(String dateStr) {
         return appDatabase.educationDao().getSelectedCreatd(dateStr);
     }
 

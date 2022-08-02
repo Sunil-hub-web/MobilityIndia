@@ -45,8 +45,6 @@ public class AddLivelihoodActivity extends AppCompatActivity {
     LocalRepo localRepo ;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -276,7 +274,7 @@ public class AddLivelihoodActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(AppUtils.isNetworkAvailable(AddLivelihoodActivity.this)) {
-                    addlivelihoodApi();
+                    localbeneficaryDataCall();
                 }else{
                     localbeneficaryDataCall();
                 }

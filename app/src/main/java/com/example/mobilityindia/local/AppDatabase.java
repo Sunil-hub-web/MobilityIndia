@@ -50,7 +50,7 @@ import com.example.mobilityindia.sync.model.WorkPlanData;
         EducationData.class,
         HealthCareData.class,
         AttendanceClass.class,
-        ActionPlanMonth.class}, version = 2, exportSchema = false)
+        ActionPlanMonth.class}, version = 1, exportSchema = false)
 
 public abstract class AppDatabase extends RoomDatabase {
 

@@ -146,13 +146,14 @@
                                     android:id="@+id/edocbo"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:cursorVisible="false"
                                     android:drawableRight="@drawable/ic_calender"
                                     android:drawableTint="@color/purple_500"
+                                    android:cursorVisible="false"
                                     android:focusable="false"
+                                    android:textIsSelectable="false"
                                     android:imeOptions="actionNext"
                                     android:inputType="text"
-                                    android:textIsSelectable="false" />
+                                     />
 
                             </com.google.android.material.textfield.TextInputLayout>
 

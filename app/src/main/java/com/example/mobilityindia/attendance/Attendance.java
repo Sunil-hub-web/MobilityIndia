@@ -75,7 +75,7 @@ public class Attendance extends AppCompatActivity {
     FusedLocationProviderClient fusedLocationProviderClient;
     Double latitude, longitude;
     GoogleMap mMap;
-    String address_txt, userId, dateTime = "", btn_Text = " ";
+    String address_txt, userId, dateTime = "", btn_Text = "",todayDate = "";
     public static final int REQUEST_CODE_PERMISSIONS = 101;
 
     RoomDB localdataBase;
@@ -145,18 +145,24 @@ public class Attendance extends AppCompatActivity {
         Log.d("hdgjhbsah", sessinoManager.getDATETIME());
         Log.d("hdksd", dateTime);
 
-        if (dateTime.equals("DEFAULT")) {
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat sdate = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdate.format(c.getTime());
 
-            binding.clockInBtn.setText("Clock In");
-            binding.clockInBtn.setEnabled(true);
-            binding.clockInBtn.setBackgroundTintList(Attendance.this.getResources().getColorStateList(R.color.dimbluecolor));
+        if(date.equals(todayDate)){}else{
 
-        } else {
-            //binding.ViewDate.setText(sessinoManager.getDATETIME());
-            binding.clockInBtn.setText("Clock Out");
-            binding.clockInBtn.setBackgroundTintList(Attendance.this.getResources().getColorStateList(R.color.Red));
+            if (dateTime.equals("DEFAULT")) {
+
+                binding.clockInBtn.setText("Clock In");
+                binding.clockInBtn.setEnabled(true);
+                binding.clockInBtn.setBackgroundTintList(Attendance.this.getResources().getColorStateList(R.color.dimbluecolor));
+
+            } else {
+                //binding.ViewDate.setText(sessinoManager.getDATETIME());
+                binding.clockInBtn.setText("Clock Out");
+                binding.clockInBtn.setBackgroundTintList(Attendance.this.getResources().getColorStateList(R.color.Red));
+            }
         }
-
 
         localRepo.getSelectedAttendanceList(userId).observe(Attendance.this, attendanceClasses -> {
 
@@ -305,6 +311,8 @@ public class Attendance extends AppCompatActivity {
                     // binding.clockInBtn.setVisibility(View.GONE);
 
                     binding.clockInBtn.setEnabled(false);
+
+                    todayDate = date;
 
                     //uploaddata();
 

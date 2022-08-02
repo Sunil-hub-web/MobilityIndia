@@ -29,10 +29,11 @@
             android:layout_height="match_parent"
             android:layout_marginRight="60dp"
             android:gravity="center"
-            android:text=" Social &amp; Empowerment"
+            android:text="Social &amp; Cultural Activities"
             android:textColor="#ffffff"
             android:textSize="18sp"
             android:textStyle="bold" />
+
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
