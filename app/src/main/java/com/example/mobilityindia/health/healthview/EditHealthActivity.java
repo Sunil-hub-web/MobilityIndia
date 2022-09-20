@@ -90,7 +90,9 @@ public class EditHealthActivity extends AppCompatActivity {
     List<String> idarray;
     List<String> idarray1;
     List<String> idarray2;
+    List<String> idarray3;
     SessinoManager sessinoManager;
+    List<KeyPairBoolData> listArray1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,15 +113,28 @@ public class EditHealthActivity extends AppCompatActivity {
         idarray = new ArrayList<>();
         idarray1 = new ArrayList<>();
         idarray2 = new ArrayList<>();
+        idarray3 = new ArrayList<>();
         HealthActivityServices = new ArrayList<>();
         sessinoManager = new SessinoManager(this);
         eardischargeDD = new ArrayList<>();
         earRightDD = new ArrayList<>();
         earLeftDD = new ArrayList<>();
         imagelist = new ArrayList<>();
+        listArray1 = new ArrayList<>();
         localRepo = new LocalRepo(EditHealthActivity.this);
 
         userId = sessinoManager.getUSERID();
+
+        benid = String.valueOf(CommonClass.benfeciary_ID);
+
+        if(benid.equals("") || benid.equals("null")){
+
+            callofflinedata();
+
+        }else{
+
+            callofflinedata1();
+        }
 
         String gettdisability = getHealthActivity(EditHealthActivity.this);
         try {
@@ -144,17 +159,22 @@ public class EditHealthActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        final List<KeyPairBoolData> listArray1 = new ArrayList<>();
+       // final List<KeyPairBoolData> listArray1 = new ArrayList<>();
 
-        for (int i = 0; i < HealthActivityServices.size(); i++) {
+       /* for (int i = 0; i < HealthActivityServices.size(); i++) {
             KeyPairBoolData h = new KeyPairBoolData();
             h.setId(HealthActivityServices.get(i).getId());
             h.setName(HealthActivityServices.get(i).getName());
+
+            if(idarray2.contains(HealthActivityServices.get(i).getName())){
+
+                h.setSelected(true);
+            }
             //h.setSelected(i < 5);
             listArray1.add(h);
 
             Log.d("hdgbdjb", listArray1.toString());
-        }
+        }*/
 
         MultiSpinnerSearch multiSelectSpinnerWithSearch = findViewById(R.id.Services);
 
@@ -216,6 +236,10 @@ public class EditHealthActivity extends AppCompatActivity {
 
                         String name = String.valueOf(items.get(i).getName());
                         idarray1.add(name);
+
+                        Log.d("sunilarraynnn",idarray.toString());
+
+                        Toast.makeText(this, "Sunil : "+idarray, Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -919,16 +943,6 @@ public class EditHealthActivity extends AppCompatActivity {
                 }
         });
 
-        benid = String.valueOf(CommonClass.benfeciary_ID);
-
-        if(benid.equals("") || benid.equals("null")){
-
-            callofflinedata();
-
-        }else{
-
-            callofflinedata1();
-        }
     }
 
     public void callupdatelocaledata( ){
@@ -967,6 +981,63 @@ public class EditHealthActivity extends AppCompatActivity {
                         services_Id = services_Id.substring(0, services_Id.length() - 1);
 
                     }
+
+                    String gettdisability = getHealthActivity(EditHealthActivity.this);
+                    try {
+                        JSONObject obj = new JSONObject(gettdisability);
+                        if (obj.optString("status", "fail").equals("true")) {
+                            JSONArray jsonArray = obj.optJSONArray("data");
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                HealthActivityName.add(jsonObject.getString("service_name"));
+                                HealthActivityId.add(jsonObject.getString("id"));
+
+                                String name = jsonObject.getString("service_name");
+                                String id = jsonObject.getString("id");
+
+                                long lon_id = Long.valueOf(id);
+
+                                VisitModelClass visitModelClass = new VisitModelClass(lon_id, name);
+                                HealthActivityServices.add(visitModelClass);
+                            }
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    for (int i = 0; i < HealthActivityServices.size(); i++) {
+                        KeyPairBoolData h = new KeyPairBoolData();
+                        h.setId(HealthActivityServices.get(i).getId());
+                        h.setName(HealthActivityServices.get(i).getName());
+                        if(idarray2.contains(HealthActivityServices.get(i).getName())){
+
+                            h.setSelected(true);
+                        }
+                        //h.setSelected(i < 5);
+                        listArray1.add(h);
+
+                        Log.d("hdgbdjb", listArray1.toString());
+                    }
+
+                    MultiSpinnerSearch multiSelectSpinnerWithSearch = findViewById(R.id.Services);
+                    multiSelectSpinnerWithSearch.setSearchEnabled(true);
+                    multiSelectSpinnerWithSearch.setHintText("Select Services");
+                    multiSelectSpinnerWithSearch.setClearText("Close & Clear");
+                    multiSelectSpinnerWithSearch.setSearchHint("Select your Services");
+                    multiSelectSpinnerWithSearch.setEmptyTitle("Not Data Found!");
+                    multiSelectSpinnerWithSearch.setShowSelectAllButton(true);
+
+                    multiSelectSpinnerWithSearch.setItems(listArray1, items -> {
+                        //The followings are selected items.
+                        for (int i = 0; i < items.size(); i++) {
+                            Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
+
+                            String userid = String.valueOf(items.get(i).getId());
+                            idarray3.add(userid);
+
+                            Toast.makeText(EditHealthActivity.this, "sonuarr"+idarray3, Toast.LENGTH_SHORT).show();
+                        }
+                    });
 
                     binding.startdateofshg.setText(singleMember.get(0).getScreeningdate());
                     binding.dateofassiment.setText(singleMember.get(0).getAssessmentdate());
