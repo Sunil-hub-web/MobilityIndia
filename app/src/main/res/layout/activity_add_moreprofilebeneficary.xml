@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".beneficarylist.addbeneficiary.AddMoreprofilebeneficaryActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/purple_500"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleTextColor="@color/white">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="60dp"
+                android:gravity="center"
+                android:text="Add Benificary"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/backgroundscreen"
+                        android:orientation="vertical">
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="State*"
+                            android:padding="@dimen/_5dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/state"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/dropdown"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:imeOptions="actionNext"
+                                android:inputType="textAutoComplete"
+                                android:longClickable="false"
+                                android:padding="14dp"
+                                android:textColor="@color/textcolor"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="District*"
+                            android:padding="@dimen/_5dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/district"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/dropdown"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:imeOptions="actionNext"
+                                android:inputType="textAutoComplete"
+                                android:longClickable="false"
+                                android:padding="14dp"
+                                android:textColor="@color/textcolor"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Block*"
+                            android:padding="@dimen/_5dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/block"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/dropdown"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:imeOptions="actionNext"
+                                android:inputType="textAutoComplete"
+                                android:longClickable="false"
+                                android:padding="14dp"
+                                android:textColor="@color/textcolor"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Hobli*"
+                            android:padding="@dimen/_5dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/hobli"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/dropdown"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:imeOptions="actionNext"
+                                android:inputType="textAutoComplete"
+                                android:longClickable="false"
+                                android:padding="14dp"
+                                android:textColor="@color/textcolor"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="GP*"
+                            android:padding="@dimen/_5dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/gp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/dropdown"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:imeOptions="actionNext"
+                                android:inputType="textAutoComplete"
+                                android:longClickable="false"
+                                android:padding="14dp"
+                                android:textColor="@color/textcolor"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Village*"
+                            android:padding="@dimen/_5dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/village"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/dropdown"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:imeOptions="actionNext"
+                                android:inputType="textAutoComplete"
+                                android:longClickable="false"
+                                android:padding="14dp"
+                                android:textColor="@color/textcolor"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Address"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/address"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:maxLength="500" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="School/ Anganawadi Name"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/school"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:maxLength="50" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Contact Number 1"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/contact1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="10" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Contact Number 2"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/contact2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="10" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Email"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/email"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="text" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/backgroundscreen"
+                        android:orientation="vertical">
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ration Card"
+                            android:padding="@dimen/_5dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/rationcard"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/dropdown"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:imeOptions="actionNext"
+                                android:inputType="textAutoComplete"
+                                android:longClickable="false"
+                                android:padding="14dp"
+                                android:textColor="@color/textcolor"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Sanitation/Toilet"
+                            android:padding="@dimen/_5dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/sanitation"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/dropdown"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:imeOptions="actionNext"
+                                android:inputType="textAutoComplete"
+                                android:longClickable="false"
+                                android:padding="14dp"
+                                android:textColor="@color/textcolor"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Appliances"
+                            android:padding="@dimen/_5dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/appliance"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/dropdown"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:imeOptions="actionNext"
+                                android:inputType="textAutoComplete"
+                                android:longClickable="false"
+                                android:padding="14dp"
+                                android:textColor="@color/textcolor"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Surgery"
+                            android:padding="@dimen/_5dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/surgery"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/dropdown"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:imeOptions="actionNext"
+                                android:inputType="textAutoComplete"
+                                android:longClickable="false"
+                                android:padding="14dp"
+                                android:textColor="@color/textcolor"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Govt. Facilities"
+                            android:padding="@dimen/_5dp">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/govtfacility"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/dropdown"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:imeOptions="actionNext"
+                                android:inputType="textAutoComplete"
+                                android:longClickable="false"
+                                android:padding="14dp"
+                                android:textColor="@color/textcolor"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:hint="Govt Facility (mention)"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/GovtFacilitymention"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:maxLength="100"
+                                android:inputType="textMultiLine" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/backgroundscreen"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:hint="Family Member-Adults(M)"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/familymemberadultm"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="2" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:hint="Family Member-Adults(F)"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/familymemberadultf"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="2" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:hint="Family Member-Children(M)"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/fmlymemberchildrnm"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:digits="0123456789"
+                                android:inputType="number"
+                                android:maxLength="2" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:hint="Family Member-Children(F)"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/fmlymembrchilf"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="2" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:hint="Children Undergoing Education(M)"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/childrnundergeducationm"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="2" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:hint="Children Undergoing Education(F)"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/childrenundergoeeseducationf"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="2" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:hint="Dropout less than 14 (M)"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/drpuotlessthen14m"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="2" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:hint="Dropout less than 14 (F)"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/dropoutlessthen14f"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="2" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:hint="Dropouts 14-18(M)"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/dropoutm"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="2" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:hint="Dropouts 14-18(F)"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/dropoutf"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="2" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:hint="Earning Members in the Fly(M)"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/earingmemberflym"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="2" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:hint="Earning Members in the Fly(F)"
+                            android:padding="@dimen/_5dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/earingmemberflyf"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="2" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="@dimen/_10dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="bottom|center_horizontal"
+                    android:orientation="horizontal"
+                    android:padding="12dp"
+                    android:weightSum="2"
+                    >
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/viewBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:text="Back"
+                        app:backgroundTint="@color/graycolor"
+                        app:cornerRadius="@dimen/_12sp"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonnext"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:text="Add"
+                        app:backgroundTint="@color/purple_700"
+                        app:cornerRadius="@dimen/_12sp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</layout>

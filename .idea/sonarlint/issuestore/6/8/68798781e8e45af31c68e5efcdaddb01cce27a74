@@ -1,0 +1,11 @@
+
+q
+java:S1450"VRemove the "binding" field and declare it as a local variable in the relevant methods.(ìç÷öûÿÿÿÿ
+I
+java:S1874"3Remove this use of "getDrawable"; it is deprecated.(åšò’
+F
+java:S1874"0Remove this use of "getColor"; it is deprecated.(î´Â
+C
+java:S1604"(Make this anonymous inner class a lambda(½…æïúÿÿÿÿ
+C
+java:S1604%"(Make this anonymous inner class a lambda(Î˜Í«úÿÿÿÿ

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+    </data>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".beneficarylist.view.BeneficaryListActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/purple_500"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/white">
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="60dp"
+            android:gravity="center"
+            android:text="Beneficiary List"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/benefyid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginLeft="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginRight="@dimen/_10dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_below="@+id/toolbar"-->
+<!--        android:id="@+id/cv_top1_layout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:layout_marginBottom="@dimen/_20dp"-->
+<!--        app:cardCornerRadius="5dp"-->
+<!--        app:cardElevation="10dp">-->
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/beneficaryid"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/editboxborder"-->
+<!--            android:padding="10dp"-->
+<!--           >-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:paddingLeft="@dimen/_5dp"-->
+<!--                android:paddingRight="@dimen/_5dp"-->
+<!--                android:paddingBottom="@dimen/_5dp"-->
+<!--              >-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/textpaymentcurren"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_gravity="start"-->
+<!--                            android:gravity="start"-->
+<!--                            android:fontFamily="serif"-->
+<!--                            android:paddingTop="@dimen/_5dp"-->
+<!--                            android:text="Name"-->
+<!--                            android:textColor="@color/purple_500"-->
+<!--                            android:textSize="@dimen/_12sp"/>-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/textpaymenttype"-->
+<!--                            android:fontFamily="serif"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="start"-->
+<!--                            android:gravity="start"-->
+<!--                            android:paddingTop="@dimen/_5dp"-->
+<!--                            android:text="Age"-->
+<!--                            android:textColor="@color/purple_500"-->
+<!--                            android:textSize="@dimen/_12sp" />-->
+
+
+<!--                        <TextView-->
+<!--                            android:fontFamily="serif"-->
+<!--                            android:id="@+id/textpaymentstatus"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_gravity="start"-->
+<!--                            android:gravity="start"-->
+<!--                            android:paddingTop="@dimen/_5dp"-->
+<!--                            android:text="Registration No "-->
+<!--                            android:textColor="@color/purple_500"-->
+<!--                            android:textSize="@dimen/_12sp"/>-->
+
+
+<!--                    </LinearLayout>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <TextView-->
+<!--                            android:fontFamily="serif"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="start"-->
+<!--                            android:gravity="start"-->
+<!--                            android:text=":"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="@dimen/_15sp" />-->
+
+<!--                        <TextView-->
+<!--                            android:fontFamily="serif"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="start"-->
+<!--                            android:gravity="start"-->
+<!--                            android:text=":"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="@dimen/_15sp" />-->
+
+<!--                        <TextView-->
+<!--                            android:fontFamily="serif"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="start"-->
+<!--                            android:gravity="start"-->
+<!--                            android:text=":"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="@dimen/_15sp" />-->
+
+
+<!--                    </LinearLayout>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical">-->
+
+
+
+<!--                        <TextView-->
+<!--                            android:fontFamily="serif"-->
+<!--                            android:id="@+id/et_patientname"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="start"-->
+<!--                            android:ellipsize="end"-->
+<!--                            android:gravity="start|center"-->
+<!--                            android:paddingLeft="@dimen/_5dp"-->
+<!--                            android:paddingTop="@dimen/_5dp"-->
+<!--                            android:singleLine="true"-->
+<!--                            android:textColor="@color/textcolor"-->
+<!--                            android:textSize="@dimen/_15sp"-->
+<!--                            />-->
+
+<!--                        <TextView-->
+<!--                            android:fontFamily="serif"-->
+<!--                            android:id="@+id/dateofprocedure"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="start"-->
+<!--                            android:ellipsize="end"-->
+<!--                            android:gravity="start|center"-->
+<!--                            android:paddingLeft="@dimen/_5dp"-->
+<!--                            android:paddingTop="@dimen/_5dp"-->
+<!--                            android:singleLine="true"-->
+<!--                            android:textColor="@color/textcolor"-->
+<!--                            android:textSize="@dimen/_15sp" />-->
+
+
+<!--                        <TextView-->
+<!--                            android:visibility="gone"-->
+<!--                            android:fontFamily="serif"-->
+<!--                            android:id="@+id/amount"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="start"-->
+<!--                            android:ellipsize="end"-->
+<!--                            android:gravity="start|center"-->
+<!--                            android:paddingLeft="@dimen/_5dp"-->
+<!--                            android:paddingTop="@dimen/_5dp"-->
+<!--                            android:singleLine="true"-->
+<!--                            android:textColor="@color/textcolor"-->
+<!--                            android:textSize="@dimen/_15sp"-->
+<!--                            />-->
+
+
+<!--                        <TextView-->
+<!--                            android:fontFamily="serif"-->
+<!--                            android:id="@+id/procedure"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="start"-->
+<!--                            android:ellipsize="end"-->
+<!--                            android:gravity="start|center"-->
+<!--                            android:paddingLeft="@dimen/_5dp"-->
+<!--                            android:paddingTop="@dimen/_5dp"-->
+<!--                            android:singleLine="true"-->
+<!--                            android:textColor="@color/textcolor"-->
+<!--                            android:textSize="@dimen/_15sp" />-->
+
+
+<!--                    </LinearLayout>-->
+
+<!--                </LinearLayout>-->
+
+
+
+
+<!--            </LinearLayout>-->
+
+
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/book_a_test"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="10dp">-->
+
+<!--            </RelativeLayout>-->
+
+
+
+
+
+<!--        </RelativeLayout>-->
+
+
+
+<!--    </androidx.cardview.widget.CardView>-->
+
+    <ImageView
+        android:id="@+id/btnaddbanificary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_10dp"
+        android:layout_marginBottom="@dimen/_10dp"
+        android:padding="@dimen/_10dp"
+        android:src="@drawable/ic_plus56x56"
+        app:fabSize="normal" />
+</RelativeLayout>
+</layout>

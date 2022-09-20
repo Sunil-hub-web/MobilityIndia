@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_top1_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="@dimen/_20dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/editboxborder"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/_10dp"
+                android:paddingRight="@dimen/_10dp"
+                android:paddingBottom="@dimen/_10dp">
+
+                <LinearLayout
+                    android:id="@+id/lin_delete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textpaymentcurren"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:fontFamily="serif"
+                            android:gravity="start"
+                            android:paddingTop="@dimen/_5dp"
+                            android:text="Date"
+                            android:textColor="@color/purple_500"
+                            android:textSize="@dimen/_15sp"/>
+
+                        <TextView
+                            android:id="@+id/textpaymenttype"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:fontFamily="serif"
+                            android:gravity="start"
+                            android:paddingTop="@dimen/_5dp"
+                            android:text="Clock In Time"
+                            android:textColor="@color/purple_500"
+                            android:textSize="@dimen/_15sp"/>
+
+
+                        <TextView
+                            android:id="@+id/textpaymentstatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:fontFamily="serif"
+                            android:gravity="start"
+                            android:paddingTop="@dimen/_5dp"
+                            android:text="Clock Out Time"
+                            android:textColor="@color/purple_500"
+                            android:textSize="@dimen/_15sp"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:fontFamily="serif"
+                            android:gravity="start"
+                            android:paddingTop="@dimen/_5dp"
+                            android:text=":"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:fontFamily="serif"
+                            android:gravity="start"
+                            android:paddingTop="@dimen/_5dp"
+                            android:text=":"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:fontFamily="serif"
+                            android:gravity="start"
+                            android:paddingTop="@dimen/_5dp"
+                            android:text=":"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text_Date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:ellipsize="end"
+                            android:fontFamily="serif"
+                            android:gravity="start|center"
+                            android:paddingLeft="@dimen/_5dp"
+                            android:paddingTop="@dimen/_5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/textcolor"
+                            android:textSize="@dimen/_15sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/checkinTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:ellipsize="end"
+                            android:fontFamily="serif"
+                            android:gravity="start|center"
+                            android:paddingLeft="@dimen/_5dp"
+                            android:paddingTop="@dimen/_5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/textcolor"
+                            android:textSize="@dimen/_15sp"
+                            />
+
+
+
+
+
+                        <TextView
+                            android:id="@+id/clockoutTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:ellipsize="end"
+                            android:fontFamily="serif"
+                            android:gravity="start|center"
+                            android:paddingLeft="@dimen/_5dp"
+                            android:paddingTop="@dimen/_5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/textcolor"
+                            android:textSize="@dimen/_15sp" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

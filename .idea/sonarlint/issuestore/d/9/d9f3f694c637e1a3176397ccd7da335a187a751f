@@ -1,0 +1,27 @@
+
+q	java:S116"WRename this field "EmailAddress" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…’ğîúÿÿÿÿ
+h	java:S116"SRename this field "Password" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿŠ£–
+n
+java:S1450"YRemove the "apiRequest" field and declare it as a local variable in the relevant methods.(±ğ¹
+N	java:S106("9Replace this use of System.out or System.err by a logger.(ùõá€
+U
+java:S1854O"8Remove this useless assignment to local variable "data".(ı­ƒ8‘ÌûÁ0
+F
+java:S11726"+Remove this unused method parameter "view".(Ğ¸™áúÿÿÿÿ
+L
+java:S26967"6Make the enclosing method "static" or remove this set.(Ü«åİ
+Q
+java:S2696;"6Make the enclosing method "static" or remove this set.(ü¾àÿÿÿÿÿ
+L
+java:S2696?"6Make the enclosing method "static" or remove this set.(ùíÈ‰
+L
+java:S2696D"6Make the enclosing method "static" or remove this set.(ŠÌñ
+N	java:S106N"9Replace this use of System.out or System.err by a logger.(…ªñ
+F
+java:S1481O")Remove this unused "data" local variable.(ı­ƒ8ÏÌûÁ0
+s
+java:S1104"XMake EmailAddress a static final constant or non-public and provide accessors if needed.(…’ğîúÿÿÿÿ
+j
+java:S1104"TMake Password a static final constant or non-public and provide accessors if needed.(ÿŠ£–
+l
+java:S1104"VMake isprogress a static final constant or non-public and provide accessors if needed.(ˆø–÷

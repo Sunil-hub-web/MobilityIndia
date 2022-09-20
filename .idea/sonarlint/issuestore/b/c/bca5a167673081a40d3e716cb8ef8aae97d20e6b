@@ -1,0 +1,21 @@
+
+I
+java:S1874'"3Remove this use of "getDrawable"; it is deprecated.(ÂöÚí
+L
+java:S1874("6Remove this use of "setColorFilter"; it is deprecated.(Óè¥¬
+F
+java:S1874("0Remove this use of "getColor"; it is deprecated.(Óè¥¬
+C
+java:S1604)"(Make this anonymous inner class a lambda(ΩÖÊÔ˙ˇˇˇˇ
+C
+java:S1604/"(Make this anonymous inner class a lambda(âôß¬˘ˇˇˇˇ
+>
+java:S16046"(Make this anonymous inner class a lambda(ÁÌßß
+>
+java:S1604<"(Make this anonymous inner class a lambda(Ê¨Î¿
+J
+java:S1604H"(Make this anonymous inner class a lambda(âıÔç˙ˇˇˇˇ8•÷Ò‚Å0
+[
+java:S1155K">Use isEmpty() to check whether the collection is empty or not.(≥√¡ﬂ8®÷Ò‚Å0
+g
+java:S2259K"JA "NullPointerException" could be thrown; "singleMember" is nullable here.(≥√¡ﬂ8≈÷Ò‚Å0

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_grey"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Plan *"/>
+    <EditText
+        android:id="@+id/planTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/editboxborder"
+        android:fontFamily="serif"
+        android:gravity="left|center_vertical"
+        android:hint="Plan"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColor="@color/textcolor"
+        android:textColorHint="@color/textcolor"
+        android:textSize="18sp"
+        android:textStyle="normal" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Outcome *"/>
+
+    <EditText
+        android:id="@+id/outcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/editboxborder"
+        android:fontFamily="serif"
+        android:gravity="left|center_vertical"
+        android:hint="Outcome"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColor="@color/textcolor"
+        android:textColorHint="@color/textcolor"
+        android:textSize="18sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Remark *"/>
+
+    <EditText
+        android:id="@+id/remark_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/editboxborder"
+        android:fontFamily="serif"
+        android:gravity="left|center_vertical"
+        android:hint="Remark"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColor="@color/textcolor"
+        android:textColorHint="@color/textcolor"
+        android:textSize="18sp"
+        android:textStyle="normal" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="52dp"
+        android:orientation="horizontal">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancelBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:minHeight="52dp"
+            android:text="Cancel"
+            app:backgroundTint="@color/graycolor"
+            app:cornerRadius="@dimen/_12sp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:minHeight="52dp"
+            android:text="Save"
+            app:backgroundTint="@color/purple_700"
+            app:cornerRadius="@dimen/_12sp"/>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

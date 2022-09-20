@@ -1,0 +1,1348 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+    </data>
+<RelativeLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".education.EducationActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/purple_500"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:fontFamily="serif"
+                android:gravity="center_vertical|center"
+                android:paddingRight="60dp"
+                android:text="Education"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/nextpage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/toolbar_title"
+                android:layout_weight=".9"
+                android:src="@drawable/editicon">
+            </ImageView>
+
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="@dimen/_20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="@dimen/_30dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_20dp"
+                android:layout_marginBottom="@dimen/_10dp"
+                android:background="@drawable/backgroundscreen"
+                android:orientation="vertical">
+
+                <!--<TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:text="School Enrollment"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />-->
+
+                <!-- <com.github.angads25.toggle.LabeledSwitch
+                    android:id="@+id/schoolenroll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:layout_marginBottom="@dimen/_20dp"
+                    android:textSize="14sp"
+                    app:colorBorder="#00c4a6"
+                    app:colorOn="@color/purple_500"
+                    app:textOff="No"
+                    app:textOn="Yes" />-->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="School Enrollment"
+                    android:layout_margin="@dimen/_5dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/schoolenroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:imeOptions="actionNext"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/schoollayoutid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/backgroundscreen"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:hint="Enrollment No"
+                        android:maxLength="24"
+                        android:padding="@dimen/_5dp"
+                        android:textColor="#515151">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/enrollmentno"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:cursorVisible="false"
+                            android:digits="123456789"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:maxLength="20" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_60dp"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginTop="@dimen/_5dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:hint="Attending Class Regularly"
+                        android:textColor="#515151">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/attendingclassregularly"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:cursorVisible="false"
+                            android:drawableRight="@drawable/dropdown"
+                            android:focusable="false"
+                            android:fontFamily="serif"
+                            android:imeOptions="actionNext"
+                            android:inputType="textAutoComplete"
+                            android:longClickable="false"
+                            android:padding="14dp"
+                            android:textColor="@color/textcolor"
+                            android:textIsSelectable="false"
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginTop="@dimen/_5dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:layout_marginBottom="@dimen/_10dp"
+                        android:gravity="center"
+                        android:weightSum="2">
+
+                        <!--<TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight=".6"
+                            android:fontFamily="serif"
+                            android:gravity="left"
+                            android:paddingLeft="@dimen/_20dp"
+                            android:text="Is the school/class accessible"
+                            android:textColor="#7A7979"
+                            android:textStyle="bold" />
+
+                        <com.github.angads25.toggle.LabeledSwitch
+                            android:id="@+id/classaccessible"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_15dp"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:layout_marginRight="@dimen/_15dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:layout_weight="1.4"
+                            android:textSize="14sp"
+                            app:colorBorder="#00c4a6"
+                            app:colorOn="@color/purple_500"
+                            app:textOff="No"
+                            app:textOn="Yes" />-->
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Is the school/class accessible"
+                            android:maxLength="24"
+                            android:textColor="#515151">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/classaccessible"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:cursorVisible="false"
+                                android:digits="123456789"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="20" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_60dp"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:hint="Sitting modification"
+                        android:textColor="#515151">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/sittingmodification"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:cursorVisible="false"
+                            android:drawableRight="@drawable/dropdown"
+                            android:focusable="false"
+                            android:fontFamily="serif"
+                            android:imeOptions="actionNext"
+                            android:inputType="textAutoComplete"
+                            android:longClickable="false"
+                            android:padding="14dp"
+                            android:textColor="@color/textcolor"
+                            android:textIsSelectable="false"
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_60dp"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginTop="@dimen/_5dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:hint="Access to TLM"
+                        android:textColor="#515151">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/accseetotlm"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:cursorVisible="false"
+                            android:drawableRight="@drawable/dropdown"
+                            android:focusable="false"
+                            android:fontFamily="serif"
+                            android:imeOptions="actionNext"
+                            android:inputType="textAutoComplete"
+                            android:longClickable="false"
+                            android:padding="14dp"
+                            android:textColor="@color/textcolor"
+                            android:textIsSelectable="false"
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/AccesstoToilet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:layout_marginTop="@dimen/_5dp"
+                        android:layout_marginBottom="@dimen/_10dp"
+                        android:weightSum="2">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Access to Toilet"
+                            android:maxLength="24"
+                            android:textColor="#515151">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/accesstotoilet"
+                                android:layout_width="match_parent"
+                                android:layout_height="55dp"
+                                android:cursorVisible="false"
+                                android:digits="123456789"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="20" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!--<TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight=".6"
+                            android:fontFamily="serif"
+                            android:gravity="left"
+                            android:paddingLeft="@dimen/_20dp"
+                            android:text="Access to Toilet"
+                            android:textColor="#7A7979"
+                            android:textStyle="bold" />
+
+                        <com.github.angads25.toggle.LabeledSwitch
+                            android:id="@+id/accesstotoilet"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_15dp"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:layout_marginRight="@dimen/_15dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:layout_weight="1.4"
+                            android:textSize="14sp"
+                            app:colorBorder="#00c4a6"
+                            app:colorOn="@color/purple_500"
+                            app:textOff="No"
+                            app:textOn="Yes" />-->
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/AccesstoLibrary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:layout_marginBottom="@dimen/_10dp"
+                        android:weightSum="2">
+
+                        <!-- <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight=".6"
+                            android:fontFamily="serif"
+                            android:gravity="left"
+                            android:paddingLeft="@dimen/_20dp"
+                            android:text="Access to Library"
+                            android:textColor="#7A7979"
+                            android:textStyle="bold" />
+
+                        <com.github.angads25.toggle.LabeledSwitch
+                            android:id="@+id/accesstolibrary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_15dp"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:layout_marginRight="@dimen/_15dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:layout_weight="1.4"
+                            android:textSize="14sp"
+                            app:colorBorder="#00c4a6"
+                            app:colorOn="@color/purple_500"
+                            app:textOff="No"
+                            app:textOn="Yes" />-->
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Access to Library"
+                            android:maxLength="24"
+                            android:textColor="#515151">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/accesstolibrary"
+                                android:layout_width="match_parent"
+                                android:layout_height="55dp"
+                                android:cursorVisible="false"
+                                android:digits="123456789"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="20" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/AccesstoSportActivity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:layout_marginBottom="@dimen/_10dp"
+                        android:weightSum="2">
+
+                        <!--<TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight=".6"
+                            android:fontFamily="serif"
+                            android:gravity="left"
+                            android:paddingLeft="@dimen/_20dp"
+                            android:text="Access to Sport activities"
+                            android:textColor="#7A7979"
+                            android:textStyle="bold" />
+
+                        <com.github.angads25.toggle.LabeledSwitch
+                            android:id="@+id/acesstosportactivity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_15dp"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:layout_marginRight="@dimen/_15dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:layout_weight="1.4"
+                            android:textSize="14sp"
+                            app:colorBorder="#00c4a6"
+                            app:colorOn="@color/purple_500"
+                            app:textOff="No"
+                            app:textOn="Yes" />-->
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Access to Sport activities"
+                            android:maxLength="24"
+                            android:textColor="#515151">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/acesstosportactivity"
+                                android:layout_width="match_parent"
+                                android:layout_height="55dp"
+                                android:cursorVisible="false"
+                                android:digits="123456789"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="20" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cocurricularactivities"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:layout_marginBottom="@dimen/_10dp"
+                        android:weightSum="2">
+
+                        <!--<TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight=".6"
+                            android:fontFamily="serif"
+                            android:gravity="left"
+                            android:paddingLeft="@dimen/_20dp"
+                            android:text="Access to co-curricular activities"
+                            android:textColor="#7A7979"
+                            android:textStyle="bold" />
+
+                        <com.github.angads25.toggle.LabeledSwitch
+                            android:id="@+id/curricularactivities"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_15dp"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:layout_marginRight="@dimen/_15dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:layout_weight="1.4"
+                            android:textSize="14sp"
+                            app:colorBorder="#00c4a6"
+                            app:colorOn="@color/purple_500"
+                            app:textOff="No"
+                            app:textOn="Yes" />-->
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Access to co-curricular activities"
+                            android:maxLength="24"
+                            android:textColor="#515151">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/curricularactivities"
+                                android:layout_width="match_parent"
+                                android:layout_height="55dp"
+                                android:cursorVisible="false"
+                                android:digits="123456789"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="20" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tl_name"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:hint="Any Other"
+                        android:textColor="#515151">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/anyother"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:maxLength="25" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_15dp"
+                        android:layout_marginBottom="@dimen/_15dp"
+                        android:layout_weight=".6"
+                        android:fontFamily="serif"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/_20dp"
+                        android:text="Does the child have access to the following?"
+                        android:textColor="#7A7979"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:layout_marginBottom="@dimen/_10dp"
+                        android:weightSum="2">
+
+                        <!--<TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight=".6"
+                            android:fontFamily="serif"
+                            android:gravity="left"
+                            android:paddingLeft="@dimen/_20dp"
+                            android:text="Weather child is a member of CEC"
+                            android:textColor="#7A7979"
+                            android:textStyle="bold" />
+
+                        <com.github.angads25.toggle.LabeledSwitch
+                            android:id="@+id/memberofCEC"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_15dp"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:layout_marginRight="@dimen/_15dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:layout_weight="1.4"
+                            android:textSize="14sp"
+                            app:colorBorder="#00c4a6"
+                            app:colorOn="@color/purple_500"
+                            app:textOff="No"
+                            app:textOn="Yes" />-->
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Weather child is a member of CEC"
+                            android:maxLength="24"
+                            android:textColor="#515151">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/memberofCEC"
+                                android:layout_width="match_parent"
+                                android:layout_height="55dp"
+                                android:cursorVisible="false"
+                                android:digits="123456789"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="20" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:layout_marginBottom="@dimen/_10dp"
+                        android:weightSum="2">
+
+                        <!--<TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight=".6"
+                            android:fontFamily="serif"
+                            android:gravity="left"
+                            android:paddingLeft="@dimen/_20dp"
+                            android:text="Child Parliament"
+                            android:textColor="#7A7979"
+                            android:textStyle="bold" />
+
+                        <com.github.angads25.toggle.LabeledSwitch
+                            android:id="@+id/childpartialament"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_15dp"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:layout_marginRight="@dimen/_15dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:layout_weight="1.4"
+                            android:textSize="14sp"
+                            app:colorBorder="#00c4a6"
+                            app:colorOn="@color/purple_500"
+                            app:textOff="No"
+                            app:textOn="Yes" />
+-->
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Child Parliament"
+                            android:maxLength="24"
+                            android:textColor="#515151">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/childpartialament"
+                                android:layout_width="match_parent"
+                                android:layout_height="55dp"
+                                android:cursorVisible="false"
+                                android:digits="123456789"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="20" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:layout_marginBottom="@dimen/_10dp"
+                        android:background="@drawable/backgroundonoff"
+                        android:weightSum="2">
+
+                        <!--<TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight=".6"
+                            android:fontFamily="serif"
+                            android:gravity="left"
+                            android:paddingLeft="@dimen/_20dp"
+                            android:text="Children gram sabha"
+                            android:textColor="#7A7979"
+                            android:textStyle="bold" />
+
+                        <com.github.angads25.toggle.LabeledSwitch
+                            android:id="@+id/Childrengramsabha"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_15dp"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:layout_marginRight="@dimen/_15dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:layout_weight="1.4"
+                            android:textSize="14sp"
+                            app:colorBorder="#00c4a6"
+                            app:colorOn="@color/purple_500"
+                            app:textOff="No"
+                            app:textOn="Yes" />-->
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Children gram sabha"
+                            android:maxLength="24"
+                            android:textColor="#515151">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/Childrengramsabha"
+                                android:layout_width="match_parent"
+                                android:layout_height="55dp"
+                                android:cursorVisible="false"
+                                android:digits="123456789"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="20" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:layout_marginBottom="@dimen/_10dp"
+                        android:gravity="center"
+                        android:weightSum="2">
+
+                        <!-- <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight=".6"
+                            android:fontFamily="serif"
+                            android:gravity="left"
+                            android:paddingLeft="@dimen/_20dp"
+                            android:text="Summer Camp"
+                            android:textColor="#7A7979"
+                            android:textStyle="bold" />
+
+                        <com.github.angads25.toggle.LabeledSwitch
+                            android:id="@+id/summercamp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_15dp"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:layout_marginRight="@dimen/_15dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:layout_weight="1.4"
+                            android:textSize="14sp"
+                            app:colorBorder="#00c4a6"
+                            app:colorOn="@color/purple_500"
+                            app:textOff="No"
+                            app:textOn="Yes" />-->
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Summer Camp"
+                            android:maxLength="24"
+                            android:textColor="#515151">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/summercamp"
+                                android:layout_width="match_parent"
+                                android:layout_height="55dp"
+                                android:cursorVisible="false"
+                                android:digits="123456789"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="20" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                    <!--<LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:layout_marginBottom="@dimen/_10dp"
+                        android:background="@drawable/backgroundonoff"
+                        android:gravity="center"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight=".6"
+                            android:fontFamily="serif"
+                            android:gravity="left"
+                            android:paddingLeft="@dimen/_20dp"
+                            android:text="Vocational Courses"
+                            android:textColor="#7A7979"
+                            android:textStyle="bold" />
+
+                        <com.github.angads25.toggle.LabeledSwitch
+                            android:id="@+id/vocationcourse"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_15dp"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:layout_marginRight="@dimen/_15dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:layout_weight="1.4"
+                            android:textSize="14sp"
+                            app:colorBorder="#00c4a6"
+                            app:colorOn="@color/purple_500"
+                            app:textOff="No"
+                            app:textOn="Yes" />
+
+
+                    </LinearLayout>-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_15dp"
+                        android:layout_marginBottom="@dimen/_15dp"
+                        android:layout_weight=".6"
+                        android:fontFamily="serif"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/_20dp"
+                        android:text="Mention details of co curricular activities participated"
+                        android:textColor="#7A7979"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/Activie_1"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:hint="Activity 1"
+                        android:padding="@dimen/_5dp"
+                        android:textColor="#515151">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/Activity1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:cursorVisible="false"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:maxLength="25" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/Activie_2"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:hint="Activity 2"
+                        android:padding="@dimen/_5dp"
+                        android:textColor="#515151">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/Activity2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:cursorVisible="false"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:maxLength="25" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/Activie_3"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:hint="Activity 3"
+                        android:padding="@dimen/_5dp"
+                        android:textColor="#515151">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/Activity3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:cursorVisible="false"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:maxLength="25" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/Activie_4"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:hint="Activity 4"
+                        android:padding="@dimen/_5dp"
+                        android:textColor="#515151">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/Activity4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:cursorVisible="false"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:maxLength="25" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/Activie_5"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:hint="Activity 5"
+                        android:padding="@dimen/_5dp"
+                        android:textColor="#515151">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/Activity5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:cursorVisible="false"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:maxLength="25" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/vocationCourses"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:hint="Mention Detail of vocation Courses"
+                        android:padding="@dimen/_5dp"
+                        android:textColor="#515151"
+                        android:visibility="gone">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/mentiondetailvocationcourse"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:cursorVisible="false"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:imeOptions="actionNext"
+                            android:inputType="text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:layout_marginBottom="@dimen/_10dp"
+                        android:gravity="center"
+                        android:weightSum="1">
+
+                        <!--<TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight=".6"
+                            android:fontFamily="serif"
+                            android:gravity="left"
+                            android:paddingLeft="@dimen/_20dp"
+                            android:text="Individual education Plan"
+                            android:textColor="#7A7979"
+                            android:textStyle="bold" />-->
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Individual education plan">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/individualeducattionplan"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:cursorVisible="false"
+                                android:drawableRight="@drawable/dropdown"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:imeOptions="actionNext"
+                                android:inputType="textAutoComplete"
+                                android:longClickable="false"
+                                android:padding="14dp"
+                                android:textColor="@color/textcolor"
+                                android:textIsSelectable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ihpview"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:layout_marginBottom="@dimen/_20dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:id="@+id/cameraaview"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/camera"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="8dp"
+                                app:srcCompat="@drawable/ic_baseline_camera_alt_24"
+                                app:tint="@color/purple_700" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="photos"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/pdf"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/files"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="8dp"
+                                app:srcCompat="@drawable/ic_baseline_picture_as_pdf_24"
+                                app:tint="@color/purple_700" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="Pdf"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/document"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/docfile"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="8dp"
+                                app:srcCompat="@drawable/upload"
+                                app:tint="@color/purple_700" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="Document"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/imagesiew"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_10dp"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:layout_marginRight="@dimen/_10dp"
+                    android:layout_marginBottom="@dimen/_20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    android:weightSum="5">
+
+                    <FrameLayout
+                        android:id="@+id/frame1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/imageview1"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center" />
+
+                        <ImageView
+                            android:id="@+id/button1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:layout_gravity="right|top"
+                            android:src="@drawable/ic_baseline_close_24" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/frame2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/imageview2"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center" />
+
+                        <ImageView
+                            android:id="@+id/button2"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="right|top"
+                            android:src="@drawable/ic_baseline_close_24" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/frame3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/imageview3"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center" />
+
+                        <ImageView
+                            android:id="@+id/button3"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="right|top"
+                            android:src="@drawable/ic_baseline_close_24" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/frame4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/imageview4"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center" />
+
+                        <ImageView
+                            android:id="@+id/button4"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="right|top"
+                            android:src="@drawable/ic_baseline_close_24" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/frame5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/imageview5"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center" />
+
+                        <ImageView
+                            android:id="@+id/button5"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="right|top"
+                            android:src="@drawable/ic_baseline_close_24" />
+                    </FrameLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>
+</layout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/mSwipeRefreshLayout">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:background="@color/purple_500"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetStart="0dp"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:title="Activity Report"
+                    app:titleTextColor="@color/white">
+
+
+                </androidx.appcompat.widget.Toolbar>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/day_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/buttomlayour"
+                    android:layout_below="@+id/toolbar" />
+
+                <LinearLayout
+                    android:id="@+id/buttomlayour"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    >
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/viewBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:text="View"
+                        app:backgroundTint="@color/graycolor"
+                        app:cornerRadius="@dimen/_12sp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/saveBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:text="Save"
+                        app:backgroundTint="@color/purple_700"
+                        app:cornerRadius="@dimen/_12sp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/submitBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_weight="1"
+                        android:text="Submit"
+                        app:backgroundTint="@color/dimbluecolor"
+                        app:cornerRadius="@dimen/_12sp"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
+    </LinearLayout>
+
+</layout>

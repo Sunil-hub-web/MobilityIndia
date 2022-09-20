@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_grey"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Attendance*" />
+
+    <AutoCompleteTextView
+        android:id="@+id/attandance_edt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:cursorVisible="false"
+        android:drawableRight="@drawable/dropdown"
+        android:focusable="false"
+        android:fontFamily="serif"
+        android:imeOptions="actionNext"
+        android:inputType="textAutoComplete"
+        android:longClickable="false"
+        android:padding="14dp"
+        android:hint="Select Attendance"
+        android:textColor="@color/textcolor"
+        android:textIsSelectable="false"
+        android:background="@drawable/editboxborder"/>
+
+
+    <!--<Spinner
+        android:id="@+id/"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/editboxborder"
+        android:fontFamily="serif"
+        android:gravity="left|center_vertical"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColor="@color/textcolor"
+        android:textSize="18sp"
+        android:textStyle="normal" />-->
+
+
+    <TextView
+        android:id="@+id/Firsthalf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="First half" />
+
+    <EditText
+        android:id="@+id/first_half"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/editboxborder"
+        android:fontFamily="serif"
+        android:gravity="left|center_vertical"
+        android:hint="First half"
+        android:inputType="text"
+        android:maxLength="280"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColor="@color/textcolor"
+        android:textSize="18sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/Secondhalf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Second half" />
+
+    <EditText
+        android:id="@+id/second_half_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/editboxborder"
+        android:fontFamily="serif"
+        android:gravity="left|center_vertical"
+        android:hint="Second half"
+        android:inputType="text"
+        android:maxLength="280"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColor="@color/textcolor"
+        android:textSize="18sp"
+        android:textStyle="normal" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="52dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancelBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:minHeight="52dp"
+            android:text="Cancel"
+            app:backgroundTint="@color/graycolor"
+            app:cornerRadius="@dimen/_12sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:minHeight="52dp"
+            android:text="Save"
+            app:backgroundTint="@color/purple_700"
+            app:cornerRadius="@dimen/_12sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

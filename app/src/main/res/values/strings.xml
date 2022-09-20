@@ -1,0 +1,154 @@
+<resources>
+    <string name="app_name">MobilityIndia</string>
+    <string name="title_activity_change_pin">ChangePinActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+
+    <!--    <string name="dropoutlessthen14m">Dropout<14(M)</string>-->
+    <!--    <string name="dropoutlessthen14f">Previous</string>-->
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="apiKey">AIzaSyBdmUoY0LPiKMe2dxWTW4AwWVZ3aN0-Sh8</string>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="FamielyLivelihood">
+        <item>Self Employment</item>
+        <item>Wage Employment</item>
+        <item>Agriculture</item>
+        <item>Govt Employment</item>
+        <item>Other</item>
+    </string-array>
+
+
+    <string-array name="selectone">
+        <item>Yes</item>
+        <item>No</item>
+        <item>NA</item>
+
+    </string-array>
+
+    <string-array name="selectone1">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="accounttype">
+        <item>Single</item>
+        <item>Joint</item>
+    </string-array>
+
+    <string-array name="benef">
+        <item>CBR Rual </item>
+        <item>Other</item>
+
+    </string-array>
+
+    <string-array name="selectonehome">
+        <item>Yes</item>
+        <item>No</item>
+        <item>Home Based</item>
+    </string-array>
+
+    <string-array name="AccesstoTLM">
+        <item>Yes</item>
+        <item>No</item>
+        <item>Not Available</item>
+    </string-array>
+
+    <string-array name="Howoften">
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+        <item>Quarterly</item>
+        <item>Yearly</item>
+    </string-array>
+
+    <string-array name="whatkinddevice">
+        <item>device1</item>
+        <item>device2</item>
+        <item>device3</item>
+        <item>device4</item>
+        <item>device5</item>
+    </string-array>
+
+    <string-array name="speechandlanguage">
+        <item>Delayed</item>
+        <item>Normal</item>
+    </string-array>
+
+    <string-array name="OPMEDD">
+        <item>Structurally normal and functionally adequate</item>
+        <item>Abnormal</item>
+    </string-array>
+
+    <string-array name="articulationDD">
+        <item>Mis-articulation</item>
+        <item>Normal</item>
+    </string-array>
+
+    <string-array name="fluencyDD">
+        <item>Stuttering</item>
+        <item>Cluttering</item>
+        <item>Normal non-fluency</item>
+        <item>Normal</item>
+    </string-array>
+
+    <string-array name="qualityDD">
+        <item>Normal</item>
+        <item>Breathy</item>
+        <item>Hoarse</item>
+        <item>Harsh</item>
+    </string-array>
+
+    <string-array name="pitchDD">
+        <item>Appropriate</item>
+        <item>High pitch</item>
+        <item>Low pitch</item>
+        <item>Pitch breaks</item>
+    </string-array>
+
+    <string-array name="loudnessDD">
+        <item>Appropriate</item>
+        <item>Soft</item>
+        <item>Loud</item>
+    </string-array>
+
+    <string-array name="modeofcommunicationDD">
+        <item>Verbal</item>
+        <item>Non verbal</item>
+    </string-array>
+
+    <string-array name="comprehensionDD">
+        <item>Age adequate</item>
+        <item>Delayed</item>
+    </string-array>
+
+    <string-array name="otoscopyRightLeftDD">
+        <item>clear/intact</item>
+        <item>impacted wax</item>
+        <item>perforation</item>
+        <item>retracted</item>
+        <item>collapsed ear canal</item>
+    </string-array>
+
+    <string-array name="yesEardischar">
+        <item>Yes</item>
+        <item>No</item>
+        <item>History</item>
+    </string-array>
+
+
+    <string name="title_activity_work_plan">WorkPlanActivity</string>
+    <string name="title_activity_month_action_plan">MonthActionPlanActivity</string>
+
+</resources>

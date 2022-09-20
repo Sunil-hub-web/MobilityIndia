@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/healthrelation">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/textdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="6dp"
+            android:minHeight="55dp"
+            android:text="Test"
+            android:textAllCaps="false" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="ChangepinViewModel"
+            type="com.example.mobilityindia.changepin.view.changepinviewmodel.ChangepinViewModel" />
+
+
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".changepin.view.ChangepiinActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/purple_500"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/white">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="60dp"
+            android:gravity="center"
+            android:text="Change PIN"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="@dimen/_15dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/changepin"/>
+
+               <!-- <ProgressBar
+                    android:id="@+id/ProgressView"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:visibility="@{ChangepinViewModel.isprogress}"
+                    />-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:padding="@dimen/_10dp"
+                    android:text="Enter Current PIN"
+                    android:textColor="@color/textcolor"
+                    android:textColorHint="@color/textcolor"
+                    android:textSize="16sp"
+                    android:textStyle="normal"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_10dp"
+                    android:layout_marginRight="@dimen/_10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/etopc1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40dp"
+                        android:layout_marginRight="@dimen/_5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/editboxborder"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/black" />
+                    <EditText
+                        android:id="@+id/etopc2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40dp"
+                        android:layout_marginRight="@dimen/_5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/editboxborder"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/black" />
+                    <EditText
+                        android:id="@+id/etopc3"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40dp"
+                        android:layout_marginRight="@dimen/_5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/editboxborder"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/black" />
+                    <EditText
+                        android:id="@+id/etopc4"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40dp"
+                        android:layout_marginRight="@dimen/_5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/editboxborder"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/black" />
+                    <EditText
+                        android:id="@+id/etopc5"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40dp"
+                        android:layout_marginRight="@dimen/_5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/editboxborder"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/etopc6"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40dp"
+                        android:layout_marginRight="@dimen/_5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/editboxborder"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/black"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+
+
+
+<!--                    <com.example.mobilityindia.otpview.OtpView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:inputType="text"-->
+<!--                        android:itemBackground="@drawable/editboxborder"-->
+<!--                        android:textColor="@android:color/white"-->
+<!--                        android:textAllCaps="true"-->
+<!--                        app:OtpHideLineWhenFilled="true"-->
+<!--                        app:OtpItemCount="6"-->
+<!--                        app:OtpItemSpacing="6dp"-->
+<!--                        app:OtpLineColor="@color/purple_500"-->
+<!--                        app:OtpState_filled="true"-->
+<!--                        app:OtpViewType="rectangle"/>-->
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5dp"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:padding="@dimen/_10dp"
+                    android:text="Enter New PIN"
+                    android:textColor="@color/textcolor"
+                    android:textColorHint="@color/textcolor"
+                    android:textSize="16sp"
+                    android:textStyle="normal"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/etopn1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/editboxborder"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/black"
+                            tools:ignore="SpeakableTextPresentCheck" />
+                        <EditText
+                            android:id="@+id/etopn2"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/editboxborder"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/black" />
+                        <EditText
+                            android:id="@+id/etopn3"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/editboxborder"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/black" />
+                        <EditText
+                            android:id="@+id/etopn4"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/editboxborder"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/black" />
+                        <EditText
+                            android:id="@+id/etopn5"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/editboxborder"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/black" />
+                        <EditText
+                            android:id="@+id/etopn6"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/editboxborder"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/black" />
+
+
+
+
+                        <!--                    <com.example.mobilityindia.otpview.OtpView-->
+                        <!--                        android:layout_width="wrap_content"-->
+                        <!--                        android:layout_height="wrap_content"-->
+                        <!--                        android:inputType="text"-->
+                        <!--                        android:itemBackground="@drawable/editboxborder"-->
+                        <!--                        android:textColor="@android:color/white"-->
+                        <!--                        android:textAllCaps="true"-->
+                        <!--                        app:OtpHideLineWhenFilled="true"-->
+                        <!--                        app:OtpItemCount="6"-->
+                        <!--                        app:OtpItemSpacing="6dp"-->
+                        <!--                        app:OtpLineColor="@color/purple_500"-->
+                        <!--                        app:OtpState_filled="true"-->
+                        <!--                        app:OtpViewType="rectangle"/>-->
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5dp"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:padding="@dimen/_10dp"
+                    android:text="Re-Enter New PIN"
+                    android:textColor="@color/textcolor"
+                    android:textColorHint="@color/textcolor"
+                    android:textSize="16sp"
+                    android:textStyle="normal"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/_10dp"
+                        android:layout_marginRight="@dimen/_10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id="@+id/etopr1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/editboxborder"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/black" />
+                        <EditText
+                            android:id="@+id/etopr2"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/editboxborder"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/black" />
+                        <EditText
+                            android:id="@+id/etopr3"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/editboxborder"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/black" />
+                        <EditText
+                            android:id="@+id/etopr4"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/editboxborder"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/black" />
+                        <EditText
+                            android:id="@+id/etopr5"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/editboxborder"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/black" />
+
+                        <EditText
+                            android:id="@+id/etopr6"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/editboxborder"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/black" />
+
+
+
+
+                        <!--                    <com.example.mobilityindia.otpview.OtpView-->
+                        <!--                        android:layout_width="wrap_content"-->
+                        <!--                        android:layout_height="wrap_content"-->
+                        <!--                        android:inputType="text"-->
+                        <!--                        android:itemBackground="@drawable/editboxborder"-->
+                        <!--                        android:textColor="@android:color/white"-->
+                        <!--                        android:textAllCaps="true"-->
+                        <!--                        app:OtpHideLineWhenFilled="true"-->
+                        <!--                        app:OtpItemCount="6"-->
+                        <!--                        app:OtpItemSpacing="6dp"-->
+                        <!--                        app:OtpLineColor="@color/purple_500"-->
+                        <!--                        app:OtpState_filled="true"-->
+                        <!--                        app:OtpViewType="rectangle"/>-->
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnchangepin"
+                    android:layout_width="match_parent"
+                    android:layout_height="68dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="serif"
+                    android:text="CHANGE PIN"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
+</layout>

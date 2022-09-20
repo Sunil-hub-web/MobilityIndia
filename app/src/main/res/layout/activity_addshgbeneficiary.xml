@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".beneficarylist.addbeneficiary.AddshgbeneficiaryActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/purple_500"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleTextColor="@color/white">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="60dp"
+                android:gravity="center"
+                android:text="Add Benificary"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="serif"
+                            android:gravity="center"
+                            android:text="Whether CBO Member?"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <com.github.angads25.toggle.LabeledSwitch
+                            android:id="@+id/switch4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="16dp"
+                            android:layout_marginTop="@dimen/_10dp"
+                            android:layout_marginBottom="@dimen/_20dp"
+                            android:textSize="14sp"
+                            app:colorBorder="#00c4a6"
+                            app:colorOn="@color/purple_500"
+                            app:on="false"
+                            app:textOff="No"
+                            app:textOn="Yes" />
+
+                        <LinearLayout
+                            android:id="@+id/layoutshow"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/backgroundscreen"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="CBO Name"
+                                android:padding="@dimen/_5dp">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/shgname"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="text"
+                                    android:maxLength="100" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Start Year of CBO "
+                                android:padding="@dimen/_5dp">
+
+                                <EditText
+                                    android:id="@+id/startdateofcbo"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:cursorVisible="false"
+                                    android:drawableRight="@drawable/ic_calender"
+                                    android:drawableTint="@color/purple_500"
+                                    android:focusable="false"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="text"
+                                    android:textIsSelectable="false" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="DOJ CBO"
+                                android:padding="@dimen/_5dp">
+
+                                <EditText
+                                    android:id="@+id/edocbo"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:drawableRight="@drawable/ic_calender"
+                                    android:drawableTint="@color/purple_500"
+                                    android:cursorVisible="false"
+                                    android:focusable="false"
+                                    android:textIsSelectable="false"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="text"
+                                     />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <!-- <com.google.android.material.textfield.TextInputLayout
+                                 android:id="@+id/tl_name"
+                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:hint="Bank Name"
+                                 android:padding="@dimen/_5dp">
+
+                                 <com.google.android.material.textfield.TextInputEditText
+                                     android:id="@+id/bankname"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="wrap_content"
+                                     android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
+                                     android:imeOptions="actionNext"
+                                     android:inputType="textMultiLine"
+                                     android:maxLength="100"/>
+
+                             </com.google.android.material.textfield.TextInputLayout>
+
+                             <com.google.android.material.textfield.TextInputLayout
+                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:hint="SHG Bank Ac No"
+                                 android:padding="@dimen/_5dp">
+
+                                 <com.google.android.material.textfield.TextInputEditText
+                                     android:id="@+id/shgbankno"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="wrap_content"
+                                     android:imeOptions="actionNext"
+                                     android:inputType="number"
+                                     android:maxLength="25"/>
+                             </com.google.android.material.textfield.TextInputLayout>-->
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="@dimen/_10dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="bottom|center_horizontal"
+                    android:orientation="horizontal"
+                    android:padding="12dp"
+                    android:weightSum="2">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/viewBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:text="Back"
+                        app:backgroundTint="@color/graycolor"
+                        app:cornerRadius="@dimen/_12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonnext"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:text="Add"
+                        app:backgroundTint="@color/purple_700"
+                        app:cornerRadius="@dimen/_12sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+</layout>

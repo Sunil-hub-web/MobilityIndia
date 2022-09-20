@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.mobilityindia">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Always include this permission -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Include only if your app benefits from precise location access. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MobilityIndia"
+        android:usesCleartextTraffic="true"
+        tools:targetapi="m">
+        <activity
+            android:name=".usermanual.UserManual"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".health.healthview.AddHealthActivity2"
+            android:exported="true"></activity>
+        <activity
+            android:name=".livelihood.LivelihoodMailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".livelihood.LivelihoodActivity"
+            android:exported="true" />
+        <activity
+            android:name=".social.view.SocialActivity"
+            android:exported="true" />
+        <activity
+            android:name=".social.view.SocialMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".education.EducationMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".syn1.view.SyncActivityAll"
+            android:exported="true" />
+        <activity
+            android:name=".attendance.Attendance"
+            android:exported="true" />
+        <activity
+            android:name=".health.healthview.HealthMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".education.EditEducationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".education.AddEducationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".health.healthview.AddHealthActivity"
+            android:exported="true" />
+        <activity
+            android:name=".social.view.AddSocialActivity"
+            android:exported="true" />
+        <activity
+            android:name=".social.view.EditSocialActivity"
+            android:exported="true" />
+        <activity
+            android:name=".livelihood.AddLivelihoodActivity"
+            android:exported="true" />
+        <activity
+            android:name=".livelihood.EditLivelihoodAtivity"
+            android:exported="true" />
+        <activity
+            android:name=".health.healthview.EditHealthActivity"
+            android:exported="true" />
+        <activity
+            android:name=".education.EducationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".health.healthview.HealthActivity"
+            android:exported="true" />
+        <activity
+            android:name=".workplan.ViewWorkReport"
+            android:exported="false" />
+        <activity
+            android:name=".workplan.WorkMonthDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".workplan.MonthWorkPlanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".actionplan.MonthActionPlanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".actionplan.ActionPlanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".workplan.WorkPlanActivity"
+            android:exported="false"
+            android:label="@string/title_activity_work_plan"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".beneficarylist.editbeneficarylist.EditSHGActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".beneficarylist.editbeneficarylist.EditMoreBasicProfileActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".beneficarylist.editbeneficarylist.EditBasicProfileActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".beneficarylist.viewbeneficarylist.SHGViewActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".beneficarylist.viewbeneficarylist.MoreBasicProfileActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".beneficarylist.viewbeneficarylist.BasicprofileviewActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".beneficarylist.addbeneficiary.AddMoreprofilebeneficaryActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".beneficarylist.addbeneficiary.AddshgbeneficiaryActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".beneficarylist.addbeneficiary.AddbasicprofilebenificiaryActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".beneficarylist.view.BeneficaryDetailActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".beneficarylist.view.BeneficaryListActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".myprofile.view.MyProfileActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".loginpage.DummyActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".more.MoreActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".sync.view.SyncActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".landingpage.view.LandingPageActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".changepin.view.ChangepiinActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".otpverification.view.OtpVerificationActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".createpin.view.CreatepinActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".forgetpin.view.ForgotPinActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar" />
+        <activity
+            android:name=".loginpage.view.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MobilityIndia.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.api_KEY"
+            android:value="@string/apiKey" />
+    </application>
+
+</manifest>

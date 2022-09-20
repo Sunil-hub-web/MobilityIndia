@@ -1,0 +1,17 @@
+
+s
+java:S1450"]Remove the "loginViewModel" field and declare it as a local variable in the relevant methods.( ≥ôØ
+N	java:S106("9Replace this use of System.out or System.err by a logger.(ççå—
+P	java:S125/"<This block of commented-out lines of code should be removed.(˝çQ
+V	java:S1254"<This block of commented-out lines of code should be removed.(˛§…ç¸ˇˇˇˇ
+S	java:S106A"9Replace this use of System.out or System.err by a logger.(¡òî‚˝ˇˇˇˇ
+D
+java:S1659V")Declare "textmessage" on a separate line.(¯†∫Ç˝ˇˇˇˇ
+k
+java:S3252Q"PUse static access with "android.view.ViewGroup$LayoutParams" for "MATCH_PARENT".(“÷ú™˛ˇˇˇˇ
+f
+java:S3252R"PUse static access with "android.view.ViewGroup$LayoutParams" for "WRAP_CONTENT".(ûÿ™ÿ
+C
+java:S1604["(Make this anonymous inner class a lambda(Ÿ›˙Á˚ˇˇˇˇ
+H
+java:S11993"-Extract this nested code block into a method.(“Ã‚ñ¯ˇˇˇˇ

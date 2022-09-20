@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rowid"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_top1_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="@dimen/_20dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/editboxborder"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/_10dp"
+                android:paddingRight="@dimen/_10dp"
+                android:paddingBottom="@dimen/_10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textpaymentcurren"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:fontFamily="serif"
+                             android:gravity="start"
+                            android:paddingTop="@dimen/_5dp"
+                            android:text="Name"
+                            android:textColor="@color/purple_500"
+                            android:textSize="@dimen/_15sp"/>
+
+                        <TextView
+                            android:id="@+id/textpaymenttype"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:fontFamily="serif"
+                            android:gravity="start"
+                            android:paddingTop="@dimen/_5dp"
+                            android:text="Age  "
+                            android:textColor="@color/purple_500"
+                            android:textSize="@dimen/_15sp"/>
+
+
+                        <TextView
+                             android:id="@+id/textpaymentstatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:fontFamily="serif"
+                            android:gravity="start"
+                            android:paddingTop="@dimen/_5dp"
+                            android:text="Reg No  "
+                            android:textColor="@color/purple_500"
+                            android:textSize="@dimen/_15sp"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:fontFamily="serif"
+                            android:gravity="start"
+                            android:paddingTop="@dimen/_5dp"
+                            android:text=":"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15sp" />
+
+                        <TextView
+                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:fontFamily="serif"
+                            android:gravity="start"
+                            android:paddingTop="@dimen/_5dp"
+                            android:text=":"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15sp" />
+
+                        <TextView
+                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:fontFamily="serif"
+                            android:gravity="start"
+                            android:paddingTop="@dimen/_5dp"
+                            android:text=":"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+
+                        <TextView
+                            android:id="@+id/et_patientname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:ellipsize="end"
+                            android:fontFamily="serif"
+                            android:gravity="start|center"
+                            android:paddingLeft="@dimen/_5dp"
+                            android:paddingTop="@dimen/_5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/textcolor"
+                            android:textSize="@dimen/_15sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/dateofprocedure"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:ellipsize="end"
+                            android:fontFamily="serif"
+                            android:gravity="start|center"
+                            android:paddingLeft="@dimen/_5dp"
+                            android:paddingTop="@dimen/_5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/textcolor"
+                            android:textSize="@dimen/_15sp"
+                            />
+
+                        <TextView
+                             android:id="@+id/procedure"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:ellipsize="end"
+                            android:fontFamily="serif"
+                            android:gravity="start|center"
+                            android:paddingLeft="@dimen/_5dp"
+                            android:paddingTop="@dimen/_5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/textcolor"
+                            android:textSize="@dimen/_15sp" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/schedulestatustv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|bottom"
+                        android:gravity="right|top"
+                        android:paddingTop="@dimen/_5dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/bookingacceptdeclinebytv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|top"
+                        android:gravity="right|top"
+                        android:paddingTop="@dimen/_5dp"
+                        android:textColor="@color/purple_500"
+                        android:textSize="@dimen/_10sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/book_a_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+            </RelativeLayout>
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
