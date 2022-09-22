@@ -110,8 +110,11 @@ public class AddHealthActivity extends AppCompatActivity {
     LocalRepo localRepo ;
     List<String> idarray;
     List<String> idarray1;
-    List<String> id_Array;
+    //List<String> id_Array;
     SessinoManager sessinoManager;
+
+    JSONArray id_Array = new JSONArray();
+    JSONArray imagejson;
 
     ApiRequest apiRequest;
 
@@ -132,7 +135,7 @@ public class AddHealthActivity extends AppCompatActivity {
         HealthDevicesName = new ArrayList<>();
         idarray = new ArrayList<>();
         idarray1 = new ArrayList<>();
-        id_Array = new ArrayList<>();
+        //id_Array = new ArrayList<>();
         HealthActivityServices = new ArrayList<>();
         HealthDevices = new ArrayList<>();
         sessinoManager = new SessinoManager(this);
@@ -596,7 +599,7 @@ public class AddHealthActivity extends AppCompatActivity {
                 Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
 
                 String userid = String.valueOf(items.get(i).getId());
-                id_Array.add(userid);
+                id_Array.put(userid);
             }
         });
 
@@ -1545,6 +1548,17 @@ public class AddHealthActivity extends AppCompatActivity {
                 jsonArray_id.put(idarray.get(m));
             }
         }
+
+        if(imagelist.size() != 0){
+
+            imagejson = new JSONArray();
+            for (int m = 0; m < imagelist.size(); m++) {
+                imagejson.put(imagelist.get(m));
+            }
+        }
+
+
+
         Map<String, Object> mapData = new HashMap<>();
 
         userId = sessinoManager.getUSERID();
@@ -1591,7 +1605,7 @@ public class AddHealthActivity extends AppCompatActivity {
         mapData.put("homerecommend",homemodification);
         mapData.put("homerecommendwhat",binding.homemodificationwhere.getText().toString());
         mapData.put("ihp",individualeducattionplan);
-        mapData.put("ihp_doc",imagelist);
+        mapData.put("ihp_doc",imagejson);
         mapData.put("speech_lang_dev",binding.developmentDD.getText().toString().trim());
         mapData.put("opme_dd",binding.OPMEDD.getText().toString().trim());
         mapData.put("if_abnormal",binding.abnormal.getText().toString().trim());
@@ -1627,10 +1641,9 @@ public class AddHealthActivity extends AppCompatActivity {
             public void onResponse(Call<HealthResponse> call, Response<HealthResponse> response) {
                 Log.d("TAG", "onResponse response:: " + response.body());
 
-                pd.dismiss();
-
                 if (response.body() != null) {
                     if(response.body().isStatus()){
+
                         Toast.makeText(AddHealthActivity.this,response.body().getMessage(),Toast.LENGTH_SHORT).show();
 
                        // onBackPressed();

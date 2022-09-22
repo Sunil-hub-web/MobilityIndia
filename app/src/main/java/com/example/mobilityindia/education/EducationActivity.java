@@ -196,9 +196,12 @@ public class EducationActivity extends AppCompatActivity {
 
                     if (individualeducattionplan1.equals("Yes")) {
 
-                        binding.ihpview.setVisibility(View.VISIBLE);
-                        binding.imagesiew.setVisibility(View.VISIBLE);
+                        binding.ihpview.setVisibility(View.GONE);
+                        binding.imagesiew.setVisibility(View.GONE);
                     }
+
+                    binding.ihpview.setVisibility(View.GONE);
+                    binding.imagesiew.setVisibility(View.GONE);
 
                     userDoc = singleMember.get(0).getIepdoc();
 
