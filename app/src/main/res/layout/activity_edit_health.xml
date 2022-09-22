@@ -60,33 +60,33 @@
 
 
             <!--<com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_15dp"
-                android:layout_marginTop="@dimen/_15dp"
-                android:layout_marginRight="@dimen/_15dp"
-                android:hint="Services"
-                android:padding="@dimen/_5dp">
-
-                <MultiAutoCompleteTextView
-                    android:id="@+id/Services"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:cursorVisible="false"
-                    android:drawableRight="@drawable/dropdown"
-                    android:focusable="false"
-                    android:fontFamily="serif"
-                    android:imeOptions="actionNext"
-                    android:inputType="textAutoComplete"
-                    android:longClickable="false"
-                    android:padding="14dp"
-                    android:textColor="@color/textcolor"
-                    android:textIsSelectable="false" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15dp"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:layout_marginRight="@dimen/_15dp"
+                    android:hint="Services"
+                    android:padding="@dimen/_5dp">
 
-            </com.google.android.material.textfield.TextInputLayout>-->
+                    <MultiAutoCompleteTextView
+                        android:id="@+id/Services"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:cursorVisible="false"
+                        android:drawableRight="@drawable/dropdown"
+                        android:focusable="false"
+                        android:fontFamily="serif"
+                        android:imeOptions="actionNext"
+                        android:inputType="textAutoComplete"
+                        android:longClickable="false"
+                        android:padding="14dp"
+                        android:textColor="@color/textcolor"
+                        android:textIsSelectable="false" />
+
+                </com.google.android.material.textfield.TextInputLayout>-->
 
             <!--Screening-->
             <LinearLayout
@@ -227,7 +227,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500"/>
+                                android:maxLength="50"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -245,7 +245,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500"/>
+                                android:maxLength="50"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -338,7 +338,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/medicalRef"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
                             <com.google.android.material.textfield.TextInputLayout
                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -353,7 +354,7 @@
                                     android:layout_height="wrap_content"
                                     android:imeOptions="actionNext"
                                     android:inputType="text"
-                                    android:maxLength="500"/>
+                                    android:maxLength="50"/>
 
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -370,11 +371,14 @@
                                     android:layout_height="wrap_content"
                                     android:imeOptions="actionNext"
                                     android:inputType="text"
-                                    android:maxLength="500"/>
+                                    android:maxLength="280"/>
 
                             </com.google.android.material.textfield.TextInputLayout>
 
                         </LinearLayout>
+
+
+
 
                     </LinearLayout>
                 </LinearLayout>
@@ -418,7 +422,7 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Trial for What"
+                            android:hint="Followup action"
                             android:padding="@dimen/_5dp">
 
                             <com.google.android.material.textfield.TextInputEditText
@@ -427,7 +431,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500"/>
+                                android:maxLength="50"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -526,6 +530,7 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:digits="1234567890"
                             android:hint="How many is done?"
                             android:padding="@dimen/_5dp">
 
@@ -534,8 +539,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
-                                android:inputType="text"
-                                android:maxLength="500"/>
+                                android:inputType="number"
+                                android:maxLength="2"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -607,7 +612,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500"/>
+                                android:maxLength="1000"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -663,7 +668,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="1000" />
+                                android:maxLength="30" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -680,16 +685,16 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="1000" />
+                                android:maxLength="30" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/_60dp"
+                            android:layout_height="wrap_content"
                             android:hint="What kind of device"
-                            android:padding="5dp">
+                            android:padding="@dimen/_5dp">
 
                             <!--  <AutoCompleteTextView
                                   android:id="@+id/fitmentkind"
@@ -713,37 +718,46 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="text"
-                                android:maxLength="500"
+                                android:maxLength="1000"
                                 android:textColor="@color/textcolor"
                                 android:imeOptions="actionNext"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        <!-- <com.google.android.material.textfield.TextInputLayout
+                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                             android:layout_width="match_parent"
+                             android:layout_height="@dimen/_60dp"
+                             android:hint="Aids &amp; Appliances"
+                             android:padding="5dp">
+
+                            &lt;!&ndash; <AutoCompleteTextView
+                                 android:id="@+id/aidsAppliances"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="match_parent"
+                                 android:layout_centerHorizontal="true"
+                                 android:layout_centerVertical="true"
+                                 android:cursorVisible="false"
+                                 android:drawableRight="@drawable/dropdown"
+                                 android:focusable="false"
+                                 android:fontFamily="serif"
+                                 android:imeOptions="actionNext"
+                                 android:inputType="textAutoComplete"
+                                 android:longClickable="false"
+                                 android:padding="14dp"
+                                 android:textColor="@color/textcolor"
+                                 android:textIsSelectable="false" />&ndash;&gt;
+
+                         </com.google.android.material.textfield.TextInputLayout>-->
+
+                        <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
+                            android:id="@+id/aidsAppliances"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/_60dp"
-                            android:hint="Aids &amp; Appliances"
-                            android:padding="5dp">
-
-                            <AutoCompleteTextView
-                                android:id="@+id/aidsAppliances"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_centerHorizontal="true"
-                                android:layout_centerVertical="true"
-                                android:cursorVisible="false"
-                                android:drawableRight="@drawable/dropdown"
-                                android:focusable="false"
-                                android:fontFamily="serif"
-                                android:imeOptions="actionNext"
-                                android:inputType="textAutoComplete"
-                                android:longClickable="false"
-                                android:padding="14dp"
-                                android:textColor="@color/textcolor"
-                                android:textIsSelectable="false" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_height="@dimen/_50dp"
+                            android:layout_margin="@dimen/_10dp"
+                            android:background="@drawable/backgroundonoff"
+                            android:textSize="@dimen/_15dp"
+                            app:hintText="Select Services" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -758,7 +772,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500" />
+                                android:maxLength="1000" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -775,7 +789,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500" />
+                                android:maxLength="1000" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -792,7 +806,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500" />
+                                android:maxLength="1000" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -809,7 +823,11 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500" />
+                                android:maxLength="1000"
+                                android:cursorVisible="false"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:textIsSelectable="false"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -958,40 +976,34 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="8dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5dp"
-                            android:layout_marginRight="8dp"
                             android:layout_marginBottom="@dimen/_10dp"
-                            android:background="@drawable/backgroundonoff"
-                            android:gravity="center"
-                            android:weightSum="2">
+                            android:layout_marginLeft="@dimen/_5dp"
+                            android:layout_marginRight="@dimen/_5dp"
+                            android:gravity="center">
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_weight=".6"
-                                android:fontFamily="serif"
-                                android:gravity="left"
-                                android:paddingLeft="@dimen/_20dp"
-                                android:text="Corrective Surgery"
-                                android:textStyle="bold" />
+                            <!--  <TextView
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_gravity="center_vertical"
+                                  android:layout_weight=".6"
+                                  android:fontFamily="serif"
+                                  android:gravity="left"
+                                  android:paddingLeft="@dimen/_20dp"
+                                  android:text="Corrective Surgery"
+                                  android:textStyle="bold" />-->
 
                             <com.google.android.material.textfield.TextInputLayout
                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10dp"
-                                android:layout_marginTop="@dimen/_5dp"
-                                android:layout_marginRight="@dimen/_10dp"
                                 android:hint="Corrective Surgery">
 
                                 <AutoCompleteTextView
                                     android:id="@+id/correctivesurgery"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="@dimen/_50dp"
                                     android:layout_centerHorizontal="true"
                                     android:layout_centerVertical="true"
                                     android:cursorVisible="false"
@@ -1023,7 +1035,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500"/>
+                                android:maxLength="1000"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -1040,7 +1052,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500"/>
+                                android:maxLength="1000"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -1141,7 +1153,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500"/>
+                                android:maxLength="99"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -1355,7 +1367,7 @@
                             android:layout_marginLeft="@dimen/_10dp"
                             android:layout_marginTop="@dimen/_5dp"
                             android:layout_marginRight="@dimen/_10dp"
-                            android:hint="dQuality (DD)">
+                            android:hint="Quality (DD)">
 
                             <AutoCompleteTextView
                                 android:id="@+id/QualityDD"
@@ -1545,7 +1557,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500" />
+                                android:maxLength="1000" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -1723,7 +1735,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500" />
+                                android:maxLength="1000" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -1771,7 +1783,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500" />
+                                android:maxLength="1000" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -1969,7 +1981,7 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!--Repair-->
+            <!--CBR Repair-->
             <LinearLayout
                 android:id="@+id/lin_Repair"
                 android:layout_width="match_parent"
@@ -2016,7 +2028,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500" />
+                                android:maxLength="1000" />
 
                         </com.google.android.material.textfield.TextInputLayout>-->
 
@@ -2033,7 +2045,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500" />
+                                android:maxLength="1000" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -2050,7 +2062,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500" />
+                                android:maxLength="1000" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -2068,7 +2080,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500" />
+                                android:maxLength="1000" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -2124,7 +2136,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500" />
+                                android:maxLength="1000" />
 
                         </com.google.android.material.textfield.TextInputLayout>-->
 
@@ -2141,7 +2153,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500" />
+                                android:maxLength="1000" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -2158,7 +2170,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500" />
+                                android:maxLength="1000" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -2176,7 +2188,7 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="500" />
+                                android:maxLength="1000" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -2267,7 +2279,7 @@
                                 android:fontFamily="serif"
                                 android:gravity="left"
                                 android:paddingLeft="@dimen/_20dp"
-                                android:text="Fallow Sheet Updated"
+                                android:text="Followup sheet updated"
                                 android:textStyle="bold" />
 
                             <com.github.angads25.toggle.LabeledSwitch
@@ -2596,6 +2608,89 @@
 
                 </LinearLayout>
             </LinearLayout>
+
+            <!--  <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginTop="@dimen/_10dp"
+                  android:layout_marginRight="10dp"
+                  android:background="@drawable/backgroundscreen"
+                  android:orientation="vertical">
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical">
+
+
+                      <LinearLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:layout_marginTop="@dimen/_20dp"
+                          android:orientation="vertical">
+
+                          <TextView
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_gravity="center_vertical"
+                              android:fontFamily="serif"
+                              android:gravity="center|center_vertical"
+                              android:text="Individual Health Plan"
+                              android:textColor="#768Ac2"
+                              android:textStyle="bold" />
+
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="50dp"
+                              android:layout_gravity="center"
+                              android:layout_marginLeft="8dp"
+                              android:layout_marginTop="@dimen/_5dp"
+                              android:layout_marginRight="8dp"
+                              android:layout_marginBottom="@dimen/_10dp"
+                              android:background="@drawable/backgroundonoff"
+                              android:gravity="center"
+                              android:weightSum="2">
+
+                              <TextView
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_gravity="center_vertical"
+                                  android:layout_weight=".6"
+                                  android:fontFamily="serif"
+                                  android:gravity="left"
+                                  android:paddingLeft="@dimen/_20dp"
+                                  android:text="IHP"
+                                  android:textStyle="bold" />
+
+                              <com.github.angads25.toggle.LabeledSwitch
+                                  android:id="@+id/ihp"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
+                                  android:layout_marginLeft="@dimen/_15dp"
+                                  android:layout_marginTop="@dimen/_10dp"
+                                  android:layout_marginRight="@dimen/_15dp"
+                                  android:layout_marginBottom="@dimen/_10dp"
+                                  android:layout_weight="1.4"
+                                  android:textSize="14sp"
+                                  app:colorBorder="#00c4a6"
+                                  app:colorOn="@color/purple_500"
+                                  app:textOff="No"
+                                  app:textOn="Yes"/>
+
+
+                          </LinearLayout>
+
+
+
+
+
+
+                      </LinearLayout>
+                  </LinearLayout>
+              </LinearLayout>-->
+
 
             <!--  <LinearLayout
                   android:layout_width="match_parent"

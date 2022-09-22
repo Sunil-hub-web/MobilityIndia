@@ -680,7 +680,7 @@ public class EditLivelihoodAtivity extends AppCompatActivity {
         localRepo.updateLivehoodData(livelihood);
        // onBackPressed();
 
-        Toast.makeText(this, "Data update Locally", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Livelihood updated in locally.", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(EditLivelihoodAtivity.this, BeneficaryListActivity.class);
         startActivity(intent);
 
@@ -692,7 +692,7 @@ public class EditLivelihoodAtivity extends AppCompatActivity {
         localRepo.updateLivehoodData(livelihood);
         // onBackPressed();
 
-        Toast.makeText(this, "Data update Locally", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Livelihood updated in locally.", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(EditLivelihoodAtivity.this, BeneficaryListActivity.class);
         startActivity(intent);
 

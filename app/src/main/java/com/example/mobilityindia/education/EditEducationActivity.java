@@ -1029,7 +1029,7 @@ public class EditEducationActivity extends AppCompatActivity {
         localRepo.updateEducationData(educationData);
 
 
-        Toast.makeText(EditEducationActivity.this, "Data Update Local", Toast.LENGTH_SHORT).show();
+        Toast.makeText(EditEducationActivity.this, "Education updated in locally", Toast.LENGTH_SHORT).show();
 
         //onBackPressed();
 
@@ -1080,7 +1080,7 @@ public class EditEducationActivity extends AppCompatActivity {
         localRepo.updateEducationData(educationData);
 
 
-        Toast.makeText(EditEducationActivity.this, "Data Update Local", Toast.LENGTH_SHORT).show();
+        Toast.makeText(EditEducationActivity.this, "Education updated in locally", Toast.LENGTH_SHORT).show();
 
         //onBackPressed();
 

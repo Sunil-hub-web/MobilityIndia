@@ -62,7 +62,7 @@
     <string-array name="AccesstoTLM">
         <item>Yes</item>
         <item>No</item>
-        <item>Not Available</item>
+        <item>NA</item>
     </string-array>
 
     <string-array name="Howoften">

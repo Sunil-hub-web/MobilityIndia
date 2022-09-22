@@ -318,7 +318,7 @@ public class MonthWorkPlanActivity extends AppCompatActivity {
 
                 } else {
 
-                    Toast.makeText(MonthWorkPlanActivity.this, "Internet is not available,data save in locally", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MonthWorkPlanActivity.this, "Internet is not available,data saved in locally", Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -337,7 +337,7 @@ public class MonthWorkPlanActivity extends AppCompatActivity {
 
                 } else {
 
-                    Toast.makeText(MonthWorkPlanActivity.this, "Internet is not available,data save in locally", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MonthWorkPlanActivity.this, "Internet is not available,data saved in locally", Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -642,7 +642,7 @@ public class MonthWorkPlanActivity extends AppCompatActivity {
 
                     if (status.equals("true")) {
 
-                        Toast.makeText(MonthWorkPlanActivity.this, "Data Save Successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MonthWorkPlanActivity.this, "Data saved successfully", Toast.LENGTH_SHORT).show();
 
                         //dialog.dismiss();
 

@@ -1148,7 +1148,7 @@ public class EditBasicProfileActivity extends AppCompatActivity {
                     singleMember.get(0).setIdCardNo(binding.idcardno.getText().toString());
                     singleMember.get(0).setPhpAmount(binding.phpammount.getText().toString());
                     singleMember.get(0).setTypeOfBeneficiary(binding.typeofbenificary.getText().toString());
-
+                    StringBuffer sb = new StringBuffer();
                     singleMember.get(0).setPurposeVisitDetails(binding.VisitDetails.getText().toString().trim());
                     singleMember.get(0).setNameOfPwdCwd(binding.nameofpwdcwd.getText().toString().trim());
                     singleMember.get(0).setHaveBankAcc(binding.youhavebankaccount.getText().toString().trim());
@@ -1159,18 +1159,17 @@ public class EditBasicProfileActivity extends AppCompatActivity {
 
                     singleMember.get(0).setFlag("update");
 
-                    StringBuffer sb = new StringBuffer();
                     StringBuffer sb1 = new StringBuffer();
 
                     if (idarray.size() != 0) {
 
                         for (String s : idarray) {
 
-                            sb.append(s);
-                            sb.append(",");
+                            sb1.append(s);
+                            sb1.append(",");
                         }
 
-                        String services_Id = sb.toString();
+                        String services_Id = sb1.toString();
                         // remove last character (,)
                         services_Id = services_Id.substring(0, services_Id.length() - 1);
 
@@ -1185,18 +1184,18 @@ public class EditBasicProfileActivity extends AppCompatActivity {
                         String services_name = sb1.toString();
                         // remove last character (,)
                         services_name = services_name.substring(0, services_name.length() - 1);
-                        //singleMember.get(0).setVisitName(services_name);
+                        singleMember.get(0).setVisitName(idarray1);
 
                     } else {
 
-                        singleMember.get(0).setPurposeOfVisit("");
+                        singleMember.get(0).setPurposeOfVisit(binding.purposeofvisit.getText().toString());
 
                     }
                     localRepo.updateBene(singleMember.get(0));
 
                     onBackPressed();
 
-                    Toast.makeText(EditBasicProfileActivity.this, " Basic Profile update Successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditBasicProfileActivity.this, " Basic profile updated in locally.", Toast.LENGTH_SHORT).show();
 
                 }
             }

@@ -1,6 +1,7 @@
 package com.example.mobilityindia.health.healthview;
 
 import static com.example.mobilityindia.constant.CommonClass.getHealthActivity;
+import static com.example.mobilityindia.constant.CommonClass.getHealthDevices;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -91,8 +92,15 @@ public class EditHealthActivity extends AppCompatActivity {
     List<String> idarray1;
     List<String> idarray2;
     List<String> idarray3;
+    List<String> idarray4;
+    List<String> HealthDevicesID;
+    List<String> HealthDevicesName;
+    List<String> id_Array;
+    ArrayList<VisitModelClass> HealthDevices;
     SessinoManager sessinoManager;
     List<KeyPairBoolData> listArray1;
+    List<KeyPairBoolData> listArray2;
+    MultiSpinnerSearch multiSelectSpinnerWithSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +122,10 @@ public class EditHealthActivity extends AppCompatActivity {
         idarray1 = new ArrayList<>();
         idarray2 = new ArrayList<>();
         idarray3 = new ArrayList<>();
+        idarray4 = new ArrayList<>();
+        HealthDevices = new ArrayList<>();
+        HealthDevicesID = new ArrayList<>();
+        HealthDevicesName = new ArrayList<>();
         HealthActivityServices = new ArrayList<>();
         sessinoManager = new SessinoManager(this);
         eardischargeDD = new ArrayList<>();
@@ -121,6 +133,8 @@ public class EditHealthActivity extends AppCompatActivity {
         earLeftDD = new ArrayList<>();
         imagelist = new ArrayList<>();
         listArray1 = new ArrayList<>();
+        listArray2 = new ArrayList<>();
+        id_Array = new ArrayList<>();
         localRepo = new LocalRepo(EditHealthActivity.this);
 
         userId = sessinoManager.getUSERID();
@@ -136,7 +150,7 @@ public class EditHealthActivity extends AppCompatActivity {
             callofflinedata1();
         }
 
-        String gettdisability = getHealthActivity(EditHealthActivity.this);
+        /*String gettdisability = getHealthActivity(EditHealthActivity.this);
         try {
             JSONObject obj = new JSONObject(gettdisability);
             if (obj.optString("status", "fail").equals("true")) {
@@ -161,7 +175,7 @@ public class EditHealthActivity extends AppCompatActivity {
 
        // final List<KeyPairBoolData> listArray1 = new ArrayList<>();
 
-       /* for (int i = 0; i < HealthActivityServices.size(); i++) {
+        for (int i = 0; i < HealthActivityServices.size(); i++) {
             KeyPairBoolData h = new KeyPairBoolData();
             h.setId(HealthActivityServices.get(i).getId());
             h.setName(HealthActivityServices.get(i).getName());
@@ -171,10 +185,10 @@ public class EditHealthActivity extends AppCompatActivity {
                 h.setSelected(true);
             }
             //h.setSelected(i < 5);
-            listArray1.add(h);
+            listArray2.add(h);
 
-            Log.d("hdgbdjb", listArray1.toString());
-        }*/
+            Log.d("hdgbdjb", listArray2.toString());
+        }
 
         MultiSpinnerSearch multiSelectSpinnerWithSearch = findViewById(R.id.Services);
 
@@ -199,7 +213,7 @@ public class EditHealthActivity extends AppCompatActivity {
         // If you want to pass preselected items, you can do it while making listArray,
         // Pass true in setSelected of any item that you want to preselect
 
-        multiSelectSpinnerWithSearch.setItems(listArray1, items -> {
+        multiSelectSpinnerWithSearch.setItems(listArray2, items -> {
 
             idarray1.clear();
             idarray.clear();
@@ -344,7 +358,7 @@ public class EditHealthActivity extends AppCompatActivity {
             else
                 binding.linRepair.setVisibility(View.GONE);
 
-        });
+        });*/
 
 
 
@@ -505,21 +519,72 @@ public class EditHealthActivity extends AppCompatActivity {
             }
         });
 
-        String[] itemName = getResources().getStringArray(R.array.whatkinddevice);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, itemName);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        binding.aidsAppliances.setAdapter(adapter);
+        String getDevices = getHealthDevices(EditHealthActivity.this);
+        try {
+            JSONObject obj = new JSONObject(getDevices);
+            if (obj.optString("status", "fail").equals("true")) {
+                JSONArray jsonArray = obj.optJSONArray("data");
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    HealthDevicesName.add(jsonObject.getString("device_name"));
+                    HealthDevicesID.add(jsonObject.getString("id"));
 
-        binding.aidsAppliances.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                (binding.aidsAppliances).showDropDown();
+                    String name = jsonObject.getString("device_name");
+                    String id = jsonObject.getString("id");
+
+                    long lon_id = Long.valueOf(id);
+
+                    VisitModelClass visitModelClass = new VisitModelClass(lon_id,name);
+                    HealthDevices.add(visitModelClass);
+                }
+
+                int size = HealthDevicesName.size();
+                int size1 = HealthDevicesID.size();
+
+                Log.d("hbdsb",size+"     "+size1);
             }
-        });
-        binding.aidsAppliances.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                str_aidsAppliances = binding.aidsAppliances.getAdapter().getItem(position).toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        final List<KeyPairBoolData> listArray2 = new ArrayList<>();
+        for (int i = 0; i < HealthDevices.size(); i++) {
+            KeyPairBoolData h = new KeyPairBoolData();
+            h.setId(HealthDevices.get(i).getId());
+            h.setName(HealthDevices.get(i).getName());
+            //h.setSelected(i < 5);
+            listArray2.add(h);
+        }
+
+        MultiSpinnerSearch multiSelectSpinnerWithSearch1 = findViewById(R.id.aidsAppliances);
+
+        // Pass true If you want searchView above the list. Otherwise false. default = true.
+        multiSelectSpinnerWithSearch1.setSearchEnabled(true);
+
+        multiSelectSpinnerWithSearch1.setHintText("Aids Appliances");
+
+        //A text that will display in clear text button
+        multiSelectSpinnerWithSearch1.setClearText("Close & Clear");
+
+        // A text that will display in search hint.
+        multiSelectSpinnerWithSearch1.setSearchHint("Select your Aids Appliances");
+
+        // Set text that will display when search result not found...
+        multiSelectSpinnerWithSearch1.setEmptyTitle("Not Data Found!");
+
+        // If you will set the limit, this button will not display automatically.
+        multiSelectSpinnerWithSearch1.setShowSelectAllButton(true);
+
+        // Removed second parameter, position. Its not required now..
+        // If you want to pass preselected items, you can do it while making listArray,
+        // Pass true in setSelected of any item that you want to preselect
+        multiSelectSpinnerWithSearch1.setItems(listArray2, items -> {
+            //The followings are selected items.
+            for (int i = 0; i < items.size(); i++) {
+                Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
+
+                String userid = String.valueOf(items.get(i).getId());
+                id_Array.add(userid);
             }
         });
 
@@ -922,7 +987,7 @@ public class EditHealthActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    if(idarray.size() == 0){
+                    if(idarray3.size() == 0){
 
                         Toast.makeText(EditHealthActivity.this, "Please Select Services", Toast.LENGTH_SHORT).show();
 
@@ -962,6 +1027,8 @@ public class EditHealthActivity extends AppCompatActivity {
 
                     String healthId = singleMember.get(0).getId();
                     CommonClass.healthId = healthId;
+
+                    idarray2.clear();
 
                     idarray2 = singleMember.get(0).getServiceName();
 
@@ -1019,7 +1086,7 @@ public class EditHealthActivity extends AppCompatActivity {
                         Log.d("hdgbdjb", listArray1.toString());
                     }
 
-                    MultiSpinnerSearch multiSelectSpinnerWithSearch = findViewById(R.id.Services);
+                    multiSelectSpinnerWithSearch = findViewById(R.id.Services);
                     multiSelectSpinnerWithSearch.setSearchEnabled(true);
                     multiSelectSpinnerWithSearch.setHintText("Select Services");
                     multiSelectSpinnerWithSearch.setClearText("Close & Clear");
@@ -1028,15 +1095,119 @@ public class EditHealthActivity extends AppCompatActivity {
                     multiSelectSpinnerWithSearch.setShowSelectAllButton(true);
 
                     multiSelectSpinnerWithSearch.setItems(listArray1, items -> {
+
+                        idarray3.clear();
+                        idarray4.clear();
+
                         //The followings are selected items.
                         for (int i = 0; i < items.size(); i++) {
                             Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
 
                             String userid = String.valueOf(items.get(i).getId());
-                            idarray3.add(userid);
+                            String name = String.valueOf(items.get(i).getName());
+                            idarray3.add(name);
+                            idarray4.add(userid);
 
                             Toast.makeText(EditHealthActivity.this, "sonuarr"+idarray3, Toast.LENGTH_SHORT).show();
                         }
+
+                        Log.d("gcyhbghv",idarray3.toString());
+
+                        boolean ans_Screening = idarray3.contains("Screening");
+                        if (ans_Screening)
+                            binding.linScreening.setVisibility(View.VISIBLE);
+                        else
+                            binding.linScreening.setVisibility(View.GONE);
+
+                        boolean ans_Trial = idarray3.contains("Trial");
+                        if (ans_Trial)
+                            binding.linTrial.setVisibility(View.VISIBLE);
+                        else
+                            binding.linTrial.setVisibility(View.GONE);
+
+                        boolean ans_GAITTraining = idarray3.contains("GAIT Training");
+                        if (ans_GAITTraining)
+                            binding.linGAITTraining.setVisibility(View.VISIBLE);
+                        else
+                            binding.linGAITTraining.setVisibility(View.GONE);
+
+                        boolean ans_Assessment = idarray3.contains("Assessment");
+                        if (ans_Assessment)
+                            binding.linAssessment.setVisibility(View.VISIBLE);
+                        else
+                            binding.linAssessment.setVisibility(View.GONE);
+
+                        boolean ans_MedicalReferral = idarray3.contains("Referral");
+                        if (ans_MedicalReferral)
+                            binding.linMedicalReferral.setVisibility(View.VISIBLE);
+                        else
+                            binding.linMedicalReferral.setVisibility(View.GONE);
+
+                        boolean ans_TherapyServices = idarray3.contains("Therapy Service");
+                        if (ans_TherapyServices)
+                            binding.linTherapyServices.setVisibility(View.VISIBLE);
+                        else
+                            binding.linTherapyServices.setVisibility(View.GONE);
+
+                        boolean ans_Fitment = idarray3.contains("Fitment");
+                        if (ans_Fitment)
+                            binding.linFitment.setVisibility(View.VISIBLE);
+                        else
+                            binding.linFitment.setVisibility(View.GONE);
+
+                        boolean ans_CorrectiveSurgery = idarray3.contains("Corrective Surgery");
+                        if (ans_CorrectiveSurgery)
+                            binding.linCorrectiveSurgery.setVisibility(View.VISIBLE);
+                        else
+                            binding.linCorrectiveSurgery.setVisibility(View.GONE);
+
+                        boolean ans_HomeModificcation = idarray3.contains("Home Modification");
+                        if (ans_HomeModificcation)
+                            binding.linHomeModificcation.setVisibility(View.VISIBLE);
+                        else
+                            binding.linHomeModificcation.setVisibility(View.GONE);
+
+                        boolean ans_SpeechLanguage = idarray3.contains("Speech & Language");
+                        if (ans_SpeechLanguage)
+                            binding.linSpeechLanguage.setVisibility(View.VISIBLE);
+                        else
+                            binding.linSpeechLanguage.setVisibility(View.GONE);
+
+                        boolean ans_Hearing = idarray3.contains("Hearing");
+                        if (ans_Hearing)
+                            binding.linHearing.setVisibility(View.VISIBLE);
+                        else
+                            binding.linHearing.setVisibility(View.GONE);
+
+                        boolean ans_Hearing1 = idarray3.contains("Hearing");
+                        if (ans_Hearing1)
+                            binding.linHearingAid.setVisibility(View.VISIBLE);
+                        else
+                            binding.linHearingAid.setVisibility(View.GONE);
+
+                        boolean ans_IHP = idarray3.contains("IHP");
+                        if (ans_IHP)
+                            binding.linIndividualHealthPlan.setVisibility(View.VISIBLE);
+                        else
+                            binding.linIndividualHealthPlan.setVisibility(View.GONE);
+
+                        boolean ans_Followup = idarray3.contains("Followup");
+                        if (ans_Followup)
+                            binding.linFallowUp.setVisibility(View.VISIBLE);
+                        else
+                            binding.linFallowUp.setVisibility(View.GONE);
+
+                        boolean ans_AARepair = idarray3.contains("A&A Repair");
+                        if(ans_AARepair)
+                            binding.linRepair1.setVisibility(View.VISIBLE);
+                        else
+                            binding.linRepair1.setVisibility(View.GONE);
+
+                        boolean ans_CBRAARepair = idarray3.contains("CBR A&A Repair");
+                        if (ans_CBRAARepair)
+                            binding.linRepair.setVisibility(View.VISIBLE);
+                        else
+                            binding.linRepair.setVisibility(View.GONE);
                     });
 
                     binding.startdateofshg.setText(singleMember.get(0).getScreeningdate());
@@ -1070,7 +1241,7 @@ public class EditHealthActivity extends AppCompatActivity {
                     binding.fitmentwho.setText(singleMember.get(0).getTherapysessions());
                     binding.fitmentwhere.setText(singleMember.get(0).getTherapysessions());
                     binding.fitmentkind.setText(singleMember.get(0).getTherapysessions());
-                    binding.aidsAppliances.setText(singleMember.get(0).getTherapysessions());
+                  //  binding.aidsAppliances.setText(singleMember.get(0).getTherapysessions());
                     binding.noofappliances.setText(singleMember.get(0).getTherapysessions());
                     binding.totalcost.setText(singleMember.get(0).getTotalCost());
                     binding.patientcontribution.setText(singleMember.get(0).getPatientContribution());
@@ -1293,7 +1464,7 @@ public class EditHealthActivity extends AppCompatActivity {
                     binding.fitmentwho.setText(singleMember.get(0).getTherapysessions());
                     binding.fitmentwhere.setText(singleMember.get(0).getTherapysessions());
                     binding.fitmentkind.setText(singleMember.get(0).getTherapysessions());
-                    binding.aidsAppliances.setText(singleMember.get(0).getTherapysessions());
+                    //binding.aidsAppliances.setText(singleMember.get(0).getTherapysessions());
                     binding.noofappliances.setText(singleMember.get(0).getTherapysessions());
                     binding.totalcost.setText(singleMember.get(0).getTotalCost());
                     binding.patientcontribution.setText(singleMember.get(0).getPatientContribution());
@@ -1651,7 +1822,6 @@ public class EditHealthActivity extends AppCompatActivity {
                 }
 
                 break;
-
         }
 
     }
@@ -1682,8 +1852,8 @@ public class EditHealthActivity extends AppCompatActivity {
         healthCareData.setUpdatedAt(formatter.format(date));
         healthCareData.setUpdatedBy(userId);
 
-        healthCareData.setServiceDone(idarray.toString());
-        healthCareData.setServiceName(idarray1);
+        healthCareData.setServiceDone(idarray4.toString());
+        healthCareData.setServiceName(idarray3);
         healthCareData.setScreeningdate(binding.startdateofshg.getText().toString());
         healthCareData.setBenificiaryId(CommonClass.benfeciary_ID);
         healthCareData.setAssessmentdate(binding.dateofassiment.getText().toString());
@@ -1753,7 +1923,7 @@ public class EditHealthActivity extends AppCompatActivity {
 
         localRepo.updateHealthCareData(healthCareData);
 
-        Toast.makeText(this, "Data update Locally", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Health updated in locally.", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(EditHealthActivity.this, BeneficaryListActivity.class);
         startActivity(intent);
     }
@@ -1774,7 +1944,8 @@ public class EditHealthActivity extends AppCompatActivity {
         healthCareData.setUpdatedAt(formatter.format(date));
         healthCareData.setUpdatedBy(userId);
 
-        healthCareData.setServiceDone(idarray.toString());
+        healthCareData.setServiceDone(idarray4.toString());
+        healthCareData.setServiceName(idarray3);
         healthCareData.setScreeningdate(binding.startdateofshg.getText().toString());
         healthCareData.setBenificiaryId(CommonClass.benfeciary_ID);
         healthCareData.setAssessmentdate(binding.dateofassiment.getText().toString());
@@ -1844,7 +2015,7 @@ public class EditHealthActivity extends AppCompatActivity {
 
         localRepo.updateHealthCareData(healthCareData);
 
-        Toast.makeText(this, "Data update Locally", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Health updated in locally.", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(EditHealthActivity.this, BeneficaryListActivity.class);
         startActivity(intent);
 

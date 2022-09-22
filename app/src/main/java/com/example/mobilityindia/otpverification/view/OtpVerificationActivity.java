@@ -102,9 +102,16 @@ public class OtpVerificationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 binding.timerTxt.setVisibility(View.VISIBLE);
-                binding.Didntreceiveotp.setVisibility(View.VISIBLE);
+                binding.Didntreceiveotp.setVisibility(View.GONE);
                 startTimer();
                 verifyOtpModel.onResendOTP(emailStr);
+
+                binding.etopn1.setText("");
+                binding.etopn2.setText("");
+                binding.etopn3.setText("");
+                binding.etopn4.setText("");
+                binding.etopn5.setText("");
+                binding.etopn6.setText("");
             }
         });
 
@@ -157,6 +164,7 @@ public class OtpVerificationActivity extends AppCompatActivity {
                 binding.resendTxt.setVisibility(View.GONE);
              //   stopTimer();
 
+
             }
         });
 
@@ -176,6 +184,7 @@ public class OtpVerificationActivity extends AppCompatActivity {
 
     private void startTimer() {
         countDownTimer = new OtpCounter(totalTimeCountInMilliseconds, 500).start();
+        binding.Didntreceiveotp.setVisibility(View.GONE);
     }
 
     public void stopTimer() {

@@ -10,6 +10,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,6 +23,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.example.mobilityindia.R;
 import com.example.mobilityindia.SessinoManager;
+import com.example.mobilityindia.beneficarylist.addbeneficiary.AddMoreprofilebeneficaryActivity;
 import com.example.mobilityindia.beneficarylist.addbeneficiary.AddbasicprofilebenificiaryActivity;
 import com.example.mobilityindia.beneficarylist.addbeneficiary.AddshgbeneficiaryActivity;
 import com.example.mobilityindia.beneficarylist.view.BeneficaryDetailActivity;
@@ -362,6 +365,7 @@ public class AddLivelihoodActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
     public void addlivelihoodapi()
     {
@@ -429,7 +433,6 @@ public class AddLivelihoodActivity extends AppCompatActivity {
         });
 
     }
-
 
     public void localbeneficaryDataCall()
     {
@@ -532,4 +535,6 @@ public class AddLivelihoodActivity extends AppCompatActivity {
         });
 
     }
+
+
 }

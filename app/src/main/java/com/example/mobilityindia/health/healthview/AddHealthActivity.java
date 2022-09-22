@@ -142,6 +142,14 @@ public class AddHealthActivity extends AppCompatActivity {
         imagelist = new ArrayList<>();
         localRepo = new LocalRepo(AddHealthActivity.this);
 
+        binding.viewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                onBackPressed();
+            }
+        });
+
         String gettdisability = getHealthActivity(AddHealthActivity.this);
         try {
             JSONObject obj = new JSONObject(gettdisability);
@@ -1618,10 +1626,13 @@ public class AddHealthActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<HealthResponse> call, Response<HealthResponse> response) {
                 Log.d("TAG", "onResponse response:: " + response.body());
+
+                pd.dismiss();
+
                 if (response.body() != null) {
                     if(response.body().isStatus()){
                         Toast.makeText(AddHealthActivity.this,response.body().getMessage(),Toast.LENGTH_SHORT).show();
-                        pd.dismiss();
+
                        // onBackPressed();
 
                         getdataHealthActivity();

@@ -278,7 +278,7 @@ public class AddshgbeneficiaryActivity extends AppCompatActivity {
         beneData.setUserId(userId);
         beneData.setFlag("update");
         localRepo.insertBene(beneData);
-        Toast.makeText(getApplicationContext(), "Internet is not Available Data save in your Local", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Internet is not Available Data saved in your Localy", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(AddshgbeneficiaryActivity.this, BeneficaryListActivity.class)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
     }

@@ -108,6 +108,7 @@ public class SyncActivityAll extends AppCompatActivity {
     int progress = 0;
     List<String> socialtrainingwhat;
     List<String> socialtrainingwhere;
+    List<String> serviceArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +132,7 @@ public class SyncActivityAll extends AppCompatActivity {
 
         socialtrainingwhat = new ArrayList<>();
         socialtrainingwhere = new ArrayList<>();
+        serviceArray = new ArrayList<>();
 
         sessinoManager = new SessinoManager(SyncActivityAll.this);
         userId = sessinoManager.getUSERID();
@@ -2530,12 +2532,20 @@ public class SyncActivityAll extends AppCompatActivity {
                             String servicedone1 = (servicedone.equals("null")) ? value : servicedone;
 
                             String[] strArray = null;
-                            strArray = servicedone1.split(",");
-                            for (int j = 0; j<strArray.length; i++){
-                                System.out.println(strArray[i]);
-                            }
 
-                            List<String> serviceArray = Arrays.asList(strArray);
+                            if(servicedone1.length() == 1){
+
+                                serviceArray.add(servicedone1);
+
+                            }else{
+
+                                strArray = servicedone1.split(",");
+                                for (int j = 0; j<strArray.length; i++){
+                                    System.out.println(strArray[i]);
+                                }
+                                serviceArray = Arrays.asList(strArray);
+
+                            }
 
                             String screeningdate = String.valueOf(healthCareData.get(i).getScreeningdate());
                             String screeningdate1 = (screeningdate.equals("null")) ? value : screeningdate;
@@ -2854,7 +2864,7 @@ public class SyncActivityAll extends AppCompatActivity {
                 getAllEductionDeatils();
                 getAllLivelihoodService();
                 storeSocialData();
-                getHealthLocal();
+                //getHealthLocal();
 
                 binding.dataupdwn.setText("Download");
 

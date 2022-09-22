@@ -374,7 +374,7 @@ public class Attendance extends AppCompatActivity {
 
                         Log.d("jdjbkjndski", date + time + latitude + longitude + address_txt);
 
-                        Toast.makeText(Attendance.this, "Data Save Success", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Attendance.this, "Data Saved Successfully", Toast.LENGTH_SHORT).show();
 
                         binding.clockInBtn.setText("Clock Out");
                         binding.clockInBtn.setBackgroundTintList(Attendance.this.getResources().getColorStateList(R.color.redcolor));
@@ -400,7 +400,7 @@ public class Attendance extends AppCompatActivity {
                     localRepo.updateAttendance(time, "", "", address_txt, "update", "Clock In", date, date);
 
 
-                    Toast.makeText(Attendance.this, "Data Save Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Attendance.this, "Data Saved Successfully", Toast.LENGTH_SHORT).show();
 
                     Log.d("jdjbkjndski", date + time + latitude + longitude + address_txt);
 

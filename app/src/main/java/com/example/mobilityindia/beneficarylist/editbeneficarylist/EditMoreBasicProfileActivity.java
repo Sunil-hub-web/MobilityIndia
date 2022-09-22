@@ -51,6 +51,7 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
     List<String> villageIDlist;
     LocalRepo localRepo;
     String stateid = "",districId = "",blockId = "",gpId = "",villageId = "",hobliId = "";
+    String districId1 = "",districId2 = "",districId3 = "",districId4 = "",districId5 = "",districId6 = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,7 +181,21 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 stateid = stateIDlist.get(position);
                 getDistData(stateid);
-              //  CommonClass.SlumID = SlumID;
+
+                if (districId1.equals("")) {
+
+                    districId1 = stateid;
+
+                } else if (districId1.equals(stateid)) {
+                } else {
+
+                    binding.district.setText("");
+                    binding.hobli.setText("");
+                    binding.village.setText("");
+                    binding.block.setText("");
+                    binding.gp.setText("");
+                    districId1 = stateid;
+                }
             }
         });
 
@@ -214,6 +229,20 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 districId = distIDlist.get(position);
                 getBlockData(districId);
+
+                if (districId2.equals("")) {
+
+                    districId2 = districId;
+
+                } else if (districId2.equals(districId)) {
+                } else {
+
+                    binding.hobli.setText("");
+                    binding.village.setText("");
+                    binding.block.setText("");
+                    binding.gp.setText("");
+                    districId2 = districId;
+                }
             }
         });
 
@@ -221,6 +250,7 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 binding.block.showDropDown();
+                //blockId = blockIdlist.get(position);
             }
         });
         binding.block.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -228,6 +258,22 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 blockId = blockIdlist.get(position);
                 getHobliData(blockId);
+
+
+                if (districId3.equals("")) {
+
+                    districId3 = blockId;
+
+                } else if (districId3.equals(blockId)) {
+                } else {
+                    // binding.district.setText("");
+                    binding.hobli.setText("");
+                    binding.village.setText("");
+                    //binding.block.setText("");
+                    binding.gp.setText("");
+                    districId3 = blockId;
+                }
+
             }
         });
 
@@ -242,6 +288,19 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 hobliId = hobilIDlist.get(position);
                 getGpData(hobliId);
+
+                if (districId4.equals("")) {
+
+                    districId4 = hobliId;
+
+                } else if (districId4.equals(hobliId)) {
+                } else {
+                    // binding.district.setText("");
+                    binding.village.setText("");
+                    //binding.block.setText("");
+                    binding.gp.setText("");
+                    districId4 = hobliId;
+                }
             }
         });
 
@@ -256,6 +315,19 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 gpId = gpIDlist.get(position);
                 getVillageData(gpId);
+
+
+                if (districId5.equals("")) {
+
+                    districId5 = gpId;
+
+                } else if (districId5.equals(gpId)) {
+                } else {
+                    // binding.district.setText("");
+                    binding.village.setText("");
+
+                    districId5 = gpId;
+                }
             }
         });
 
@@ -269,8 +341,25 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 villageId = villageIDlist.get(position);
+
+
+                if (districId6.equals("")) {
+
+                    districId6 = villageId;
+
+                } else if (districId6.equals(villageId)) {
+                } else {
+                    // binding.district.setText("");
+                    //binding.village.setText("");
+                    //binding.block.setText("");
+                    // binding.gp.setText("");
+
+                    districId6 = villageId;
+                }
             }
         });
+
+
         callofflinelocaldatdata();
 
         binding.buttonnext.setOnClickListener(new View.OnClickListener() {
@@ -298,7 +387,7 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
 
                     }else{
                         binding.familymemberadultm.setText("");
-                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -327,7 +416,7 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
 
                     }else{
                         binding.familymemberadultf.setText("");
-                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -356,7 +445,7 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
 
                     }else{
                         binding.fmlymemberchildrnm.setText("");
-                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -384,7 +473,7 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
 
                     }else{
                         binding.fmlymembrchilf.setText("");
-                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -413,7 +502,7 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
 
                     }else{
                         binding.childrnundergeducationm.setText("");
-                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -442,7 +531,7 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
 
                     }else{
                         binding.childrenundergoeeseducationf.setText("");
-                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -471,7 +560,7 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
 
                     }else{
                         binding.dropoutlessthen14f.setText("");
-                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -500,7 +589,7 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
 
                     }else{
                         binding.dropoutlessthen14m.setText("");
-                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -529,7 +618,7 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
 
                     }else{
                         binding.dropoutm.setText("");
-                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -558,7 +647,7 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
 
                     }else{
                         binding.dropoutf.setText("");
-                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -587,7 +676,7 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
 
                     }else{
                         binding.earingmemberflym.setText("");
-                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -616,13 +705,9 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
 
                     }else{
                         binding.earingmemberflyf.setText("");
-                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditMoreBasicProfileActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
-
-
                 }
-
-
             }
         });
     }
@@ -686,7 +771,7 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
                             localRepo.updateBene(singleMember.get(0));
                             singleMember.get(0).setFlag("update");
 
-                            Toast.makeText(EditMoreBasicProfileActivity.this, "More Basic Profile update Successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EditMoreBasicProfileActivity.this, "More Basic profile updated in locally.", Toast.LENGTH_SHORT).show();
 
                             onBackPressed();
 

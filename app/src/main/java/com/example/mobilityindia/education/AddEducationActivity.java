@@ -68,9 +68,9 @@ import retrofit2.Response;
 public class AddEducationActivity extends AppCompatActivity {
     private static final int PROFILE_IMAGE_REQ_CODE = 101;
     ActivityAddEducationBinding binding;
-    String classaccessible = "", skilldevelopment = "", sittingmodification = "", accseetotlm = "", accesstotoilet = "",
-            accesstolibrary = "", schoolenroll = "", acesstosportactivity = "", childpartialament = "", summercamp = "", vocationcourse = "",
-            individualeducattionplan = "", curricularactivities = "", memberofCEC = "", activity1 = "", activity2 = "", activity3 = "", activity4 = "", activity5 = "";
+    String classaccessible = "No", skilldevelopment = "NO", sittingmodification = "", accseetotlm = "", accesstotoilet = "No",
+            accesstolibrary = "No", schoolenroll = "", acesstosportactivity = "No", childpartialament = "No", summercamp = "No", vocationcourse = "",
+            individualeducattionplan = "", curricularactivities = "No", memberofCEC = "No", activity1 = "", activity2 = "", activity3 = "", activity4 = "", activity5 = "";
     EducationData educationData;
     String FinalString, userId;
     ArrayList<String> imagelist;

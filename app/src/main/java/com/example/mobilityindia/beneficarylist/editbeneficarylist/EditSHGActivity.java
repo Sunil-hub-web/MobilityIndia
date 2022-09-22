@@ -6,6 +6,7 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -240,7 +241,7 @@ public class EditSHGActivity extends AppCompatActivity {
 
                         localRepo.updateBene(singleMember.get(0));
 
-                        // Toast.makeText(EditSHGActivity.this, "SHG update Successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditSHGActivity.this, "CBO info updated in locally.", Toast.LENGTH_SHORT).show();
                         onBackPressed();
                     }
 

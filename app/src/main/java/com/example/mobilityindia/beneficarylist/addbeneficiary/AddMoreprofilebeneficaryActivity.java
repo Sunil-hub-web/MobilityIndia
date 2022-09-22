@@ -48,7 +48,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
     List<String> hobilIDlist;
     List<String> villageIDlist;
     LocalRepo localRepo;
-    String stateid = "", districId = "", blockId = "", gpId = "", villageId = "", hobliId = "",districId1 = "",districId2 = "";
+    String stateid = "", districId = "", blockId = "", gpId = "", villageId = "", hobliId = "",districId1 = "",districId2 = "",districId3 = "",districId4 = "",districId5 = "",districId6 = "";
     private ActivityAddMoreprofilebeneficaryBinding binding;
 
     @Override
@@ -167,8 +167,8 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                     districId1 = stateid;
 
-                } else if(districId1.equals(stateid)) {
-                }else{
+                } else if (districId1.equals(stateid)) {
+                } else {
 
                     binding.district.setText("");
                     binding.hobli.setText("");
@@ -216,8 +216,8 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                     districId2 = districId;
 
-                } else if(districId2.equals(districId)) {
-                }else{
+                } else if (districId2.equals(districId)) {
+                } else {
 
                     binding.hobli.setText("");
                     binding.village.setText("");
@@ -241,16 +241,21 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
                 blockId = blockIdlist.get(position);
                 getHobliData(blockId);
 
-                String districId1 = blockId;
 
-                if (districId1.equals(blockId)) {
+                if (districId3.equals("")) {
+
+                    districId3 = blockId;
+
+                } else if (districId3.equals(blockId)) {
                 } else {
                     // binding.district.setText("");
                     binding.hobli.setText("");
                     binding.village.setText("");
                     //binding.block.setText("");
                     binding.gp.setText("");
+                    districId3 = blockId;
                 }
+
             }
         });
 
@@ -265,6 +270,19 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 hobliId = hobilIDlist.get(position);
                 getGpData(hobliId);
+
+                if (districId4.equals("")) {
+
+                    districId4 = hobliId;
+
+                } else if (districId4.equals(hobliId)) {
+                } else {
+                    // binding.district.setText("");
+                    binding.village.setText("");
+                    //binding.block.setText("");
+                    binding.gp.setText("");
+                    districId4 = hobliId;
+                }
             }
         });
 
@@ -279,6 +297,19 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 gpId = gpIDlist.get(position);
                 getVillageData(gpId);
+
+
+                if (districId5.equals("")) {
+
+                    districId5 = gpId;
+
+                } else if (districId5.equals(gpId)) {
+                } else {
+                    // binding.district.setText("");
+                    binding.village.setText("");
+
+                    districId5 = gpId;
+                }
             }
         });
 
@@ -292,6 +323,21 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 villageId = villageIDlist.get(position);
+
+
+                if (districId6.equals("")) {
+
+                    districId6 = villageId;
+
+                } else if (districId6.equals(villageId)) {
+                } else {
+                    // binding.district.setText("");
+                    //binding.village.setText("");
+                    //binding.block.setText("");
+                   // binding.gp.setText("");
+
+                    districId6 = villageId;
+                }
             }
         });
 
@@ -299,34 +345,34 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    if (binding.state.getText().toString().trim().equals("") || binding.state.getText().toString() == null) {
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Please Enter state name", Toast.LENGTH_SHORT).show();
+                if (binding.state.getText().toString().trim().equals("") || binding.state.getText().toString() == null) {
+                    Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Please Enter state name", Toast.LENGTH_SHORT).show();
 
-                    } else if (binding.district.getText().toString().trim().equals("") || binding.district.getText().toString() == null) {
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Please Enter district name", Toast.LENGTH_SHORT).show();
+                } else if (binding.district.getText().toString().trim().equals("") || binding.district.getText().toString() == null) {
+                    Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Please Enter district name", Toast.LENGTH_SHORT).show();
 
-                    } else if (binding.block.getText().toString().trim().equals("") || binding.block.getText().toString() == null) {
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Please Enter block name", Toast.LENGTH_SHORT).show();
+                } else if (binding.block.getText().toString().trim().equals("") || binding.block.getText().toString() == null) {
+                    Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Please Enter block name", Toast.LENGTH_SHORT).show();
 
-                    } else if (binding.hobli.getText().toString().trim().equals("") || binding.hobli.getText().toString() == null) {
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Please Enter hobli name", Toast.LENGTH_SHORT).show();
+                } else if (binding.hobli.getText().toString().trim().equals("") || binding.hobli.getText().toString() == null) {
+                    Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Please Enter hobli name", Toast.LENGTH_SHORT).show();
 
-                    } else if (binding.gp.getText().toString().trim().equals("") || binding.gp.getText().toString() == null) {
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Please Enter gp name", Toast.LENGTH_SHORT).show();
+                } else if (binding.gp.getText().toString().trim().equals("") || binding.gp.getText().toString() == null) {
+                    Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Please Enter gp name", Toast.LENGTH_SHORT).show();
 
-                    } else if (binding.village.getText().toString().trim().equals("") || binding.village.getText().toString() == null) {
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Please Enter village name", Toast.LENGTH_SHORT).show();
+                } else if (binding.village.getText().toString().trim().equals("") || binding.village.getText().toString() == null) {
+                    Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Please Enter village name", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    if (validateFields()) {
+
+                        saveData();
 
                     } else {
 
-                        if(validateFields()){
-
-                            saveData();
-
-                        }else{
-
-                            //saveData();
-                        }
+                        //saveData();
+                    }
 
                        /* if(binding.email.getText().toString().trim().equals("") || binding.email.getText().toString() == null){
 
@@ -345,7 +391,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                         }*/
 
-                    }
+                }
             }
         });
         binding.viewBtn.setOnClickListener(new View.OnClickListener() {
@@ -375,7 +421,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                     } else {
                         binding.familymemberadultm.setText("");
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -404,7 +450,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                     } else {
                         binding.familymemberadultf.setText("");
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -433,7 +479,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                     } else {
                         binding.fmlymemberchildrnm.setText("");
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -462,7 +508,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                     } else {
                         binding.fmlymembrchilf.setText("");
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -491,7 +537,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                     } else {
                         binding.childrnundergeducationm.setText("");
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -516,7 +562,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                     } else {
                         binding.childrenundergoeeseducationf.setText("");
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -545,7 +591,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                     } else {
                         binding.dropoutlessthen14f.setText("");
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -574,7 +620,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                     } else {
                         binding.drpuotlessthen14m.setText("");
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -603,7 +649,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                     } else {
                         binding.dropoutm.setText("");
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -632,7 +678,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                     } else {
                         binding.dropoutf.setText("");
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -661,7 +707,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                     } else {
                         binding.earingmemberflym.setText("");
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -690,7 +736,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                     } else {
                         binding.earingmemberflyf.setText("");
-                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less then 15. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddMoreprofilebeneficaryActivity.this, "Value should be less than 15. ", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -836,7 +882,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
         return pattern.matcher(email).matches();
     }
 
-    public void saveData(){
+    public void saveData() {
 
         CommonClass.villageID = villageId;
         CommonClass.address = binding.address.getText().toString();
@@ -873,7 +919,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
     Boolean validateFields() {
 
         if (binding.contact1.length() != 0) {
-            if(binding.contact1.getText().toString().trim().length() != 10) {
+            if (binding.contact1.getText().toString().trim().length() != 10) {
 
                 Toast.makeText(this, "Please Enter 10 Digit Mobile No", Toast.LENGTH_SHORT).show();
 
@@ -882,7 +928,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
         }
 
         if (binding.contact2.length() != 0) {
-            if(binding.contact2.getText().toString().trim().length() != 10){
+            if (binding.contact2.getText().toString().trim().length() != 10) {
 
                 Toast.makeText(this, "Please Enter 10 Digit Mobile No", Toast.LENGTH_SHORT).show();
 
@@ -891,7 +937,7 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
         }
 
         if (binding.email.length() != 0) {
-            if(!isValidEmail(binding.email.getText().toString())){
+            if (!isValidEmail(binding.email.getText().toString())) {
 
                 Toast.makeText(this, "Please Enter Valid EmailId", Toast.LENGTH_SHORT).show();
 

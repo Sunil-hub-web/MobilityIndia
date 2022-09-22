@@ -133,7 +133,7 @@
                                 android:layout_height="match_parent"
                                 android:imeOptions="actionNext"
                                 android:inputType="text"
-                                android:maxLength="1000"
+                                android:maxLength="30"
                                 android:textColor="#515151"
                                 android:textStyle="bold"/>
 
@@ -292,7 +292,7 @@
                             android:layout_height="match_parent"
                             android:imeOptions="actionNext"
                             android:inputType="text"
-                            android:maxLength="1000"
+                            android:maxLength="30"
                             android:textColor="#515151"
                             android:textStyle="bold"
                             />
