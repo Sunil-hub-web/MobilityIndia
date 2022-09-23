@@ -380,6 +380,7 @@ public class AddshgbeneficiaryActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<BeneficaryResponse> call, Throwable t) {
+                Toast.makeText(AddshgbeneficiaryActivity.this, ""+t, Toast.LENGTH_SHORT).show();
                 pd.dismiss();
             }
         });
@@ -408,6 +409,7 @@ public class AddshgbeneficiaryActivity extends AppCompatActivity {
 
                         localRepo.insertBene(data);
                     }
+
                     startActivity(new Intent(AddshgbeneficiaryActivity.this, BeneficaryListActivity.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                 }

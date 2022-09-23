@@ -2455,9 +2455,6 @@ public class SyncActivityAll extends AppCompatActivity {
 
                         }
 
-                        Intent intent = new Intent(SyncActivityAll.this, BeneficaryDetailActivity.class);
-                        startActivity(intent);
-
                     }
 
                     Log.d("sunilEduction", response.body().getHealthdata().toString());

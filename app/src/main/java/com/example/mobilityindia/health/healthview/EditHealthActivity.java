@@ -13,6 +13,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -955,6 +957,115 @@ public class EditHealthActivity extends AppCompatActivity {
             }
         });
 
+        binding.totalcost.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                binding.donorcontribution.setText(addNumbers1());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        binding.patientcontribution.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                binding.donorcontribution.setText(addNumbers1());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        binding.repaircost.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                binding.rdonorcontribution.setText(addNumbers3());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        binding.rpatientcontribution.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                binding.rdonorcontribution.setText(addNumbers3());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        binding.repaircost1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                binding.rdonorcontribution1.setText(addNumbers2());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        binding.rpatientcontribution1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                binding.rdonorcontribution1.setText(addNumbers2());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
     }
 
     public void callupdatelocaledata() {
@@ -1037,7 +1148,7 @@ public class EditHealthActivity extends AppCompatActivity {
                             idarray3.add(name);
                             idarray4.add(userid);
 
-                            Toast.makeText(EditHealthActivity.this, "sonuarr" + idarray3, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(EditHealthActivity.this, "sonuarr" + idarray3, Toast.LENGTH_SHORT).show();
                         }
 
                         Log.d("gcyhbghv", idarray3.toString());
@@ -1480,7 +1591,7 @@ public class EditHealthActivity extends AppCompatActivity {
                             idarray3.add(name);
                             idarray4.add(userid);
 
-                            Toast.makeText(EditHealthActivity.this, "sonuarr" + idarray3, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(EditHealthActivity.this, "sonuarr" + idarray3, Toast.LENGTH_SHORT).show();
                         }
 
                         Log.d("gcyhbghv", idarray3.toString());
@@ -2342,6 +2453,57 @@ public class EditHealthActivity extends AppCompatActivity {
         result = String.valueOf(random.nextInt((max - min) + 1) + min);
 
         return result;
+    }
+
+    private String addNumbers1() {
+        int number1;
+        int number2;
+        if(binding.totalcost.getText().toString() != "" && binding.totalcost.length() > 0) {
+            number1 = Integer.parseInt(binding.totalcost.getText().toString());
+        } else {
+            number1 = 0;
+        }
+        if(binding.patientcontribution.getText().toString() != "" && binding.patientcontribution.length() > 0) {
+            number2 = Integer.parseInt(binding.patientcontribution.getText().toString());
+        } else {
+            number2 = 0;
+        }
+
+        return Integer.toString(number1 - number2);
+    }
+
+    private String addNumbers2() {
+        int number1;
+        int number2;
+        if(binding.repaircost1.getText().toString() != "" && binding.repaircost1.getText().length() > 0) {
+            number1 = Integer.parseInt(binding.repaircost1.getText().toString());
+        } else {
+            number1 = 0;
+        }
+        if(binding.rpatientcontribution1.getText().toString() != "" && binding.rpatientcontribution1.getText().length() > 0) {
+            number2 = Integer.parseInt(binding.rpatientcontribution1.getText().toString());
+        } else {
+            number2 = 0;
+        }
+
+        return Integer.toString(number1 - number2);
+    }
+
+    private String addNumbers3() {
+        int number1;
+        int number2;
+        if(binding.repaircost.getText().toString() != "" && binding.repaircost.getText().length() > 0) {
+            number1 = Integer.parseInt(binding.repaircost.getText().toString());
+        } else {
+            number1 = 0;
+        }
+        if(binding.rpatientcontribution.getText().toString() != "" && binding.rpatientcontribution.getText().length() > 0) {
+            number2 = Integer.parseInt(binding.rpatientcontribution.getText().toString());
+        } else {
+            number2 = 0;
+        }
+
+        return Integer.toString(number1 - number2);
     }
 
 }

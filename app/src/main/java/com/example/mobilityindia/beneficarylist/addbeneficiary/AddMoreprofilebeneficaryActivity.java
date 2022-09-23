@@ -427,7 +427,6 @@ public class AddMoreprofilebeneficaryActivity extends AppCompatActivity {
 
                 }
 
-
             }
         });
 

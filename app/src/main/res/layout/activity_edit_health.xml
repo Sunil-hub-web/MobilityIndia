@@ -788,8 +788,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
-                                android:inputType="text"
-                                android:maxLength="1000" />
+                                android:inputType="number"
+                                android:maxLength="1000"
+                                android:digits="1234567890"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -805,8 +806,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
-                                android:inputType="text"
-                                android:maxLength="1000" />
+                                android:inputType="number"
+                                android:maxLength="1000"
+                                android:digits="1234567890"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -822,12 +824,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
-                                android:inputType="text"
+                                android:inputType="number"
                                 android:maxLength="1000"
                                 android:cursorVisible="false"
                                 android:editable="false"
                                 android:focusable="false"
-                                android:textIsSelectable="false"/>
+                                android:textIsSelectable="false"
+                                android:digits="1234567890"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -2044,8 +2047,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
-                                android:inputType="text"
-                                android:maxLength="1000" />
+                                android:inputType="number"
+                                android:maxLength="1000"
+                                android:digits="1234567890"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -2061,8 +2065,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
-                                android:inputType="text"
-                                android:maxLength="1000" />
+                                android:inputType="number"
+                                android:maxLength="1000"
+                                android:digits="1234567890"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -2079,8 +2084,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
-                                android:inputType="text"
-                                android:maxLength="1000" />
+                                android:inputType="number"
+                                android:maxLength="1000"
+                                android:digits="1234567890"
+                                android:cursorVisible="false"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:textIsSelectable="false"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -2152,8 +2162,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
-                                android:inputType="text"
-                                android:maxLength="1000" />
+                                android:inputType="number"
+                                android:maxLength="1000"
+                                android:digits="1234567890"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -2169,8 +2180,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
-                                android:inputType="text"
-                                android:maxLength="1000" />
+                                android:inputType="number"
+                                android:maxLength="1000"
+                                android:digits="1234567890"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -2187,8 +2199,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
-                                android:inputType="text"
-                                android:maxLength="1000" />
+                                android:inputType="number"
+                                android:maxLength="1000"
+                                android:digits="1234567890"
+                                android:cursorVisible="false"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:textIsSelectable="false"/>
 
                         </com.google.android.material.textfield.TextInputLayout>
 
