@@ -775,6 +775,9 @@ public class EditMoreBasicProfileActivity extends AppCompatActivity {
 
                             onBackPressed();
 
+                           /* Intent intent = new Intent(EditMoreBasicProfileActivity.this, BeneficaryDetailActivity.class);
+                            startActivity(intent);*/
+
                         }
 
                     }else{

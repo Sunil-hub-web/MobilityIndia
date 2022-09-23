@@ -3,6 +3,7 @@ package com.example.mobilityindia.beneficarylist.adapter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +56,14 @@ public class BeneficaryListAdapter extends RecyclerView.Adapter<BeneficaryListAd
                 CommonClass.tempid = data.get(position).getTempId();
 
                 sessinoManager.setbenfeciaryID(data.get(position).getBeneficiaryId());
+
+                SharedPreferences shared_bendata = context.getSharedPreferences("bendata",context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = shared_bendata.edit();
+                editor.putString("benificaryregno1",data.get(position).getRegistrationNo());
+                editor.putString("benificaryregdate1",data.get(position).getRegistrationDate());
+                editor.putString("tempid1",data.get(position).getTempId());
+                editor.putString("name1",data.get(position).getName());
+                editor.commit();
 
                 Intent intent = new Intent(context, BeneficaryDetailActivity.class);
                 intent.putExtra("CBOName", data.get(position).getCboName());

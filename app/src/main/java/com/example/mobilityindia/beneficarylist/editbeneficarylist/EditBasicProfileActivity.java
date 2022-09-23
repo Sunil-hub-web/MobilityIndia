@@ -11,6 +11,7 @@ import static com.example.mobilityindia.constant.CommonClass.getReligionMaster;
 import static com.example.mobilityindia.constant.CommonClass.getTypeDisMaster;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.Editable;
@@ -30,8 +31,10 @@ import com.androidbuts.multispinnerfilter.KeyPairBoolData;
 import com.androidbuts.multispinnerfilter.MultiSpinnerSearch;
 import com.example.mobilityindia.R;
 import com.example.mobilityindia.beneficarylist.VisitModelClass;
+import com.example.mobilityindia.beneficarylist.view.BeneficaryDetailActivity;
 import com.example.mobilityindia.constant.CommonClass;
 import com.example.mobilityindia.databinding.ActivityEditBasicProfileBinding;
+import com.example.mobilityindia.livelihood.EditLivelihoodAtivity;
 import com.example.mobilityindia.sync.model.BeneData;
 import com.example.mobilityindia.sync.repository.LocalRepo;
 
@@ -1194,6 +1197,9 @@ public class EditBasicProfileActivity extends AppCompatActivity {
                     localRepo.updateBene(singleMember.get(0));
 
                     onBackPressed();
+
+                   /* Intent intent = new Intent(EditBasicProfileActivity.this, BeneficaryDetailActivity.class);
+                    startActivity(intent);*/
 
                     Toast.makeText(EditBasicProfileActivity.this, " Basic profile updated in locally.", Toast.LENGTH_SHORT).show();
 

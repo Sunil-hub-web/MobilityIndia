@@ -30,4 +30,7 @@ public interface BeneDao {
     @Query("SELECT * FROM beneficiary_table WHERE temp_id =:idd")
     LiveData<List<BeneData>> getSelectedBeneList(String idd);
 
+/*    @Query("SELECT * FROM beneficiary_table WHERE temp_id =:idd")
+    LiveData<List<BeneData>> getSelectedBeneList(String idd);*/
+
 }

@@ -67,6 +67,12 @@ public class BeneficaryListActivity extends AppCompatActivity {
         super.onStart();
     }
 
+    @Override
+    protected void onResume() {
+        callofflinebeneficarylistdata();
+        super.onResume();
+    }
+
     private void callofflinebeneficarylistdata() {
 
         localRepo.getBeneList().observe(this, new Observer<List<BeneData>>() {

@@ -18,6 +18,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 
 import com.example.mobilityindia.R;
+import com.example.mobilityindia.beneficarylist.view.BeneficaryDetailActivity;
 import com.example.mobilityindia.beneficarylist.view.BeneficaryListActivity;
 import com.example.mobilityindia.constant.CommonClass;
 import com.example.mobilityindia.databinding.ActivityEditLivelihoodAtivityBinding;
@@ -681,7 +682,7 @@ public class EditLivelihoodAtivity extends AppCompatActivity {
        // onBackPressed();
 
         Toast.makeText(this, "Livelihood updated in locally.", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(EditLivelihoodAtivity.this, BeneficaryListActivity.class);
+        Intent intent = new Intent(EditLivelihoodAtivity.this, BeneficaryDetailActivity.class);
         startActivity(intent);
 
 
@@ -693,7 +694,7 @@ public class EditLivelihoodAtivity extends AppCompatActivity {
         // onBackPressed();
 
         Toast.makeText(this, "Livelihood updated in locally.", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(EditLivelihoodAtivity.this, BeneficaryListActivity.class);
+        Intent intent = new Intent(EditLivelihoodAtivity.this, BeneficaryDetailActivity.class);
         startActivity(intent);
 
 

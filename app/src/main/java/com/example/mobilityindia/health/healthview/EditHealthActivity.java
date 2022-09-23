@@ -32,6 +32,7 @@ import com.androidbuts.multispinnerfilter.MultiSpinnerSearch;
 import com.example.mobilityindia.R;
 import com.example.mobilityindia.SessinoManager;
 import com.example.mobilityindia.beneficarylist.VisitModelClass;
+import com.example.mobilityindia.beneficarylist.view.BeneficaryDetailActivity;
 import com.example.mobilityindia.beneficarylist.view.BeneficaryListActivity;
 import com.example.mobilityindia.constant.AppUtils;
 import com.example.mobilityindia.constant.CommonClass;
@@ -2187,7 +2188,7 @@ public class EditHealthActivity extends AppCompatActivity {
         localRepo.updateHealthCareData(healthCareData);
 
         Toast.makeText(this, "Health updated in locally.", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(EditHealthActivity.this, BeneficaryListActivity.class);
+        Intent intent = new Intent(EditHealthActivity.this, BeneficaryDetailActivity.class);
         startActivity(intent);
     }
 
@@ -2327,7 +2328,7 @@ public class EditHealthActivity extends AppCompatActivity {
         localRepo.updateHealthCareData(healthCareData);
 
         Toast.makeText(this, "Health updated in locally.", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(EditHealthActivity.this, BeneficaryListActivity.class);
+        Intent intent = new Intent(EditHealthActivity.this, BeneficaryDetailActivity.class);
         startActivity(intent);
 
     }

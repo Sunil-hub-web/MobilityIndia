@@ -1,6 +1,7 @@
 package com.example.mobilityindia.beneficarylist.view;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,7 +31,7 @@ import java.util.List;
 public class BeneficaryDetailActivity extends AppCompatActivity {
     ActivityBeneficaryDetailBinding binding;
     LocalRepo localRepo;
-    String tempid;
+    String tempid,name,benificaryregno,benificaryregdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -107,11 +108,17 @@ public class BeneficaryDetailActivity extends AppCompatActivity {
 
         //Log.d("jdhias",id);
 
-        String name = getIntent().getStringExtra("name");
-        String benificaryregno = getIntent().getStringExtra("benificaryregno");
-        String benificaryregdate = getIntent().getStringExtra("benificaryregdate");
+        name = getIntent().getStringExtra("name");
+        benificaryregno = getIntent().getStringExtra("benificaryregno");
+        benificaryregdate = getIntent().getStringExtra("benificaryregdate");
         tempid = getIntent().getStringExtra("tempid");
        // String benfeciary_ID = getIntent().getStringExtra("benfeciary_ID");
+
+        SharedPreferences shared_bendata = getSharedPreferences("bendata",MODE_PRIVATE);
+        name = shared_bendata.getString("name1",null);
+        benificaryregno = shared_bendata.getString("benificaryregno1",null);
+        benificaryregdate = shared_bendata.getString("benificaryregdate1",null);
+        tempid = shared_bendata.getString("tempid1",null);
 
         binding.name.setText(name);
         binding.benificaryregno.setText(benificaryregno);
@@ -120,8 +127,51 @@ public class BeneficaryDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        //callofflinelocaldatdata();
+
+        SharedPreferences shared_bendata = getSharedPreferences("bendata",MODE_PRIVATE);
+        name = shared_bendata.getString("name1",null);
+        benificaryregno = shared_bendata.getString("benificaryregno1",null);
+        benificaryregdate = shared_bendata.getString("benificaryregdate1",null);
+        tempid = shared_bendata.getString("tempid1",null);
+
+        binding.name.setText(name);
+        binding.benificaryregno.setText(benificaryregno);
+        binding.benificaryregdate.setText(benificaryregdate);
+
         super.onResume();
+    }
+
+    @Override
+    protected void onRestart() {
+
+        SharedPreferences shared_bendata = getSharedPreferences("bendata",MODE_PRIVATE);
+        name = shared_bendata.getString("name1",null);
+        benificaryregno = shared_bendata.getString("benificaryregno1",null);
+        benificaryregdate = shared_bendata.getString("benificaryregdate1",null);
+        tempid = shared_bendata.getString("tempid1",null);
+
+        binding.name.setText(name);
+        binding.benificaryregno.setText(benificaryregno);
+        binding.benificaryregdate.setText(benificaryregdate);
+
+        super.onRestart();
+    }
+
+    @Override
+    protected void onStart() {
+
+
+        SharedPreferences shared_bendata = getSharedPreferences("bendata",MODE_PRIVATE);
+        name = shared_bendata.getString("name1",null);
+        benificaryregno = shared_bendata.getString("benificaryregno1",null);
+        benificaryregdate = shared_bendata.getString("benificaryregdate1",null);
+        tempid = shared_bendata.getString("tempid1",null);
+
+        binding.name.setText(name);
+        binding.benificaryregno.setText(benificaryregno);
+        binding.benificaryregdate.setText(benificaryregdate);
+
+        super.onStart();
     }
 
     private void callofflinelocaldatdata()
@@ -140,7 +190,7 @@ public class BeneficaryDetailActivity extends AppCompatActivity {
 
                 }else{
 
-                    Toast.makeText(BeneficaryDetailActivity.this, "Data Not There", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(BeneficaryDetailActivity.this, "Data Not There", Toast.LENGTH_SHORT).show();
                 }
             }
         });

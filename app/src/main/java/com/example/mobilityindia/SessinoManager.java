@@ -137,6 +137,8 @@ public class SessinoManager {
 
     }
 
+
+
     public void logoutUser(){
         // Clearing all data from Shared Preferences
         editor.clear();

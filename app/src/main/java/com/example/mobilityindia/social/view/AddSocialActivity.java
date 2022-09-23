@@ -293,7 +293,10 @@ public class AddSocialActivity extends AppCompatActivity {
         socialData.setFlag("update");
         localRepo.insertSocialData(socialData);
         Toast.makeText(getApplicationContext(), "Social updated  in locally.", Toast.LENGTH_SHORT).show();
-        onBackPressed();
+       // onBackPressed();
+
+        Intent intent = new Intent(AddSocialActivity.this,BeneficaryDetailActivity.class);
+        startActivity(intent);
 
     }
 

@@ -189,9 +189,6 @@ public class EditSHGActivity extends AppCompatActivity {
                     binding.shgname.setText(singleMember.get(0).getCboName());
                     binding.startdateofshg.setText(singleMember.get(0).getStartYearOfCbo());
                     binding.dojshg.setText(singleMember.get(0).getYearJoinCbo());
-                   /* binding.bankname.setText(singleMember.get(0).bank_name);
-                    binding.shgbankaccno.setText(singleMember.get(0).shg_bank_account_no);
-                    binding.nameofpwdcwd.setText(singleMember.get(0).name_of_pwd_cwd);*/
 
                     /*Intent intent = new Intent(EditSHGActivity.this, BeneficaryDetailActivity.class);
                     startActivity(intent);*/
@@ -217,15 +214,14 @@ public class EditSHGActivity extends AppCompatActivity {
 
                         singleMember.get(0).setYearJoinCbo("");
 
-               /*     singleMember.get(0).setBank_name(binding.bankname.getText().toString());
-                    singleMember.get(0).setShg_bank_account_no(binding.shgbankaccno.getText().toString());
-                    singleMember.get(0).setName_of_pwd_cwd(binding.nameofpwdcwd.getText().toString());*/
-
                         singleMember.get(0).setFlag("update");
                         localRepo.updateBene(singleMember.get(0));
 
-                        // Toast.makeText(EditSHGActivity.this, "SHG update Successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditSHGActivity.this, "CBO info updated in locally.", Toast.LENGTH_SHORT).show();
                         onBackPressed();
+
+                        /*Intent intent = new Intent(EditSHGActivity.this, BeneficaryDetailActivity.class);
+                        startActivity(intent);*/
 
                     }else{
 
@@ -233,9 +229,6 @@ public class EditSHGActivity extends AppCompatActivity {
                         singleMember.get(0).setStartYearOfCbo(binding.startdateofshg.getText().toString());
 
                         singleMember.get(0).setYearJoinCbo(binding.dojshg.getText().toString());
-               /*     singleMember.get(0).setBank_name(binding.bankname.getText().toString());
-                    singleMember.get(0).setShg_bank_account_no(binding.shgbankaccno.getText().toString());
-                    singleMember.get(0).setName_of_pwd_cwd(binding.nameofpwdcwd.getText().toString());*/
 
                         singleMember.get(0).setFlag("update");
 
@@ -243,12 +236,13 @@ public class EditSHGActivity extends AppCompatActivity {
 
                         Toast.makeText(EditSHGActivity.this, "CBO info updated in locally.", Toast.LENGTH_SHORT).show();
                         onBackPressed();
-                    }
 
+                       /* Intent intent = new Intent(EditSHGActivity.this, BeneficaryDetailActivity.class);
+                        startActivity(intent);*/
+                    }
 
                 }
             }
         });
     }
-
 }

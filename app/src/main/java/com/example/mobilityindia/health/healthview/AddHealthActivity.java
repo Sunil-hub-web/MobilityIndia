@@ -1581,7 +1581,10 @@ public class AddHealthActivity extends AppCompatActivity {
         localRepo.insertHealthCareData(healthCareData);
 
         Toast.makeText(getApplicationContext(), "Health updated  in locally.", Toast.LENGTH_SHORT).show();
-        onBackPressed();
+        //onBackPressed();
+
+        Intent intent = new Intent(AddHealthActivity.this,BeneficaryDetailActivity.class);
+        startActivity(intent);
     }
 
     public static String  getRandomNumber() {

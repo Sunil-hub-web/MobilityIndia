@@ -25,6 +25,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.example.mobilityindia.R;
+import com.example.mobilityindia.beneficarylist.view.BeneficaryDetailActivity;
 import com.example.mobilityindia.beneficarylist.view.BeneficaryListActivity;
 import com.example.mobilityindia.constant.CommonClass;
 import com.example.mobilityindia.databinding.ActivityEditEducationBinding;
@@ -1033,7 +1034,7 @@ public class EditEducationActivity extends AppCompatActivity {
 
         //onBackPressed();
 
-        Intent intent = new Intent(EditEducationActivity.this, BeneficaryListActivity.class);
+        Intent intent = new Intent(EditEducationActivity.this, BeneficaryDetailActivity.class);
         startActivity(intent);
     }
     public void updatedata1(){
@@ -1084,7 +1085,7 @@ public class EditEducationActivity extends AppCompatActivity {
 
         //onBackPressed();
 
-        Intent intent = new Intent(EditEducationActivity.this, BeneficaryListActivity.class);
+        Intent intent = new Intent(EditEducationActivity.this, BeneficaryDetailActivity.class);
         startActivity(intent);
     }
 }
