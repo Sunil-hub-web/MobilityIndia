@@ -292,7 +292,7 @@ public class AddSocialActivity extends AppCompatActivity {
         socialData.setSocialtrainingwhere(jsonArray_SocalTraningWhere);
         socialData.setFlag("update");
         localRepo.insertSocialData(socialData);
-        Toast.makeText(getApplicationContext(), "Internet is not Available Data save in your Local", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Social updated  in locally.", Toast.LENGTH_SHORT).show();
         onBackPressed();
 
     }

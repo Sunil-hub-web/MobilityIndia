@@ -27,8 +27,10 @@ import com.example.mobilityindia.R;
 import com.example.mobilityindia.SessinoManager;
 import com.example.mobilityindia.attendance.database.AttendanceClass;
 import com.example.mobilityindia.attendance.database.RoomDB;
+import com.example.mobilityindia.beneficarylist.view.BeneficaryDetailActivity;
 import com.example.mobilityindia.constant.CommonClass;
 import com.example.mobilityindia.databinding.ActivitySyncAllBinding;
+import com.example.mobilityindia.health.healthview.AddHealthActivity;
 import com.example.mobilityindia.landingpage.view.LandingPageActivity;
 import com.example.mobilityindia.retrofit.ApiRequest;
 import com.example.mobilityindia.retrofit.RetrofitRequest;
@@ -1841,49 +1843,6 @@ public class SyncActivityAll extends AppCompatActivity {
 
     }
 
-    private void getdataHealthActivity() {
-
-        //isprogress.setValue(0);
-        Map<String, Object> mapData = new HashMap<>();
-        mapData.put("user_id", userId);
-        //final MutableLiveData<CaseResponse> data = new MutableLiveData<>();
-        apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
-        apiRequest.listHealthService(CommonClass.APP_TOKEN, mapData).enqueue(new Callback<Health_Example>() {
-            @Override
-            public void onResponse(Call<Health_Example> call, retrofit2.Response<Health_Example> response) {
-
-              //  Log.d("TAG", "Eductionresponse" + response.body().getHealthdata().toString());
-               // Log.d("TAG", "onResponse response Eduction:" + response.body().toString());
-
-                if (response.body() != null) {
-
-                    HealthCareData healthCareData = new HealthCareData();
-                    localRepo.deleteHealth();
-                    localRepo.deleteHealthCare(healthCareData);
-
-                    for (HealthCareData data : response.body().getHealthdata()) {
-
-                        localRepo.insertHealthCareData(data);
-
-                       // Log.d("sunilEduction", data.toString());
-
-                    }
-
-                    Log.d("sunilEduction", response.body().getHealthdata().toString());
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<Health_Example> call, Throwable t) {
-
-                Toast.makeText(SyncActivityAll.this, "" + t, Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-    }
-
     private void getLivelihoodService() {
 
         //isprogress.setValue(0);
@@ -2468,6 +2427,53 @@ public class SyncActivityAll extends AppCompatActivity {
         requestQueue.add(myJsonArrayRequest);
     }
 
+    private void getdataHealthActivity() {
+
+        //isprogress.setValue(0);
+        Map<String, Object> mapData = new HashMap<>();
+        mapData.put("user_id", userId);
+        //final MutableLiveData<CaseResponse> data = new MutableLiveData<>();
+        apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
+        apiRequest.listHealthService(CommonClass.APP_TOKEN, mapData).enqueue(new Callback<Health_Example>() {
+            @Override
+            public void onResponse(Call<Health_Example> call, retrofit2.Response<Health_Example> response) {
+
+                //  Log.d("TAG", "Eductionresponse" + response.body().getHealthdata().toString());
+                // Log.d("TAG", "onResponse response Eduction:" + response.body().toString());
+
+                if (response.body() != null) {
+
+                    HealthCareData healthCareData = new HealthCareData();
+                    localRepo.deleteHealth();
+                    localRepo.deleteHealthCare(healthCareData);
+
+                    if(response.isSuccessful()){
+
+                        for (HealthCareData data : response.body().getHealthdata()) {
+
+                            localRepo.insertHealthCareData(data);
+
+                        }
+
+                        Intent intent = new Intent(SyncActivityAll.this, BeneficaryDetailActivity.class);
+                        startActivity(intent);
+
+                    }
+
+                    Log.d("sunilEduction", response.body().getHealthdata().toString());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Health_Example> call, Throwable t) {
+
+                Toast.makeText(SyncActivityAll.this, "" + t, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+    }
     //Helth DevicesList
     public void callHealthDeviceList() {
         //isprogress.setValue(0);
@@ -2531,22 +2537,6 @@ public class SyncActivityAll extends AppCompatActivity {
                             String servicedone = String.valueOf(healthCareData.get(i).getServiceDone());
                             String servicedone1 = (servicedone.equals("null")) ? value : servicedone;
 
-                            String[] strArray = null;
-
-                            if(servicedone1.length() == 1){
-
-                                serviceArray.add(servicedone1);
-
-                            }else{
-
-                                strArray = servicedone1.split(",");
-                                for (int j = 0; j<strArray.length; i++){
-                                    System.out.println(strArray[i]);
-                                }
-                                serviceArray = Arrays.asList(strArray);
-
-                            }
-
                             String screeningdate = String.valueOf(healthCareData.get(i).getScreeningdate());
                             String screeningdate1 = (screeningdate.equals("null")) ? value : screeningdate;
 
@@ -2594,6 +2584,39 @@ public class SyncActivityAll extends AppCompatActivity {
 
                             String fitmentdevice = String.valueOf(healthCareData.get(i).getFitmentdevice());
                             String fitmentdevice1 = (fitmentdevice.equals("null")) ? value : fitmentdevice;
+
+                            String aidappliances = String.valueOf(healthCareData.get(i).getAidAppliances());
+                            String aidappliances1 = (aidappliances.equals("null")) ? value : aidappliances;
+
+                            String noofappliances = String.valueOf(healthCareData.get(i).getNoofAppliances());
+                            String noofappliances1 = (noofappliances.equals("null")) ? value : noofappliances;
+
+                            String totalcost = String.valueOf(healthCareData.get(i).getTotalCost());
+                            String totalcost1 = (totalcost.equals("null")) ? value : totalcost;
+
+                            String patientcontribution = String.valueOf(healthCareData.get(i).getPatientContribution());
+                            String patientcontribution1 = (patientcontribution.equals("null")) ? value : patientcontribution;
+
+                            String donorcontribution = String.valueOf(healthCareData.get(i).getDonorContribution());
+                            String donorcontribution1 = (donorcontribution.equals("null")) ? value : donorcontribution;
+
+                            String repaircost = String.valueOf(healthCareData.get(i).getRepairCost());
+                            String repaircost1 = (repaircost.equals("null")) ? value : repaircost;
+
+                            String patientcontributionrepair = String.valueOf(healthCareData.get(i).getPatientContributionRepair());
+                            String patientcontributionrepair1 = (patientcontributionrepair.equals("null")) ? value : patientcontributionrepair;
+
+                            String donorcontributionrepair = String.valueOf(healthCareData.get(i).getDonorContributionRepair());
+                            String donorcontributionrepair1 = (donorcontributionrepair.equals("null")) ? value : donorcontributionrepair;
+
+                            String repaircostcbr = String.valueOf(healthCareData.get(i).getRepairCostCbr());
+                            String repaircostcbr1 = (repaircostcbr.equals("null")) ? value : repaircostcbr;
+
+                            String patientcontributioncbr = String.valueOf(healthCareData.get(i).getPatientContributionCbr());
+                            String patientcontributioncbr1 = (patientcontributioncbr.equals("null")) ? value : patientcontributioncbr;
+
+                            String donorcontributioncbr = String.valueOf(healthCareData.get(i).getDonorContributionCbr());
+                            String donorcontributioncbr1 = (donorcontributioncbr.equals("null")) ? value : donorcontributioncbr;
 
                             String followupfrequency = String.valueOf(healthCareData.get(i).getFollowupfrequency());
                             String followupfrequency1 = (followupfrequency.equals("null")) ? value : followupfrequency;
@@ -2708,15 +2731,13 @@ public class SyncActivityAll extends AppCompatActivity {
                             String specialistsremark = String.valueOf(healthCareData.get(i).getSpecialistsRemark());
                             String specialistsremark1 = (specialistsremark.equals("null")) ? value : specialistsremark;
 
-
-
                             JSONObject jsonObject = new JSONObject();
 
                             try {
 
                                 jsonObject.put("user_id", userId);
                                 jsonObject.put("benificiary_id", benificiaryid1);
-                                jsonObject.put("service_done", serviceArray);
+                                jsonObject.put("service_done", servicedone1);
                                 jsonObject.put("screeningdate", screeningdate1);
                                 jsonObject.put("assessmentdate", assessmentdate1);
                                 jsonObject.put("assessmentwho", assessmentwho1);
@@ -2733,6 +2754,17 @@ public class SyncActivityAll extends AppCompatActivity {
                                 jsonObject.put("fitmentwho", fitmentwho1);
                                 jsonObject.put("fitmentwhere", fitmentwhere1);
                                 jsonObject.put("fitmentdevice", fitmentdevice1);
+                                jsonObject.put("aid_appliances",aidappliances1);
+                                jsonObject.put("noof_appliances",noofappliances1);
+                                jsonObject.put("total_cost",totalcost1);
+                                jsonObject.put("patient_contribution",patientcontribution1);
+                                jsonObject.put("donor_contribution",donorcontribution1);
+                                jsonObject.put("repair_cost",repaircost1);
+                                jsonObject.put("patient_contribution_repair",patientcontributionrepair1);
+                                jsonObject.put("donor_contribution_repair",donorcontributionrepair1);
+                                jsonObject.put("repair_cost_cbr",repaircostcbr1);
+                                jsonObject.put("patient_contribution_cbr",patientcontributioncbr1);
+                                jsonObject.put("donor_contribution_cbr",donorcontributioncbr1);
                                 jsonObject.put("followupfrequency", followupfrequency1);
                                 jsonObject.put("followupsheet", followupsheet1);
                                 jsonObject.put("surgery", surgery1);
@@ -2741,7 +2773,7 @@ public class SyncActivityAll extends AppCompatActivity {
                                 jsonObject.put("homerecommend", homerecommend1);
                                 jsonObject.put("homerecommendwhat", homerecommendwhat1);
                                 jsonObject.put("ihp", ihp1);
-                                jsonObject.put("ihp_doc", ihp_doc1);
+                                jsonObject.put("ihp_doc", "");
                                 jsonObject.put("created_at", createdat1);
                                 jsonObject.put("updated_at", updatedat1);
                                 jsonObject.put("created_by", createdby1);
@@ -2797,7 +2829,7 @@ public class SyncActivityAll extends AppCompatActivity {
 
     public void storeAllHealthService(JSONArray jsonArray) {
 
-        String url = "https://mimis.zbapps.in/api/uploadService";
+        String url = "https://midev.zbapps.in/api/uploadService";
 
        MyJsonArrayRequest myJsonArrayRequest = new MyJsonArrayRequest(Request.Method.POST, url, jsonArray, new Response.Listener<JSONObject>() {
            @Override
@@ -2864,7 +2896,7 @@ public class SyncActivityAll extends AppCompatActivity {
                 getAllEductionDeatils();
                 getAllLivelihoodService();
                 storeSocialData();
-                //getHealthLocal();
+                getHealthLocal();
 
                 binding.dataupdwn.setText("Download");
 
@@ -2906,9 +2938,9 @@ public class SyncActivityAll extends AppCompatActivity {
                 CallMasterOccuption();
                 getAllSocialServicesList();
                 callHealthDeviceList();
+                //getHealthLocal();
 
                 binding.dataupdwn.setText("Upload");
-
 
             } else {
 
@@ -2974,7 +3006,6 @@ public class SyncActivityAll extends AppCompatActivity {
                 callHealthDeviceList();
 
                 binding.dataupdwn.setText("Upload");
-
 
             } else {
 

@@ -762,8 +762,7 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_60dp"
-                            android:hint="Aids &amp; Appliances"
-                            android:padding="5dp">
+                            android:hint="Aids &amp; Appliances">
 
                             <AutoCompleteTextView
                                 android:id="@+id/aidsAppliances"
@@ -2283,17 +2282,14 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="8dp"
                             android:layout_marginTop="@dimen/_5dp"
                             android:layout_marginRight="8dp"
                             android:layout_marginBottom="@dimen/_10dp"
-                            android:background="@drawable/backgroundonoff"
-                            android:gravity="center"
-                            android:weightSum="2">
+                            android:gravity="center">
 
-                            <TextView
+                           <!-- <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
@@ -2318,7 +2314,25 @@
                                 app:colorBorder="#00c4a6"
                                 app:colorOn="@color/purple_500"
                                 app:textOff="No"
-                                app:textOn="Yes" />
+                                app:textOn="Yes" />-->
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="IHP"
+                                android:padding="@dimen/_5dp"
+                                android:layout_marginBottom="@dimen/_10dp">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/ihp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="text"
+                                    android:maxLength="500" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
 
 
                         </LinearLayout>

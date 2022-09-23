@@ -14,7 +14,6 @@ import java.util.List;
 @Entity(tableName = "healthcare_table")
 public class HealthCareData implements Serializable {
     @PrimaryKey(autoGenerate = false)
-    @ColumnInfo(name = "id")
     @SerializedName("id")
     @Expose
     @NonNull

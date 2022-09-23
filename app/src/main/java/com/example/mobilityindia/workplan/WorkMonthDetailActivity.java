@@ -451,7 +451,7 @@ public class WorkMonthDetailActivity extends AppCompatActivity {
 
                         if(messagelis.equals("saveBtn")){
 
-                            Toast.makeText(WorkMonthDetailActivity.this, "Save Data Success", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(WorkMonthDetailActivity.this, "Data saved successfully", Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(WorkMonthDetailActivity.this,MonthWorkPlanActivity.class);
                             intent.putExtra("MonthYr",monYr);

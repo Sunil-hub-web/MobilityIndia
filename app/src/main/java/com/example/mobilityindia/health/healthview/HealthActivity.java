@@ -27,6 +27,7 @@ public class HealthActivity extends AppCompatActivity {
     DatePickerDialog datePicker;
     LocalRepo localRepo;
     List<String> idarray1 = new ArrayList<>();
+    List<String> idarray2 = new ArrayList<>();
 
     String benid;
 
@@ -86,6 +87,7 @@ public class HealthActivity extends AppCompatActivity {
                     CommonClass.healthId = healthId;
 
                     idarray1 = singleMember.get(0).getServiceName();
+                    idarray2 = singleMember.get(0).getDeviceName();
 
                     StringBuffer sb = new StringBuffer();
 
@@ -105,6 +107,25 @@ public class HealthActivity extends AppCompatActivity {
                         binding.Services.setText(services_Id);
                     }
 
+                    StringBuffer sb1 = new StringBuffer();
+
+                    if (idarray2.size() != 0) {
+
+                        for (String s : idarray2) {
+
+                            sb1.append(s);
+                            sb1.append(",");
+                        }
+
+                        String services_name = sb1.toString();
+
+                        // remove last character (,)
+                        services_name = services_name.substring(0, services_name.length() - 1);
+
+                        binding.aidsAppliances.setText(services_name);
+
+                    }
+
                     binding.startdateofshg.setText(singleMember.get(0).getScreeningdate());
                     binding.dateofassiment.setText(singleMember.get(0).getAssessmentdate());
                     binding.whodidassesmenta.setText(singleMember.get(0).getAssessmentwho());
@@ -118,11 +139,11 @@ public class HealthActivity extends AppCompatActivity {
                     binding.howanydone.setText(singleMember.get(0).getGaithowmany());
                     binding.thrpynumberoftime.setText(singleMember.get(0).getTherapyfrequency());
                     binding.numberofsession.setText(singleMember.get(0).getTherapysessions());
-                    binding.fitmentwho.setText(singleMember.get(0).getTherapysessions());
-                    binding.fitmentwhere.setText(singleMember.get(0).getTherapysessions());
-                    binding.fitmentkind.setText(singleMember.get(0).getTherapysessions());
-                    binding.aidsAppliances.setText(singleMember.get(0).getTherapysessions());
-                    binding.noofappliances.setText(singleMember.get(0).getTherapysessions());
+                    binding.fitmentwho.setText(singleMember.get(0).getFitmentwho());
+                    binding.fitmentwhere.setText(singleMember.get(0).getFitmentwhere());
+                    binding.fitmentkind.setText(singleMember.get(0).getFitmentdevice());
+                    //binding.aidsAppliances.setText(singleMember.get(0).getAidAppliances());
+                    binding.noofappliances.setText(singleMember.get(0).getNoofAppliances());
                     binding.totalcost.setText(singleMember.get(0).getTotalCost());
                     binding.patientcontribution.setText(singleMember.get(0).getPatientContribution());
                     binding.donorcontribution.setText(singleMember.get(0).getDonorContribution());
@@ -162,6 +183,7 @@ public class HealthActivity extends AppCompatActivity {
                     binding.repaircost1.setText(singleMember.get(0).getRepairCost());
                     binding.rpatientcontribution1.setText(singleMember.get(0).getPatientContributionRepair());
                     binding.rdonorcontribution1.setText(singleMember.get(0).getDonorContributionRepair());
+                    binding.ihp.setText(singleMember.get(0).getIhp());
 
 
                     Log.d("gcyhbghv",idarray1.toString());
@@ -281,6 +303,44 @@ public class HealthActivity extends AppCompatActivity {
                     CommonClass.healthId = healthId;
 
                     idarray1 = singleMember.get(0).getServiceName();
+                    idarray2 = singleMember.get(0).getDeviceName();
+
+                    StringBuffer sb = new StringBuffer();
+
+                    if (idarray1.size() != 0) {
+
+                        for (String s : idarray1) {
+
+                            sb.append(s);
+                            sb.append(",");
+                        }
+
+                        String services_Id = sb.toString();
+
+                        // remove last character (,)
+                        services_Id = services_Id.substring(0, services_Id.length() - 1);
+
+                        binding.Services.setText(services_Id);
+                    }
+
+                    StringBuffer sb1 = new StringBuffer();
+
+                    if (idarray2.size() != 0) {
+
+                        for (String s : idarray2) {
+
+                            sb1.append(s);
+                            sb1.append(",");
+                        }
+
+                        String services_name = sb1.toString();
+
+                        // remove last character (,)
+                        services_name = services_name.substring(0, services_name.length() - 1);
+
+                        binding.aidsAppliances.setText(services_name);
+
+                    }
 
                     binding.startdateofshg.setText(singleMember.get(0).getScreeningdate());
                     binding.dateofassiment.setText(singleMember.get(0).getAssessmentdate());
@@ -298,7 +358,7 @@ public class HealthActivity extends AppCompatActivity {
                     binding.fitmentwho.setText(singleMember.get(0).getTherapysessions());
                     binding.fitmentwhere.setText(singleMember.get(0).getTherapysessions());
                     binding.fitmentkind.setText(singleMember.get(0).getTherapysessions());
-                    binding.aidsAppliances.setText(singleMember.get(0).getTherapysessions());
+                   // binding.aidsAppliances.setText(singleMember.get(0).getTherapysessions());
                     binding.noofappliances.setText(singleMember.get(0).getTherapysessions());
                     binding.totalcost.setText(singleMember.get(0).getTotalCost());
                     binding.patientcontribution.setText(singleMember.get(0).getPatientContribution());
@@ -339,6 +399,10 @@ public class HealthActivity extends AppCompatActivity {
                     binding.repaircost1.setText(singleMember.get(0).getRepairCost());
                     binding.rpatientcontribution1.setText(singleMember.get(0).getPatientContributionRepair());
                     binding.rdonorcontribution1.setText(singleMember.get(0).getDonorContributionRepair());
+                    binding.ihp.setText(singleMember.get(0).getIhp());
+
+
+                    Log.d("gcyhbghv",idarray1.toString());
 
                     boolean ans_Screening = idarray1.contains("Screening");
                     if (ans_Screening)
@@ -435,7 +499,6 @@ public class HealthActivity extends AppCompatActivity {
                         binding.linRepair.setVisibility(View.VISIBLE);
                     else
                         binding.linRepair.setVisibility(View.GONE);
-
 
                 }
             }

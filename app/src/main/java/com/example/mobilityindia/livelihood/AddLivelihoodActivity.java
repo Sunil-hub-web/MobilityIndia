@@ -478,7 +478,7 @@ public class AddLivelihoodActivity extends AppCompatActivity {
 
         localRepo.insertLivehoodData(livelihood);
 
-        Toast.makeText(getApplicationContext(), "Internet is not available data save in your local", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Livelihood updated  in locally.", Toast.LENGTH_SHORT).show();
         //onBackPressed();
 
         Intent intent = new Intent(AddLivelihoodActivity.this, BeneficaryDetailActivity.class);

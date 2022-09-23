@@ -36,6 +36,7 @@ import com.example.mobilityindia.R;
 import com.example.mobilityindia.SessinoManager;
 import com.example.mobilityindia.beneficarylist.VisitModelClass;
 import com.example.mobilityindia.beneficarylist.addbeneficiary.AddMoreprofilebeneficaryActivity;
+import com.example.mobilityindia.beneficarylist.view.BeneficaryDetailActivity;
 import com.example.mobilityindia.beneficarylist.view.BeneficaryListActivity;
 import com.example.mobilityindia.constant.AppUtils;
 import com.example.mobilityindia.constant.CommonClass;
@@ -88,13 +89,11 @@ public class AddHealthActivity extends AppCompatActivity {
     private static final int PROFILE_IMAGE_REQ_CODE = 101;
     private static final String TAG = "mainActivity";
 
-    JSONArray jsonArray_id = new JSONArray();
-
     String individualeducattionplan = "No", healthServices = "",fallowsheetupdated = "No",userId = "",benificiary_id = "",FinalString = "",
             service_done = "",screeningdate = "",assessmentdate = "",assessmentwho = "",assessmentwhere = "",referral = "",referralplace = "",
             referralprescription = "",trialwhat = "",trialdate = "",socialsecurity = "",socialsecuritywhen = "",gaitfrequency = "",
             gaithowmany = "",therapyfrequency = "",therapysessions = "",fitmentwho = "",fitmentwhere = "",fitmentdevice = "",
-            surgery = "",surgerywhere = "",surgerywherewhat = "",homerecommend = "",homerecommendwhat = "",str_aidsAppliances = "";
+            surgery = "",surgerywhere = "",surgerywherewhat = "",homerecommend = "",homerecommendwhat = "",str_aidsAppliances = "",serviceDone = "";
 
     List<String> HealthActivityId;
     List<String> HealthActivityName;
@@ -108,12 +107,13 @@ public class AddHealthActivity extends AppCompatActivity {
     List<String> earRightDD;
     List<String> earLeftDD;
     LocalRepo localRepo ;
-    List<String> idarray;
+    ArrayList<String> idarray;
     List<String> idarray1;
+    List<String> id_Array;
+    List<String> id_Array1;
     //List<String> id_Array;
     SessinoManager sessinoManager;
 
-    JSONArray id_Array = new JSONArray();
     JSONArray imagejson;
 
     ApiRequest apiRequest;
@@ -135,6 +135,7 @@ public class AddHealthActivity extends AppCompatActivity {
         HealthDevicesName = new ArrayList<>();
         idarray = new ArrayList<>();
         idarray1 = new ArrayList<>();
+        id_Array1 = new ArrayList<>();
         //id_Array = new ArrayList<>();
         HealthActivityServices = new ArrayList<>();
         HealthDevices = new ArrayList<>();
@@ -143,7 +144,10 @@ public class AddHealthActivity extends AppCompatActivity {
         earRightDD = new ArrayList<>();
         earLeftDD = new ArrayList<>();
         imagelist = new ArrayList<>();
+        id_Array = new ArrayList<>();
         localRepo = new LocalRepo(AddHealthActivity.this);
+
+        userId = sessinoManager.getUSERID();
 
         binding.viewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -245,6 +249,7 @@ public class AddHealthActivity extends AppCompatActivity {
 
                         String userid = String.valueOf(items.get(i).getId());
                         idarray.add(userid);
+                        //jsonArray_id.put(userid);
 
                         String name = String.valueOf(items.get(i).getName());
                         idarray1.add(name);
@@ -599,7 +604,10 @@ public class AddHealthActivity extends AppCompatActivity {
                 Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
 
                 String userid = String.valueOf(items.get(i).getId());
-                id_Array.put(userid);
+                id_Array.add(userid);
+
+                String name = items.get(i).getName();
+                id_Array1.add(name);
             }
         });
 
@@ -1011,6 +1019,8 @@ public class AddHealthActivity extends AppCompatActivity {
                     }else{
 
                         addlivelihoodapi();
+
+                        //getdataHealthActivity();
                     }
 
                 }else{
@@ -1451,7 +1461,57 @@ public class AddHealthActivity extends AppCompatActivity {
         Toast.makeText(AddHealthActivity.this, bneid, Toast.LENGTH_SHORT).show();
         healthCareData.setCreatedAt(formatter.format(date));
 
-        healthCareData.setServiceDone(idarray.toString());
+        StringBuffer sb = new StringBuffer();
+
+        if (idarray.size() != 0) {
+
+            for (String s : idarray) {
+
+                sb.append(s);
+                sb.append(",");
+            }
+
+            serviceDone = sb.toString();
+
+            // remove last character (,)
+            serviceDone = serviceDone.substring(0, serviceDone.length() - 1);
+            healthCareData.setServiceDone(serviceDone);
+
+            Log.d("purposeofvisitdata", serviceDone);
+
+
+        }
+        else {
+
+            serviceDone = "";
+        }
+
+        StringBuffer sb1 = new StringBuffer();
+
+        if (id_Array.size() != 0) {
+
+            for (String s : id_Array) {
+
+                sb1.append(s);
+                sb1.append(",");
+            }
+
+            str_aidsAppliances = sb1.toString();
+
+            // remove last character (,)
+            str_aidsAppliances = str_aidsAppliances.substring(0, str_aidsAppliances.length() - 1);
+
+            Log.d("purposeofvisitdata", str_aidsAppliances);
+
+
+        }
+        else {
+
+            str_aidsAppliances = "";
+        }
+
+        healthCareData.setServiceName(idarray1);
+        healthCareData.setDeviceName(id_Array1);
         healthCareData.setScreeningdate(binding.startdateofshg.getText().toString());
         healthCareData.setBenificiaryId(CommonClass.benfeciary_ID);
         healthCareData.setAssessmentdate(binding.dateofassiment.getText().toString());
@@ -1520,7 +1580,7 @@ public class AddHealthActivity extends AppCompatActivity {
 
         localRepo.insertHealthCareData(healthCareData);
 
-        Toast.makeText(getApplicationContext(), "Internet is not Available Data save in your Local", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Health updated  in locally.", Toast.LENGTH_SHORT).show();
         onBackPressed();
     }
 
@@ -1541,13 +1601,56 @@ public class AddHealthActivity extends AppCompatActivity {
         pd.setCancelable(false);
         pd.show();
 
-        if(idarray.size() != 0){
+       // JSONArray jsonArray_id = new JSONArray();
 
-            for(int m = 0;m<idarray.size();m++){
+        StringBuffer sb = new StringBuffer();
 
-                jsonArray_id.put(idarray.get(m));
+        if (idarray.size() != 0) {
+
+            for (String s : idarray) {
+
+                sb.append(s);
+                sb.append(",");
             }
+
+            serviceDone = sb.toString();
+
+            // remove last character (,)
+            serviceDone = serviceDone.substring(0, serviceDone.length() - 1);
+
+            Log.d("purposeofvisitdata", serviceDone);
+
+
         }
+        else {
+
+            serviceDone = "";
+        }
+
+        StringBuffer sb1 = new StringBuffer();
+
+        if (id_Array.size() != 0) {
+
+            for (String s : id_Array) {
+
+                sb1.append(s);
+                sb1.append(",");
+            }
+
+            str_aidsAppliances = sb1.toString();
+
+            // remove last character (,)
+            str_aidsAppliances = str_aidsAppliances.substring(0, str_aidsAppliances.length() - 1);
+
+            Log.d("purposeofvisitdata", str_aidsAppliances);
+
+
+        }
+        else {
+
+            str_aidsAppliances = "";
+        }
+
 
         if(imagelist.size() != 0){
 
@@ -1556,8 +1659,6 @@ public class AddHealthActivity extends AppCompatActivity {
                 imagejson.put(imagelist.get(m));
             }
         }
-
-
 
         Map<String, Object> mapData = new HashMap<>();
 
@@ -1569,7 +1670,7 @@ public class AddHealthActivity extends AppCompatActivity {
 
         mapData.put("user_id",userId);
         mapData.put("benificiary_id",benificiary_id);
-        mapData.put("service_done",jsonArray_id);
+        mapData.put("service_done",serviceDone);
         mapData.put("screeningdate",binding.startdateofshg.getText().toString());
         mapData.put("assessmentdate",binding.dateofassiment.getText().toString());
         mapData.put("assessmentwho",binding.whodidassesmenta.getText().toString());
@@ -1586,7 +1687,7 @@ public class AddHealthActivity extends AppCompatActivity {
         mapData.put("fitmentwho",binding.fitmentwho.getText().toString());
         mapData.put("fitmentwhere",binding.fitmentwhere.getText().toString());
         mapData.put("fitmentdevice",binding.fitmentkind.getText().toString());
-        mapData.put("aid_appliances",id_Array);
+        mapData.put("aid_appliances",str_aidsAppliances);
         mapData.put("noof_appliances",binding.noofappliances.getText().toString());
         mapData.put("total_cost",binding.totalcost.getText().toString());
         mapData.put("patient_contribution",binding.patientcontribution.getText().toString());
@@ -1605,7 +1706,7 @@ public class AddHealthActivity extends AppCompatActivity {
         mapData.put("homerecommend",homemodification);
         mapData.put("homerecommendwhat",binding.homemodificationwhere.getText().toString());
         mapData.put("ihp",individualeducattionplan);
-        mapData.put("ihp_doc",imagejson);
+        mapData.put("ihp_doc",imagelist);
         mapData.put("speech_lang_dev",binding.developmentDD.getText().toString().trim());
         mapData.put("opme_dd",binding.OPMEDD.getText().toString().trim());
         mapData.put("if_abnormal",binding.abnormal.getText().toString().trim());
@@ -1639,9 +1740,13 @@ public class AddHealthActivity extends AppCompatActivity {
         apiRequest.addHealthData(CommonClass.APP_TOKEN,mapData).enqueue(new Callback<HealthResponse>() {
             @Override
             public void onResponse(Call<HealthResponse> call, Response<HealthResponse> response) {
+
                 Log.d("TAG", "onResponse response:: " + response.body());
 
+                pd.dismiss();
+
                 if (response.body() != null) {
+
                     if(response.body().isStatus()){
 
                         Toast.makeText(AddHealthActivity.this,response.body().getMessage(),Toast.LENGTH_SHORT).show();
@@ -1675,24 +1780,31 @@ public class AddHealthActivity extends AppCompatActivity {
         apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
         apiRequest.listHealthService(CommonClass.APP_TOKEN, mapData).enqueue(new Callback<Health_Example>() {
             @Override
-            public void onResponse(Call<Health_Example> call, retrofit2.Response<Health_Example> response) {
+            public void onResponse(Call<Health_Example> call, Response<Health_Example> response) {
 
                 //  Log.d("TAG", "Eductionresponse" + response.body().getHealthdata().toString());
                 // Log.d("TAG", "onResponse response Eduction:" + response.body().toString());
 
-                HealthCareData healthCareData = new HealthCareData();
-                localRepo.deleteHealth();
-                localRepo.deleteHealthCare(healthCareData);
-
                 if (response.body() != null) {
 
-                    for (HealthCareData data : response.body().getHealthdata()) {
+                    HealthCareData healthCareData = new HealthCareData();
+                    localRepo.deleteHealth();
+                    localRepo.deleteHealthCare(healthCareData);
 
-                        localRepo.insertHealthCareData(data);
+                    if(response.isSuccessful()){
 
-                        Log.d("sunilEduction", data.toString());
+                        for (HealthCareData data : response.body().getHealthdata()) {
+
+                            localRepo.insertHealthCareData(data);
+
+                        }
+
+                        Intent intent = new Intent(AddHealthActivity.this, BeneficaryDetailActivity.class);
+                        startActivity(intent);
 
                     }
+
+                    Log.d("sunilEduction", response.body().getHealthdata().toString());
                 }
 
             }

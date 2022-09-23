@@ -68,17 +68,17 @@ public class EditHealthActivity extends AppCompatActivity {
     ActivityEditHealthBinding binding;
     DatePickerDialog datePicker;
     LocalRepo localRepo;
-    String correctivesurgery = "",homemodification = "",referincal = "";
+    String correctivesurgery = "", homemodification = "", referincal = "";
     HealthCareData healthCareData;
     private static final int PROFILE_IMAGE_REQ_CODE = 101;
     private static final String TAG = "mainActivity";
 
-    String ihp = "No", healthServices = "",fallowsheetupdated = "No",userId = "",benificiary_id = "",individualeducattionplan = "",FinalString = "",
-            service_done = "",screeningdate = "",assessmentdate = "",assessmentwho = "",assessmentwhere = "",referral = "",referralplace = "",
-            referralprescription = "",trialwhat = "",trialdate = "",socialsecurity = "",socialsecuritywhen = "",gaitfrequency = "",
-            gaithowmany = "",therapyfrequency = "",therapysessions = "",fitmentwho = "",fitmentwhere = "",fitmentdevice = "",
-            surgery = "",surgerywhere = "",surgerywherewhat = "",homerecommend = "",homerecommendwhat = "",str_aidsAppliances = "",benid = "",
-            benificaryId = "",id = "";
+    String ihp = "No", healthServices = "", fallowsheetupdated = "No", userId = "", benificiary_id = "", individualeducattionplan = "", FinalString = "",
+            service_done = "", screeningdate = "", assessmentdate = "", assessmentwho = "", assessmentwhere = "", referral = "", referralplace = "",
+            referralprescription = "", trialwhat = "", trialdate = "", socialsecurity = "", socialsecuritywhen = "", gaitfrequency = "",
+            gaithowmany = "", therapyfrequency = "", therapysessions = "", fitmentwho = "", fitmentwhere = "", fitmentdevice = "",
+            surgery = "", surgerywhere = "", surgerywherewhat = "", homerecommend = "", homerecommendwhat = "", str_aidsAppliances = "", benid = "",
+            benificaryId = "", id = "";
 
     List<String> HealthActivityId;
     List<String> HealthActivityName;
@@ -93,9 +93,11 @@ public class EditHealthActivity extends AppCompatActivity {
     List<String> idarray2;
     List<String> idarray3;
     List<String> idarray4;
+    List<String> idarray5;
     List<String> HealthDevicesID;
     List<String> HealthDevicesName;
     List<String> id_Array;
+    List<String> id_Array1;
     ArrayList<VisitModelClass> HealthDevices;
     SessinoManager sessinoManager;
     List<KeyPairBoolData> listArray1;
@@ -123,6 +125,7 @@ public class EditHealthActivity extends AppCompatActivity {
         idarray2 = new ArrayList<>();
         idarray3 = new ArrayList<>();
         idarray4 = new ArrayList<>();
+        idarray5 = new ArrayList<>();
         HealthDevices = new ArrayList<>();
         HealthDevicesID = new ArrayList<>();
         HealthDevicesName = new ArrayList<>();
@@ -135,17 +138,18 @@ public class EditHealthActivity extends AppCompatActivity {
         listArray1 = new ArrayList<>();
         listArray2 = new ArrayList<>();
         id_Array = new ArrayList<>();
+        id_Array1 = new ArrayList<>();
         localRepo = new LocalRepo(EditHealthActivity.this);
 
         userId = sessinoManager.getUSERID();
 
         benid = String.valueOf(CommonClass.benfeciary_ID);
 
-        if(benid.equals("") || benid.equals("null")){
+        if (benid.equals("") || benid.equals("null")) {
 
             callofflinedata();
 
-        }else{
+        } else {
 
             callofflinedata1();
         }
@@ -361,7 +365,6 @@ public class EditHealthActivity extends AppCompatActivity {
         });*/
 
 
-
         ArrayAdapter<String> adapterpurposevisit = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, HealthActivityName);
         adapterpurposevisit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.Services.setAdapter(adapterpurposevisit);
@@ -461,7 +464,6 @@ public class EditHealthActivity extends AppCompatActivity {
         });*/
 
 
-
         String[] itemName_sugg = getResources().getStringArray(R.array.selectone1);
         ArrayAdapter<String> adapter_sugg = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, itemName_sugg);
         adapter_sugg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -516,75 +518,6 @@ public class EditHealthActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String genderStr = binding.gaitfrequency.getAdapter().getItem(position).toString();
-            }
-        });
-
-        String getDevices = getHealthDevices(EditHealthActivity.this);
-        try {
-            JSONObject obj = new JSONObject(getDevices);
-            if (obj.optString("status", "fail").equals("true")) {
-                JSONArray jsonArray = obj.optJSONArray("data");
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    HealthDevicesName.add(jsonObject.getString("device_name"));
-                    HealthDevicesID.add(jsonObject.getString("id"));
-
-                    String name = jsonObject.getString("device_name");
-                    String id = jsonObject.getString("id");
-
-                    long lon_id = Long.valueOf(id);
-
-                    VisitModelClass visitModelClass = new VisitModelClass(lon_id,name);
-                    HealthDevices.add(visitModelClass);
-                }
-
-                int size = HealthDevicesName.size();
-                int size1 = HealthDevicesID.size();
-
-                Log.d("hbdsb",size+"     "+size1);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        final List<KeyPairBoolData> listArray2 = new ArrayList<>();
-        for (int i = 0; i < HealthDevices.size(); i++) {
-            KeyPairBoolData h = new KeyPairBoolData();
-            h.setId(HealthDevices.get(i).getId());
-            h.setName(HealthDevices.get(i).getName());
-            //h.setSelected(i < 5);
-            listArray2.add(h);
-        }
-
-        MultiSpinnerSearch multiSelectSpinnerWithSearch1 = findViewById(R.id.aidsAppliances);
-
-        // Pass true If you want searchView above the list. Otherwise false. default = true.
-        multiSelectSpinnerWithSearch1.setSearchEnabled(true);
-
-        multiSelectSpinnerWithSearch1.setHintText("Aids Appliances");
-
-        //A text that will display in clear text button
-        multiSelectSpinnerWithSearch1.setClearText("Close & Clear");
-
-        // A text that will display in search hint.
-        multiSelectSpinnerWithSearch1.setSearchHint("Select your Aids Appliances");
-
-        // Set text that will display when search result not found...
-        multiSelectSpinnerWithSearch1.setEmptyTitle("Not Data Found!");
-
-        // If you will set the limit, this button will not display automatically.
-        multiSelectSpinnerWithSearch1.setShowSelectAllButton(true);
-
-        // Removed second parameter, position. Its not required now..
-        // If you want to pass preselected items, you can do it while making listArray,
-        // Pass true in setSelected of any item that you want to preselect
-        multiSelectSpinnerWithSearch1.setItems(listArray2, items -> {
-            //The followings are selected items.
-            for (int i = 0; i < items.size(); i++) {
-                Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
-
-                String userid = String.valueOf(items.get(i).getId());
-                id_Array.add(userid);
             }
         });
 
@@ -703,7 +636,7 @@ public class EditHealthActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String genderStr = binding.OPMEDD.getAdapter().getItem(position).toString();
 
-                if(genderStr.equals("Abnormal")){
+                if (genderStr.equals("Abnormal")) {
 
                     binding.tlAbnormal.setVisibility(View.VISIBLE);
                 }
@@ -726,7 +659,7 @@ public class EditHealthActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String genderStr = binding.SpeechArticulationDD.getAdapter().getItem(position).toString();
 
-                if(genderStr.equals("Mis-articulation")){
+                if (genderStr.equals("Mis-articulation")) {
 
                     binding.tlMisarticulation.setVisibility(View.VISIBLE);
                 }
@@ -987,42 +920,53 @@ public class EditHealthActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    if(idarray3.size() == 0){
+                if (idarray2.size() != 0) {
 
-                        Toast.makeText(EditHealthActivity.this, "Please Select Services", Toast.LENGTH_SHORT).show();
-
-                    }else{
+                    if (idarray3.size() == 0) {
 
                         benid = String.valueOf(CommonClass.benfeciary_ID);
 
-                        if(benid.equals("") || benid.equals("null")){
+                        if (benid.equals("") || benid.equals("null")) {
 
                             localbeneficaryDataCall();
 
-                        }else{
+                        } else {
+
+                            localbeneficaryDataCall1();
+                        }
+
+                    } else {
+
+                        benid = String.valueOf(CommonClass.benfeciary_ID);
+
+                        if (benid.equals("") || benid.equals("null")) {
+
+                            localbeneficaryDataCall();
+
+                        } else {
 
                             localbeneficaryDataCall1();
                         }
                     }
 
                 }
+
+            }
         });
 
     }
 
-    public void callupdatelocaledata( ){
+    public void callupdatelocaledata() {
 
         localRepo.updateHealthCareData(healthCareData);
 
     }
 
-    private void callofflinedata1()
-    {
-        localRepo.getSelectedHealthWithData(CommonClass.datestring,CommonClass.benfeciary_ID).observe(this, new Observer<List<HealthCareData>>() {
+    private void callofflinedata1() {
+        localRepo.getSelectedHealthWithData(CommonClass.datestring, CommonClass.benfeciary_ID).observe(this, new Observer<List<HealthCareData>>() {
             @Override
             public void onChanged(@Nullable List<HealthCareData> singleMember) {
-                if(singleMember.size() > 0)
-                {
+                if (singleMember.size() > 0) {
                     binding.startdateofshg.setText(singleMember.get(0).getScreeningdate());
 
                     String healthId = singleMember.get(0).getId();
@@ -1031,23 +975,7 @@ public class EditHealthActivity extends AppCompatActivity {
                     idarray2.clear();
 
                     idarray2 = singleMember.get(0).getServiceName();
-
-                    StringBuffer sb = new StringBuffer();
-
-                    if (idarray2.size() != 0) {
-
-                        for (String s : idarray2) {
-
-                            sb.append(s);
-                            sb.append(",");
-                        }
-
-                        String services_Id = sb.toString();
-
-                        // remove last character (,)
-                        services_Id = services_Id.substring(0, services_Id.length() - 1);
-
-                    }
+                    idarray5 = singleMember.get(0).getDeviceName();
 
                     String gettdisability = getHealthActivity(EditHealthActivity.this);
                     try {
@@ -1076,7 +1004,7 @@ public class EditHealthActivity extends AppCompatActivity {
                         KeyPairBoolData h = new KeyPairBoolData();
                         h.setId(HealthActivityServices.get(i).getId());
                         h.setName(HealthActivityServices.get(i).getName());
-                        if(idarray2.contains(HealthActivityServices.get(i).getName())){
+                        if (idarray2.contains(HealthActivityServices.get(i).getName())) {
 
                             h.setSelected(true);
                         }
@@ -1108,10 +1036,10 @@ public class EditHealthActivity extends AppCompatActivity {
                             idarray3.add(name);
                             idarray4.add(userid);
 
-                            Toast.makeText(EditHealthActivity.this, "sonuarr"+idarray3, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EditHealthActivity.this, "sonuarr" + idarray3, Toast.LENGTH_SHORT).show();
                         }
 
-                        Log.d("gcyhbghv",idarray3.toString());
+                        Log.d("gcyhbghv", idarray3.toString());
 
                         boolean ans_Screening = idarray3.contains("Screening");
                         if (ans_Screening)
@@ -1198,7 +1126,7 @@ public class EditHealthActivity extends AppCompatActivity {
                             binding.linFallowUp.setVisibility(View.GONE);
 
                         boolean ans_AARepair = idarray3.contains("A&A Repair");
-                        if(ans_AARepair)
+                        if (ans_AARepair)
                             binding.linRepair1.setVisibility(View.VISIBLE);
                         else
                             binding.linRepair1.setVisibility(View.GONE);
@@ -1214,17 +1142,17 @@ public class EditHealthActivity extends AppCompatActivity {
                     binding.dateofassiment.setText(singleMember.get(0).getAssessmentdate());
                     binding.whodidassesmenta.setText(singleMember.get(0).getAssessmentwho());
                     binding.wherewasitdonea.setText(singleMember.get(0).getAssessmentwhere());
-                   // binding.referincal.setText(singleMember.get(0).getReferral());
+                    // binding.referincal.setText(singleMember.get(0).getReferral());
                     //binding.refertowhichplace.setText(singleMember.get(0).getReferralplace());
                     //binding.presecription.setText(singleMember.get(0).getReferralprescription());
 
                     String referal = String.valueOf(singleMember.get(0).getReferral());
-                    if(referal.equals("") || referal.equals("null")){}
-                    else if(referal.equalsIgnoreCase("yes")||referal.equalsIgnoreCase("true")){
+                    if (referal.equals("") || referal.equals("null")) {
+                    } else if (referal.equalsIgnoreCase("yes") || referal.equalsIgnoreCase("true")) {
                         binding.referincal.setOn(true);
                         binding.refertowhichplace.setVisibility(View.VISIBLE);
                         binding.presecription.setVisibility(View.VISIBLE);
-                    }else{
+                    } else {
                         binding.referincal.setOn(false);
                         binding.refertowhichplace.setVisibility(View.GONE);
                         binding.presecription.setVisibility(View.GONE);
@@ -1238,10 +1166,75 @@ public class EditHealthActivity extends AppCompatActivity {
                     binding.howanydone.setText(singleMember.get(0).getGaithowmany());
                     binding.thrpynumberoftime.setText(singleMember.get(0).getTherapyfrequency());
                     binding.numberofsession.setText(singleMember.get(0).getTherapysessions());
-                    binding.fitmentwho.setText(singleMember.get(0).getTherapysessions());
-                    binding.fitmentwhere.setText(singleMember.get(0).getTherapysessions());
-                    binding.fitmentkind.setText(singleMember.get(0).getTherapysessions());
-                  //  binding.aidsAppliances.setText(singleMember.get(0).getTherapysessions());
+                    binding.fitmentwho.setText(singleMember.get(0).getFitmentwho());
+                    binding.fitmentwhere.setText(singleMember.get(0).getFitmentwhere());
+                    binding.fitmentkind.setText(singleMember.get(0).getFitmentdevice());
+
+                    String getDevices = getHealthDevices(EditHealthActivity.this);
+                    try {
+                        JSONObject obj = new JSONObject(getDevices);
+                        if (obj.optString("status", "fail").equals("true")) {
+                            JSONArray jsonArray = obj.optJSONArray("data");
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                HealthDevicesName.add(jsonObject.getString("device_name"));
+                                HealthDevicesID.add(jsonObject.getString("id"));
+
+                                String name = jsonObject.getString("device_name");
+                                String id = jsonObject.getString("id");
+
+                                long lon_id = Long.valueOf(id);
+
+                                VisitModelClass visitModelClass = new VisitModelClass(lon_id, name);
+                                HealthDevices.add(visitModelClass);
+                            }
+
+                            int size = HealthDevicesName.size();
+                            int size1 = HealthDevicesID.size();
+
+                            Log.d("hbdsb", size + "     " + size1);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    final List<KeyPairBoolData> listArray2 = new ArrayList<>();
+                    for (int i = 0; i < HealthDevices.size(); i++) {
+                        KeyPairBoolData h = new KeyPairBoolData();
+                        h.setId(HealthDevices.get(i).getId());
+                        h.setName(HealthDevices.get(i).getName());
+
+                        if (idarray5.contains(HealthDevices.get(i).getName())) {
+
+                            h.setSelected(true);
+                        }
+                        //h.setSelected(i < 5);
+                        listArray2.add(h);
+                    }
+
+                    MultiSpinnerSearch multiSelectSpinnerWithSearch1 = findViewById(R.id.aidsAppliances);
+                    multiSelectSpinnerWithSearch1.setSearchEnabled(true);
+                    multiSelectSpinnerWithSearch1.setHintText("Aids Appliances");
+                    multiSelectSpinnerWithSearch1.setClearText("Close & Clear");
+                    multiSelectSpinnerWithSearch1.setSearchHint("Select your Aids Appliances");
+                    multiSelectSpinnerWithSearch1.setEmptyTitle("Not Data Found!");
+                    multiSelectSpinnerWithSearch1.setShowSelectAllButton(true);
+                    multiSelectSpinnerWithSearch1.setItems(listArray2, items -> {
+                        //The followings are selected items.
+                        for (int i = 0; i < items.size(); i++) {
+                            Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
+
+                            String userid = String.valueOf(items.get(i).getId());
+                            id_Array.add(userid);
+
+                            String name = items.get(i).getName();
+                            id_Array1.add(name);
+
+
+                        }
+                    });
+
+
                     binding.noofappliances.setText(singleMember.get(0).getTherapysessions());
                     binding.totalcost.setText(singleMember.get(0).getTotalCost());
                     binding.patientcontribution.setText(singleMember.get(0).getPatientContribution());
@@ -1250,14 +1243,14 @@ public class EditHealthActivity extends AppCompatActivity {
                     binding.surgerywhere.setText(singleMember.get(0).getSurgerywhere());
                     binding.surgerywhat.setText(singleMember.get(0).getSurgerywherewhat());
                     //binding.homemodification.setText(singleMember.get(0).getHomerecommend());
-                   // binding.homemodificationwhere.setText(singleMember.get(0).getHomerecommendwhat());
+                    // binding.homemodificationwhere.setText(singleMember.get(0).getHomerecommendwhat());
 
                     String financialservices = String.valueOf(singleMember.get(0).getHomerecommend());
-                    if(financialservices.equals("") || financialservices.equals("null")){}
-                    else if(financialservices.equalsIgnoreCase("yes")||financialservices.equalsIgnoreCase("true")){
+                    if (financialservices.equals("") || financialservices.equals("null")) {
+                    } else if (financialservices.equalsIgnoreCase("yes") || financialservices.equalsIgnoreCase("true")) {
                         binding.homemodification.setOn(true);
                         binding.homemodificationwhere.setVisibility(View.VISIBLE);
-                    }else{
+                    } else {
                         binding.homemodification.setOn(false);
                         binding.homemodificationwhere.setVisibility(View.GONE);
                     }
@@ -1295,10 +1288,18 @@ public class EditHealthActivity extends AppCompatActivity {
                     binding.rpatientcontribution1.setText(singleMember.get(0).getPatientContributionRepair());
                     binding.rdonorcontribution1.setText(singleMember.get(0).getDonorContributionRepair());
 
+                    String ihp = String.valueOf(singleMember.get(0).getIhp());
+                    if (ihp.equals("") || ihp.equals("null")) {
+                    } else if (ihp.equalsIgnoreCase("yes") || ihp.equalsIgnoreCase("true")) {
+                        binding.ihp.setOn(true);
+                    } else {
+                        binding.ihp.setOn(false);
+                    }
+
                     benificaryId = singleMember.get(0).getBenificiaryId();
                     id = singleMember.get(0).getId();
 
-                    Log.d("gcyhbghv",idarray2.toString());
+                    Log.d("gcyhbghv", idarray2.toString());
 
                     boolean ans_Screening = idarray2.contains("Screening");
                     if (ans_Screening)
@@ -1385,7 +1386,7 @@ public class EditHealthActivity extends AppCompatActivity {
                         binding.linFallowUp.setVisibility(View.GONE);
 
                     boolean ans_AARepair = idarray2.contains("A&A Repair");
-                    if(ans_AARepair)
+                    if (ans_AARepair)
                         binding.linRepair1.setVisibility(View.VISIBLE);
                     else
                         binding.linRepair1.setVisibility(View.GONE);
@@ -1402,36 +1403,183 @@ public class EditHealthActivity extends AppCompatActivity {
         });
     }
 
-    private void callofflinedata()
-    {
+    private void callofflinedata() {
         localRepo.getSelectedHealthCareData((CommonClass.tempid)).observe(this, new Observer<List<HealthCareData>>() {
             @Override
             public void onChanged(@Nullable List<HealthCareData> singleMember) {
-                if(singleMember.size() > 0)
-                {
+                if (singleMember.size() > 0) {
                     binding.startdateofshg.setText(singleMember.get(0).getScreeningdate());
 
                     String healthId = singleMember.get(0).getId();
                     CommonClass.healthId = healthId;
 
+                    idarray2.clear();
+
                     idarray2 = singleMember.get(0).getServiceName();
+                    idarray5 = singleMember.get(0).getDeviceName();
 
                     StringBuffer sb = new StringBuffer();
 
-                    if (idarray2.size() != 0) {
+                    String gettdisability = getHealthActivity(EditHealthActivity.this);
+                    try {
+                        JSONObject obj = new JSONObject(gettdisability);
+                        if (obj.optString("status", "fail").equals("true")) {
+                            JSONArray jsonArray = obj.optJSONArray("data");
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                HealthActivityName.add(jsonObject.getString("service_name"));
+                                HealthActivityId.add(jsonObject.getString("id"));
 
-                        for (String s : idarray2) {
+                                String name = jsonObject.getString("service_name");
+                                String id = jsonObject.getString("id");
 
-                            sb.append(s);
-                            sb.append(",");
+                                long lon_id = Long.valueOf(id);
+
+                                VisitModelClass visitModelClass = new VisitModelClass(lon_id, name);
+                                HealthActivityServices.add(visitModelClass);
+                            }
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    for (int i = 0; i < HealthActivityServices.size(); i++) {
+                        KeyPairBoolData h = new KeyPairBoolData();
+                        h.setId(HealthActivityServices.get(i).getId());
+                        h.setName(HealthActivityServices.get(i).getName());
+                        if (idarray2.contains(HealthActivityServices.get(i).getName())) {
+
+                            h.setSelected(true);
+                        }
+                        //h.setSelected(i < 5);
+                        listArray1.add(h);
+
+                        Log.d("hdgbdjb", listArray1.toString());
+                    }
+
+                    multiSelectSpinnerWithSearch = findViewById(R.id.Services);
+                    multiSelectSpinnerWithSearch.setSearchEnabled(true);
+                    multiSelectSpinnerWithSearch.setHintText("Select Services");
+                    multiSelectSpinnerWithSearch.setClearText("Close & Clear");
+                    multiSelectSpinnerWithSearch.setSearchHint("Select your Services");
+                    multiSelectSpinnerWithSearch.setEmptyTitle("Not Data Found!");
+                    multiSelectSpinnerWithSearch.setShowSelectAllButton(true);
+
+                    multiSelectSpinnerWithSearch.setItems(listArray1, items -> {
+
+                        idarray3.clear();
+                        idarray4.clear();
+
+                        //The followings are selected items.
+                        for (int i = 0; i < items.size(); i++) {
+                            Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
+
+                            String userid = String.valueOf(items.get(i).getId());
+                            String name = String.valueOf(items.get(i).getName());
+                            idarray3.add(name);
+                            idarray4.add(userid);
+
+                            Toast.makeText(EditHealthActivity.this, "sonuarr" + idarray3, Toast.LENGTH_SHORT).show();
                         }
 
-                        String services_Id = sb.toString();
+                        Log.d("gcyhbghv", idarray3.toString());
 
-                        // remove last character (,)
-                        services_Id = services_Id.substring(0, services_Id.length() - 1);
+                        boolean ans_Screening = idarray3.contains("Screening");
+                        if (ans_Screening)
+                            binding.linScreening.setVisibility(View.VISIBLE);
+                        else
+                            binding.linScreening.setVisibility(View.GONE);
 
-                    }
+                        boolean ans_Trial = idarray3.contains("Trial");
+                        if (ans_Trial)
+                            binding.linTrial.setVisibility(View.VISIBLE);
+                        else
+                            binding.linTrial.setVisibility(View.GONE);
+
+                        boolean ans_GAITTraining = idarray3.contains("GAIT Training");
+                        if (ans_GAITTraining)
+                            binding.linGAITTraining.setVisibility(View.VISIBLE);
+                        else
+                            binding.linGAITTraining.setVisibility(View.GONE);
+
+                        boolean ans_Assessment = idarray3.contains("Assessment");
+                        if (ans_Assessment)
+                            binding.linAssessment.setVisibility(View.VISIBLE);
+                        else
+                            binding.linAssessment.setVisibility(View.GONE);
+
+                        boolean ans_MedicalReferral = idarray3.contains("Referral");
+                        if (ans_MedicalReferral)
+                            binding.linMedicalReferral.setVisibility(View.VISIBLE);
+                        else
+                            binding.linMedicalReferral.setVisibility(View.GONE);
+
+                        boolean ans_TherapyServices = idarray3.contains("Therapy Service");
+                        if (ans_TherapyServices)
+                            binding.linTherapyServices.setVisibility(View.VISIBLE);
+                        else
+                            binding.linTherapyServices.setVisibility(View.GONE);
+
+                        boolean ans_Fitment = idarray3.contains("Fitment");
+                        if (ans_Fitment)
+                            binding.linFitment.setVisibility(View.VISIBLE);
+                        else
+                            binding.linFitment.setVisibility(View.GONE);
+
+                        boolean ans_CorrectiveSurgery = idarray3.contains("Corrective Surgery");
+                        if (ans_CorrectiveSurgery)
+                            binding.linCorrectiveSurgery.setVisibility(View.VISIBLE);
+                        else
+                            binding.linCorrectiveSurgery.setVisibility(View.GONE);
+
+                        boolean ans_HomeModificcation = idarray3.contains("Home Modification");
+                        if (ans_HomeModificcation)
+                            binding.linHomeModificcation.setVisibility(View.VISIBLE);
+                        else
+                            binding.linHomeModificcation.setVisibility(View.GONE);
+
+                        boolean ans_SpeechLanguage = idarray3.contains("Speech & Language");
+                        if (ans_SpeechLanguage)
+                            binding.linSpeechLanguage.setVisibility(View.VISIBLE);
+                        else
+                            binding.linSpeechLanguage.setVisibility(View.GONE);
+
+                        boolean ans_Hearing = idarray3.contains("Hearing");
+                        if (ans_Hearing)
+                            binding.linHearing.setVisibility(View.VISIBLE);
+                        else
+                            binding.linHearing.setVisibility(View.GONE);
+
+                        boolean ans_Hearing1 = idarray3.contains("Hearing");
+                        if (ans_Hearing1)
+                            binding.linHearingAid.setVisibility(View.VISIBLE);
+                        else
+                            binding.linHearingAid.setVisibility(View.GONE);
+
+                        boolean ans_IHP = idarray3.contains("IHP");
+                        if (ans_IHP)
+                            binding.linIndividualHealthPlan.setVisibility(View.VISIBLE);
+                        else
+                            binding.linIndividualHealthPlan.setVisibility(View.GONE);
+
+                        boolean ans_Followup = idarray3.contains("Followup");
+                        if (ans_Followup)
+                            binding.linFallowUp.setVisibility(View.VISIBLE);
+                        else
+                            binding.linFallowUp.setVisibility(View.GONE);
+
+                        boolean ans_AARepair = idarray3.contains("A&A Repair");
+                        if (ans_AARepair)
+                            binding.linRepair1.setVisibility(View.VISIBLE);
+                        else
+                            binding.linRepair1.setVisibility(View.GONE);
+
+                        boolean ans_CBRAARepair = idarray3.contains("CBR A&A Repair");
+                        if (ans_CBRAARepair)
+                            binding.linRepair.setVisibility(View.VISIBLE);
+                        else
+                            binding.linRepair.setVisibility(View.GONE);
+                    });
 
                     binding.startdateofshg.setText(singleMember.get(0).getScreeningdate());
                     binding.dateofassiment.setText(singleMember.get(0).getAssessmentdate());
@@ -1442,12 +1590,12 @@ public class EditHealthActivity extends AppCompatActivity {
                     //binding.presecription.setText(singleMember.get(0).getReferralprescription());
 
                     String referal = String.valueOf(singleMember.get(0).getReferral());
-                    if(referal.equals("") || referal.equals("null")){}
-                    else if(referal.equalsIgnoreCase("yes")||referal.equalsIgnoreCase("true")){
+                    if (referal.equals("") || referal.equals("null")) {
+                    } else if (referal.equalsIgnoreCase("yes") || referal.equalsIgnoreCase("true")) {
                         binding.referincal.setOn(true);
                         binding.refertowhichplace.setVisibility(View.VISIBLE);
                         binding.presecription.setVisibility(View.VISIBLE);
-                    }else{
+                    } else {
                         binding.referincal.setOn(false);
                         binding.refertowhichplace.setVisibility(View.GONE);
                         binding.presecription.setVisibility(View.GONE);
@@ -1461,10 +1609,69 @@ public class EditHealthActivity extends AppCompatActivity {
                     binding.howanydone.setText(singleMember.get(0).getGaithowmany());
                     binding.thrpynumberoftime.setText(singleMember.get(0).getTherapyfrequency());
                     binding.numberofsession.setText(singleMember.get(0).getTherapysessions());
-                    binding.fitmentwho.setText(singleMember.get(0).getTherapysessions());
-                    binding.fitmentwhere.setText(singleMember.get(0).getTherapysessions());
-                    binding.fitmentkind.setText(singleMember.get(0).getTherapysessions());
-                    //binding.aidsAppliances.setText(singleMember.get(0).getTherapysessions());
+                    binding.fitmentwho.setText(singleMember.get(0).getFitmentwho());
+                    binding.fitmentwhere.setText(singleMember.get(0).getFitmentwhere());
+                    binding.fitmentkind.setText(singleMember.get(0).getFitmentdevice());
+
+                    String getDevices = getHealthDevices(EditHealthActivity.this);
+                    try {
+                        JSONObject obj = new JSONObject(getDevices);
+                        if (obj.optString("status", "fail").equals("true")) {
+                            JSONArray jsonArray = obj.optJSONArray("data");
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                HealthDevicesName.add(jsonObject.getString("device_name"));
+                                HealthDevicesID.add(jsonObject.getString("id"));
+
+                                String name = jsonObject.getString("device_name");
+                                String id = jsonObject.getString("id");
+
+                                long lon_id = Long.valueOf(id);
+
+                                VisitModelClass visitModelClass = new VisitModelClass(lon_id, name);
+                                HealthDevices.add(visitModelClass);
+                            }
+
+                            int size = HealthDevicesName.size();
+                            int size1 = HealthDevicesID.size();
+
+                            Log.d("hbdsb", size + "     " + size1);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    final List<KeyPairBoolData> listArray2 = new ArrayList<>();
+                    for (int i = 0; i < HealthDevices.size(); i++) {
+                        KeyPairBoolData h = new KeyPairBoolData();
+                        h.setId(HealthDevices.get(i).getId());
+                        h.setName(HealthDevices.get(i).getName());
+
+                        if (idarray5.contains(HealthDevices.get(i).getName())) {
+
+                            h.setSelected(true);
+                        }
+                        //h.setSelected(i < 5);
+                        listArray2.add(h);
+                    }
+
+                    MultiSpinnerSearch multiSelectSpinnerWithSearch1 = findViewById(R.id.aidsAppliances);
+                    multiSelectSpinnerWithSearch1.setSearchEnabled(true);
+                    multiSelectSpinnerWithSearch1.setHintText("Aids Appliances");
+                    multiSelectSpinnerWithSearch1.setClearText("Close & Clear");
+                    multiSelectSpinnerWithSearch1.setSearchHint("Select your Aids Appliances");
+                    multiSelectSpinnerWithSearch1.setEmptyTitle("Not Data Found!");
+                    multiSelectSpinnerWithSearch1.setShowSelectAllButton(true);
+                    multiSelectSpinnerWithSearch1.setItems(listArray2, items -> {
+                        //The followings are selected items.
+                        for (int i = 0; i < items.size(); i++) {
+                            Log.i(TAG, i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
+
+                            String userid = String.valueOf(items.get(i).getId());
+                            id_Array.add(userid);
+                        }
+                    });
+
                     binding.noofappliances.setText(singleMember.get(0).getTherapysessions());
                     binding.totalcost.setText(singleMember.get(0).getTotalCost());
                     binding.patientcontribution.setText(singleMember.get(0).getPatientContribution());
@@ -1476,11 +1683,11 @@ public class EditHealthActivity extends AppCompatActivity {
                     // binding.homemodificationwhere.setText(singleMember.get(0).getHomerecommendwhat());
 
                     String financialservices = String.valueOf(singleMember.get(0).getHomerecommend());
-                    if(financialservices.equals("") || financialservices.equals("null")){}
-                    else if(financialservices.equalsIgnoreCase("yes")||financialservices.equalsIgnoreCase("true")){
+                    if (financialservices.equals("") || financialservices.equals("null")) {
+                    } else if (financialservices.equalsIgnoreCase("yes") || financialservices.equalsIgnoreCase("true")) {
                         binding.homemodification.setOn(true);
                         binding.homemodificationwhere.setVisibility(View.VISIBLE);
-                    }else{
+                    } else {
                         binding.homemodification.setOn(false);
                         binding.homemodificationwhere.setVisibility(View.GONE);
                     }
@@ -1518,102 +1725,110 @@ public class EditHealthActivity extends AppCompatActivity {
                     binding.rpatientcontribution1.setText(singleMember.get(0).getPatientContributionRepair());
                     binding.rdonorcontribution1.setText(singleMember.get(0).getDonorContributionRepair());
 
+                    String ihp = String.valueOf(singleMember.get(0).getIhp());
+                    if (ihp.equals("") || ihp.equals("null")) {
+                    } else if (ihp.equalsIgnoreCase("yes") || ihp.equalsIgnoreCase("true")) {
+                        binding.ihp.setOn(true);
+                    } else {
+                        binding.ihp.setOn(false);
+                    }
+
                     benificaryId = singleMember.get(0).getBenificiaryId();
                     id = singleMember.get(0).getId();
 
-                    Log.d("gcyhbghv",idarray1.toString());
+                    Log.d("gcyhbghv", idarray2.toString());
 
-                    boolean ans_Screening = idarray1.contains("Screening");
+                    boolean ans_Screening = idarray2.contains("Screening");
                     if (ans_Screening)
                         binding.linScreening.setVisibility(View.VISIBLE);
                     else
                         binding.linScreening.setVisibility(View.GONE);
 
-                    boolean ans_Trial = idarray1.contains("Trial");
+                    boolean ans_Trial = idarray2.contains("Trial");
                     if (ans_Trial)
                         binding.linTrial.setVisibility(View.VISIBLE);
                     else
                         binding.linTrial.setVisibility(View.GONE);
 
-                    boolean ans_GAITTraining = idarray1.contains("GAIT Training");
+                    boolean ans_GAITTraining = idarray2.contains("GAIT Training");
                     if (ans_GAITTraining)
                         binding.linGAITTraining.setVisibility(View.VISIBLE);
                     else
                         binding.linGAITTraining.setVisibility(View.GONE);
 
-                    boolean ans_Assessment = idarray1.contains("Assessment");
+                    boolean ans_Assessment = idarray2.contains("Assessment");
                     if (ans_Assessment)
                         binding.linAssessment.setVisibility(View.VISIBLE);
                     else
                         binding.linAssessment.setVisibility(View.GONE);
 
-                    boolean ans_MedicalReferral = idarray1.contains("Referral");
+                    boolean ans_MedicalReferral = idarray2.contains("Referral");
                     if (ans_MedicalReferral)
                         binding.linMedicalReferral.setVisibility(View.VISIBLE);
                     else
                         binding.linMedicalReferral.setVisibility(View.GONE);
 
-                    boolean ans_TherapyServices = idarray1.contains("Therapy Service");
+                    boolean ans_TherapyServices = idarray2.contains("Therapy Service");
                     if (ans_TherapyServices)
                         binding.linTherapyServices.setVisibility(View.VISIBLE);
                     else
                         binding.linTherapyServices.setVisibility(View.GONE);
 
-                    boolean ans_Fitment = idarray1.contains("Fitment");
+                    boolean ans_Fitment = idarray2.contains("Fitment");
                     if (ans_Fitment)
                         binding.linFitment.setVisibility(View.VISIBLE);
                     else
                         binding.linFitment.setVisibility(View.GONE);
 
-                    boolean ans_CorrectiveSurgery = idarray1.contains("Corrective Surgery");
+                    boolean ans_CorrectiveSurgery = idarray2.contains("Corrective Surgery");
                     if (ans_CorrectiveSurgery)
                         binding.linCorrectiveSurgery.setVisibility(View.VISIBLE);
                     else
                         binding.linCorrectiveSurgery.setVisibility(View.GONE);
 
-                    boolean ans_HomeModificcation = idarray1.contains("Home Modification");
+                    boolean ans_HomeModificcation = idarray2.contains("Home Modification");
                     if (ans_HomeModificcation)
                         binding.linHomeModificcation.setVisibility(View.VISIBLE);
                     else
                         binding.linHomeModificcation.setVisibility(View.GONE);
 
-                    boolean ans_SpeechLanguage = idarray1.contains("Speech & Language");
+                    boolean ans_SpeechLanguage = idarray2.contains("Speech & Language");
                     if (ans_SpeechLanguage)
                         binding.linSpeechLanguage.setVisibility(View.VISIBLE);
                     else
                         binding.linSpeechLanguage.setVisibility(View.GONE);
 
-                    boolean ans_Hearing = idarray1.contains("Hearing");
+                    boolean ans_Hearing = idarray2.contains("Hearing");
                     if (ans_Hearing)
                         binding.linHearing.setVisibility(View.VISIBLE);
                     else
                         binding.linHearing.setVisibility(View.GONE);
 
-                    boolean ans_Hearing1 = idarray1.contains("Hearing");
+                    boolean ans_Hearing1 = idarray2.contains("Hearing");
                     if (ans_Hearing1)
                         binding.linHearingAid.setVisibility(View.VISIBLE);
                     else
                         binding.linHearingAid.setVisibility(View.GONE);
 
-                    boolean ans_IHP = idarray1.contains("IHP");
+                    boolean ans_IHP = idarray2.contains("IHP");
                     if (ans_IHP)
                         binding.linIndividualHealthPlan.setVisibility(View.VISIBLE);
                     else
                         binding.linIndividualHealthPlan.setVisibility(View.GONE);
 
-                    boolean ans_Followup = idarray1.contains("Followup");
+                    boolean ans_Followup = idarray2.contains("Followup");
                     if (ans_Followup)
                         binding.linFallowUp.setVisibility(View.VISIBLE);
                     else
                         binding.linFallowUp.setVisibility(View.GONE);
 
-                    boolean ans_AARepair = idarray1.contains("A&A Repair");
-                    if(ans_AARepair)
+                    boolean ans_AARepair = idarray2.contains("A&A Repair");
+                    if (ans_AARepair)
                         binding.linRepair1.setVisibility(View.VISIBLE);
                     else
                         binding.linRepair1.setVisibility(View.GONE);
 
-                    boolean ans_CBRAARepair = idarray1.contains("CBR A&A Repair");
+                    boolean ans_CBRAARepair = idarray2.contains("CBR A&A Repair");
                     if (ans_CBRAARepair)
                         binding.linRepair.setVisibility(View.VISIBLE);
                     else
@@ -1704,7 +1919,7 @@ public class EditHealthActivity extends AppCompatActivity {
                         } else if (getvalue.equals("5")) {
                             binding.frame5.setVisibility(View.VISIBLE);
                             binding.imageview5.setImageDrawable(getResources().getDrawable(R.drawable.pdfimg));
-                        }else{
+                        } else {
 
                             Toast.makeText(this, "You have Add Already Five Document", Toast.LENGTH_SHORT).show();
                         }
@@ -1761,7 +1976,7 @@ public class EditHealthActivity extends AppCompatActivity {
                         } else if (getvalue.equals("5")) {
                             binding.frame5.setVisibility(View.VISIBLE);
                             binding.imageview5.setImageDrawable(getResources().getDrawable(R.drawable.documentdetail));
-                        }else{
+                        } else {
 
                             Toast.makeText(this, "You have Add Already Five Document", Toast.LENGTH_SHORT).show();
                         }
@@ -1838,8 +2053,7 @@ public class EditHealthActivity extends AppCompatActivity {
         return byteBuffer.toByteArray();
     }
 
-    public void localbeneficaryDataCall1()
-    {
+    public void localbeneficaryDataCall1() {
         HealthCareData healthCareData = new HealthCareData();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd ");
         Date date = new Date();
@@ -1852,8 +2066,57 @@ public class EditHealthActivity extends AppCompatActivity {
         healthCareData.setUpdatedAt(formatter.format(date));
         healthCareData.setUpdatedBy(userId);
 
-        healthCareData.setServiceDone(idarray4.toString());
+        StringBuffer sb = new StringBuffer();
+
+        if (idarray4.size() != 0) {
+
+            for (String s : idarray4) {
+
+                sb.append(s);
+                sb.append(",");
+            }
+
+            String services_Id = sb.toString();
+
+            // remove last character (,)
+            services_Id = services_Id.substring(0, services_Id.length() - 1);
+
+            Log.d("purposeofvisitdata", services_Id);
+
+            healthCareData.setServiceDone(services_Id);
+
+        } else {
+
+            healthCareData.setServiceDone("");
+
+        }
+
+        StringBuffer sb1 = new StringBuffer();
+
+        if (id_Array.size() != 0) {
+
+            for (String s : id_Array) {
+
+                sb1.append(s);
+                sb1.append(",");
+            }
+
+            str_aidsAppliances = sb1.toString();
+
+            // remove last character (,)
+            str_aidsAppliances = str_aidsAppliances.substring(0, str_aidsAppliances.length() - 1);
+
+            Log.d("purposeofvisitdata", str_aidsAppliances);
+
+
+        } else {
+
+            str_aidsAppliances = "";
+        }
+
+        // healthCareData.setServiceDone(idarray4.toString());
         healthCareData.setServiceName(idarray3);
+        healthCareData.setDeviceName(id_Array1);
         healthCareData.setScreeningdate(binding.startdateofshg.getText().toString());
         healthCareData.setBenificiaryId(CommonClass.benfeciary_ID);
         healthCareData.setAssessmentdate(binding.dateofassiment.getText().toString());
@@ -1928,8 +2191,7 @@ public class EditHealthActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void localbeneficaryDataCall()
-    {
+    public void localbeneficaryDataCall() {
         HealthCareData healthCareData = new HealthCareData();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd ");
         Date date = new Date();
@@ -1944,8 +2206,57 @@ public class EditHealthActivity extends AppCompatActivity {
         healthCareData.setUpdatedAt(formatter.format(date));
         healthCareData.setUpdatedBy(userId);
 
-        healthCareData.setServiceDone(idarray4.toString());
+        StringBuffer sb = new StringBuffer();
+
+        if (idarray4.size() != 0) {
+
+            for (String s : idarray4) {
+
+                sb.append(s);
+                sb.append(",");
+            }
+
+            String services_Id = sb.toString();
+
+            // remove last character (,)
+            services_Id = services_Id.substring(0, services_Id.length() - 1);
+
+            Log.d("purposeofvisitdata", services_Id);
+
+            healthCareData.setServiceDone(services_Id);
+
+        } else {
+
+            healthCareData.setServiceDone("");
+
+        }
+
+        StringBuffer sb1 = new StringBuffer();
+
+        if (id_Array.size() != 0) {
+
+            for (String s : id_Array) {
+
+                sb1.append(s);
+                sb1.append(",");
+            }
+
+            str_aidsAppliances = sb1.toString();
+
+            // remove last character (,)
+            str_aidsAppliances = str_aidsAppliances.substring(0, str_aidsAppliances.length() - 1);
+
+            Log.d("purposeofvisitdata", str_aidsAppliances);
+
+
+        } else {
+
+            str_aidsAppliances = "";
+        }
+
+        // healthCareData.setServiceDone(idarray4.toString());
         healthCareData.setServiceName(idarray3);
+        healthCareData.setDeviceName(id_Array1);
         healthCareData.setScreeningdate(binding.startdateofshg.getText().toString());
         healthCareData.setBenificiaryId(CommonClass.benfeciary_ID);
         healthCareData.setAssessmentdate(binding.dateofassiment.getText().toString());
@@ -2022,12 +2333,12 @@ public class EditHealthActivity extends AppCompatActivity {
     }
 
 
-    public static String  getRandomNumber() {
-        int max  = 999;
-        int min  = 100;
+    public static String getRandomNumber() {
+        int max = 999;
+        int min = 100;
         String result = "";
-        Random random =  new Random();
-        result = String.valueOf(random.nextInt((max - min) + 1)+min);
+        Random random = new Random();
+        result = String.valueOf(random.nextInt((max - min) + 1) + min);
 
         return result;
     }
