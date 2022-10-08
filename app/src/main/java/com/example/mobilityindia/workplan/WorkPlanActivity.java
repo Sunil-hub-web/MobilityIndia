@@ -99,7 +99,7 @@ public class WorkPlanActivity extends AppCompatActivity{
 
     public void workingMonthDetails(String userID){
 
-        String url = "https://midev.zbapps.in/api/activityreport/own";
+        String url = "https://mis.mobility-india.org/api/activityreport/own";
 
         ProgressDialog progressDialog = new ProgressDialog(WorkPlanActivity.this);
         progressDialog.setMessage("View Activity Report details...");

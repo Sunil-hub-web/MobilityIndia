@@ -302,7 +302,7 @@ public class ActionMonthAdapter extends RecyclerView.Adapter<ActionMonthAdapter.
         progressDialog.show();
 
 
-        String url = "https://midev.zbapps.in/api/updateplan";
+        String url = "https://mis.mobility-india.org/api/updateplan";
 
         JSONObject jsonObject = new JSONObject();
 

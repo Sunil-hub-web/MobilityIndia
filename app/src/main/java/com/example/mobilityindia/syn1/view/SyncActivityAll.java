@@ -279,7 +279,7 @@ public class SyncActivityAll extends AppCompatActivity {
         progressDialog.setMessage("Data sync please Wait...");
         progressDialog.show();
 
-        String url = "https://midev.zbapps.in/api/uploadClockin";
+        String url = "https://mis.mobility-india.org/api/uploadClockin";
 
         MyJsonArrayRequest myJsonArrayRequest = new MyJsonArrayRequest(Request.Method.POST, url, jsonArray, new Response.Listener<JSONObject>() {
             @Override
@@ -971,7 +971,7 @@ public class SyncActivityAll extends AppCompatActivity {
         progressDialog.setMessage("Data sync please Wait...");
         progressDialog.show();
 
-        String url = "https://midev.zbapps.in/api/uploadListben";
+        String url = "https://mis.mobility-india.org/api/uploadListben";
 
         MyJsonArrayRequest myJsonArrayRequest = new MyJsonArrayRequest(Request.Method.POST, url, jsonArray, new Response.Listener<JSONObject>() {
             @Override
@@ -1368,7 +1368,7 @@ public class SyncActivityAll extends AppCompatActivity {
         pd.show();
         pd.show();
 
-        String url = "https://midev.zbapps.in/api/updateactionplan";
+        String url = "https://mis.mobility-india.org/api/updateactionplan";
 
         MyJsonArrayRequest myJsonArrayRequest = new MyJsonArrayRequest(Request.Method.POST, url, jsonArray, new Response.Listener<JSONObject>() {
             @Override
@@ -1786,7 +1786,7 @@ public class SyncActivityAll extends AppCompatActivity {
         progressDialog.setMessage("Data sync please Wait...");
         progressDialog.show();
 
-        String url = "https://midev.zbapps.in/api/uploadEducation";
+        String url = "https://mis.mobility-india.org/api/uploadEducation";
 
         MyJsonArrayRequest myJsonArrayRequest = new MyJsonArrayRequest(Request.Method.POST, url, jsonArray, new Response.Listener<JSONObject>() {
             @Override
@@ -2052,7 +2052,7 @@ public class SyncActivityAll extends AppCompatActivity {
 
     public void storeAllLivelihoodService(JSONArray jsonArray) {
 
-        String url = "https://midev.zbapps.in/api/uploadLivelihood";
+        String url = "https://mis.mobility-india.org/api/uploadLivelihood";
 
         MyJsonArrayRequest myJsonArrayRequest = new MyJsonArrayRequest(Request.Method.POST, url, jsonArray, new Response.Listener<JSONObject>() {
             @Override
@@ -2248,7 +2248,7 @@ public class SyncActivityAll extends AppCompatActivity {
 
     public void storeAllSocialServices(JSONArray jsonArray) {
 
-        String url = "https://midev.zbapps.in/api/uploadSocial";
+        String url = "https://mis.mobility-india.org/api/uploadSocial";
 
         MyJsonArrayRequest myJsonArrayRequest = new MyJsonArrayRequest(Request.Method.POST, url, jsonArray, new Response.Listener<JSONObject>() {
             @Override
@@ -2372,7 +2372,7 @@ public class SyncActivityAll extends AppCompatActivity {
         pd.setCancelable(false);
         pd.show();
 
-        String url = "https://midev.zbapps.in/api/activityreport/update_attendance";
+        String url = "https://mis.mobility-india.org/api/activityreport/update_attendance";
 
         MyJsonArrayRequest myJsonArrayRequest = new MyJsonArrayRequest(Request.Method.POST, url, jsonArray, new Response.Listener<JSONObject>() {
             @Override
@@ -2826,7 +2826,7 @@ public class SyncActivityAll extends AppCompatActivity {
 
     public void storeAllHealthService(JSONArray jsonArray) {
 
-        String url = "https://midev.zbapps.in/api/uploadService";
+        String url = "https://mis.mobility-india.org/api/uploadService";
 
        MyJsonArrayRequest myJsonArrayRequest = new MyJsonArrayRequest(Request.Method.POST, url, jsonArray, new Response.Listener<JSONObject>() {
            @Override

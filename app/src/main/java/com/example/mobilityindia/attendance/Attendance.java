@@ -571,7 +571,7 @@ public class Attendance extends AppCompatActivity {
         progressDialog.setMessage("Lodaing Details...");
         progressDialog.show();
 
-        String url = "https://midev.zbapps.in/api/clockInList";
+        String url = "https://mis.mobility-india.org/api/clockInList";
 
         JSONObject jsonObject = new JSONObject();
 
@@ -687,7 +687,7 @@ public class Attendance extends AppCompatActivity {
         progressDialog.setMessage("Lodaing Details...");
         progressDialog.show();
 
-        String url = "https://midev.zbapps.in/api/uploadClockin";
+        String url = "https://mis.mobility-india.org/api/uploadClockin";
 
         MyJsonArrayRequest myJsonArrayRequest = new MyJsonArrayRequest(Request.Method.POST, url, jsonArray, new Response.Listener<JSONObject>() {
             @Override

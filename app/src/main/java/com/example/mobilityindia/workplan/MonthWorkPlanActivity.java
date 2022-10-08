@@ -419,7 +419,7 @@ public class MonthWorkPlanActivity extends AppCompatActivity {
         pd.setCancelable(false);
         pd.show();
 
-        String url = "https://midev.zbapps.in/api/activityreport/attendance";
+        String url = "https://mis.mobility-india.org/api/activityreport/attendance";
 
         JSONObject jsonObject = new JSONObject();
 
@@ -530,7 +530,7 @@ public class MonthWorkPlanActivity extends AppCompatActivity {
         pd.setCancelable(false);
         pd.show();
 
-        String url = "https://midev.zbapps.in/api/activityreport/update_attendance";
+        String url = "https://mis.mobility-india.org/api/activityreport/update_attendance";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST, url, jsonArray, new Response.Listener<JSONArray>() {
             @Override
@@ -628,7 +628,7 @@ public class MonthWorkPlanActivity extends AppCompatActivity {
         pd.setCancelable(false);
         pd.show();
 
-        String url = "https://midev.zbapps.in/api/activityreport/update_attendance";
+        String url = "https://mis.mobility-india.org/api/activityreport/update_attendance";
 
         MyJsonArrayRequest myJsonArrayRequest = new MyJsonArrayRequest(Request.Method.POST, url, jsonArray, new Response.Listener<JSONObject>() {
             @Override
@@ -690,7 +690,7 @@ public class MonthWorkPlanActivity extends AppCompatActivity {
         pd.setCancelable(false);
         pd.show();
 
-        String url = "https://midev.zbapps.in/api/activityreport/group_update_activity_report";
+        String url = "https://mis.mobility-india.org/api/activityreport/group_update_activity_report";
 
         MyJsonArrayRequest myJsonArrayRequest = new MyJsonArrayRequest(Request.Method.POST, url, jsonArray, new Response.Listener<JSONObject>() {
             @Override

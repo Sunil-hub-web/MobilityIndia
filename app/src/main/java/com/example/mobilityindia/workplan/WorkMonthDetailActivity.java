@@ -414,7 +414,7 @@ public class WorkMonthDetailActivity extends AppCompatActivity {
         pd.setCancelable(false);
         pd.show();
 
-        String url = "https://midev.zbapps.in/api/activityreport/update_own";
+        String url = "https://mis.mobility-india.org/api/activityreport/update_own";
 
         JSONObject jsonObject = new JSONObject();
 

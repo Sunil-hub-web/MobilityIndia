@@ -105,7 +105,7 @@ public class ActionPlanActivity extends AppCompatActivity {
 
     public void actionMonthDetails(String userID) {
 
-        String url = "https://midev.zbapps.in/api/getactionplan";
+        String url = "https://mis.mobility-india.org/api/getactionplan";
 
         ProgressDialog progressDialog = new ProgressDialog(ActionPlanActivity.this);
         progressDialog.setMessage("View ActionPlan Details...");

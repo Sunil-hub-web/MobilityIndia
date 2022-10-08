@@ -483,7 +483,7 @@ public class AddSocialActivity extends AppCompatActivity {
         SessinoManager sessinoManager = new SessinoManager(AddSocialActivity.this);
         String userId = sessinoManager.getUSERID();
 
-        String url = "https://midev.zbapps.in/api/addSocial";
+        String url = "https://mis.mobility-india.org/api/addSocial";
 
         if(jsonArray_SocalTraningWhat.size() != 0){
 

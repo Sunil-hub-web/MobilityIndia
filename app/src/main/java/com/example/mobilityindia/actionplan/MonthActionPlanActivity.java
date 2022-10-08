@@ -257,7 +257,7 @@ public class MonthActionPlanActivity extends AppCompatActivity {
         pd.setCancelable(false);
         pd.show();
 
-        String url = "https://midev.zbapps.in/api/monthlyPlan";
+        String url = "https://mis.mobility-india.org/api/monthlyPlan";
 
         JSONObject jsonObject = new JSONObject();
 
@@ -363,7 +363,7 @@ public class MonthActionPlanActivity extends AppCompatActivity {
         pd.setCancelable(false);
         pd.show();
 
-        String url = "https://midev.zbapps.in/api/monthlyPlan";
+        String url = "https://mis.mobility-india.org/api/monthlyPlan";
 
         JSONObject jsonObject = new JSONObject();
 
@@ -783,7 +783,7 @@ public class MonthActionPlanActivity extends AppCompatActivity {
         pd.setCancelable(false);
         pd.show();
 
-        String url = "https://midev.zbapps.in/api/uploadPlan";
+        String url = "https://mis.mobility-india.org/api/uploadPlan";
 
         MyJsonArrayRequest myJsonArrayRequest = new MyJsonArrayRequest(Request.Method.POST, url, jsonArray, new Response.Listener<JSONObject>() {
             @Override

@@ -70,7 +70,6 @@ public class AddLivelihoodActivity extends AppCompatActivity {
     List<String> occuption;
     List<String> occuptionID;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
