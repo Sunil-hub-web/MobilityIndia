@@ -1196,12 +1196,12 @@ public class EditBasicProfileActivity extends AppCompatActivity {
                     }
                     localRepo.updateBene(singleMember.get(0));
 
+                    Toast.makeText(EditBasicProfileActivity.this, " Basic profile updated in locally.", Toast.LENGTH_SHORT).show();
+
                     onBackPressed();
 
                    /* Intent intent = new Intent(EditBasicProfileActivity.this, BeneficaryDetailActivity.class);
                     startActivity(intent);*/
-
-                    Toast.makeText(EditBasicProfileActivity.this, " Basic profile updated in locally.", Toast.LENGTH_SHORT).show();
 
                 }
             }

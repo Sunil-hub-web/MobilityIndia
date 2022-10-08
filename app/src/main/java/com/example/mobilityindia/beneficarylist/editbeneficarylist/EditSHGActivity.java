@@ -146,7 +146,9 @@ public class EditSHGActivity extends AppCompatActivity {
         binding.buttonnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 callupdatelocaledata();
+
             }
         });
 
@@ -202,6 +204,7 @@ public class EditSHGActivity extends AppCompatActivity {
         localRepo.getSelectedBene(CommonClass.tempid).observe(this, new Observer<List<BeneData>>() {
             @Override
             public void onChanged(@Nullable List<BeneData> singleMember) {
+
                 if (singleMember.size() > 0)
                 {
                     singleMember.get(0).setTempId(CommonClass.tempid);
@@ -218,6 +221,7 @@ public class EditSHGActivity extends AppCompatActivity {
                         localRepo.updateBene(singleMember.get(0));
 
                         Toast.makeText(EditSHGActivity.this, "CBO info updated in locally.", Toast.LENGTH_SHORT).show();
+
                         onBackPressed();
 
                         /*Intent intent = new Intent(EditSHGActivity.this, BeneficaryDetailActivity.class);
@@ -235,6 +239,7 @@ public class EditSHGActivity extends AppCompatActivity {
                         localRepo.updateBene(singleMember.get(0));
 
                         Toast.makeText(EditSHGActivity.this, "CBO info updated in locally.", Toast.LENGTH_SHORT).show();
+
                         onBackPressed();
 
                        /* Intent intent = new Intent(EditSHGActivity.this, BeneficaryDetailActivity.class);
