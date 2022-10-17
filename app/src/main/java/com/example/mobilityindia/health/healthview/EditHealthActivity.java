@@ -60,6 +60,7 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -81,7 +82,7 @@ public class EditHealthActivity extends AppCompatActivity {
             referralprescription = "", trialwhat = "", trialdate = "", socialsecurity = "", socialsecuritywhen = "", gaitfrequency = "",
             gaithowmany = "", therapyfrequency = "", therapysessions = "", fitmentwho = "", fitmentwhere = "", fitmentdevice = "",
             surgery = "", surgerywhere = "", surgerywherewhat = "", homerecommend = "", homerecommendwhat = "", str_aidsAppliances = "", benid = "",
-            benificaryId = "", id = "";
+            benificaryId = "", id = "",serviceDone = "",addaplinces = "",services_Id = "";
 
     List<String> HealthActivityId;
     List<String> HealthActivityName;
@@ -928,14 +929,18 @@ public class EditHealthActivity extends AppCompatActivity {
                     if (idarray3.size() == 0) {
 
                         benid = String.valueOf(CommonClass.benfeciary_ID);
+                        idarray3 = idarray2;
 
                         if (benid.equals("") || benid.equals("null")) {
 
                             localbeneficaryDataCall();
 
+
                         } else {
 
                             localbeneficaryDataCall1();
+
+
                         }
 
                     } else {
@@ -952,6 +957,18 @@ public class EditHealthActivity extends AppCompatActivity {
                         }
                     }
 
+                }else {
+
+                    benid = String.valueOf(CommonClass.benfeciary_ID);
+
+                    if (benid.equals("") || benid.equals("null")) {
+
+                        localbeneficaryDataCall();
+
+                    } else {
+
+                        localbeneficaryDataCall1();
+                    }
                 }
 
             }
@@ -1075,6 +1092,7 @@ public class EditHealthActivity extends AppCompatActivity {
     }
 
     private void callofflinedata1() {
+
         localRepo.getSelectedHealthWithData(CommonClass.datestring, CommonClass.benfeciary_ID).observe(this, new Observer<List<HealthCareData>>() {
             @Override
             public void onChanged(@Nullable List<HealthCareData> singleMember) {
@@ -1085,9 +1103,12 @@ public class EditHealthActivity extends AppCompatActivity {
                     CommonClass.healthId = healthId;
 
                     idarray2.clear();
+                    idarray5.clear();
 
                     idarray2 = singleMember.get(0).getServiceName();
                     idarray5 = singleMember.get(0).getDeviceName();
+                    serviceDone = singleMember.get(0).getServiceDone();
+                    addaplinces = singleMember.get(0).getAidAppliances();
 
                     String gettdisability = getHealthActivity(EditHealthActivity.this);
                     try {
@@ -1516,6 +1537,7 @@ public class EditHealthActivity extends AppCompatActivity {
     }
 
     private void callofflinedata() {
+
         localRepo.getSelectedHealthCareData((CommonClass.tempid)).observe(this, new Observer<List<HealthCareData>>() {
             @Override
             public void onChanged(@Nullable List<HealthCareData> singleMember) {
@@ -1529,6 +1551,9 @@ public class EditHealthActivity extends AppCompatActivity {
 
                     idarray2 = singleMember.get(0).getServiceName();
                     idarray5 = singleMember.get(0).getDeviceName();
+
+                    serviceDone = singleMember.get(0).getServiceDone();
+                    addaplinces = singleMember.get(0).getAidAppliances();
 
                     StringBuffer sb = new StringBuffer();
 
@@ -1946,6 +1971,9 @@ public class EditHealthActivity extends AppCompatActivity {
                     else
                         binding.linRepair.setVisibility(View.GONE);
 
+                }else{
+
+                    Toast.makeText(EditHealthActivity.this, "Data not exits", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -2166,6 +2194,7 @@ public class EditHealthActivity extends AppCompatActivity {
     }
 
     public void localbeneficaryDataCall1() {
+
         HealthCareData healthCareData = new HealthCareData();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd ");
         Date date = new Date();
@@ -2188,18 +2217,16 @@ public class EditHealthActivity extends AppCompatActivity {
                 sb.append(",");
             }
 
-            String services_Id = sb.toString();
+            services_Id = sb.toString();
 
             // remove last character (,)
             services_Id = services_Id.substring(0, services_Id.length() - 1);
 
             Log.d("purposeofvisitdata", services_Id);
 
-            healthCareData.setServiceDone(services_Id);
-
         } else {
 
-            healthCareData.setServiceDone("");
+            services_Id = serviceDone;
 
         }
 
@@ -2223,10 +2250,10 @@ public class EditHealthActivity extends AppCompatActivity {
 
         } else {
 
-            str_aidsAppliances = "";
+             addaplinces = str_aidsAppliances;
         }
 
-        // healthCareData.setServiceDone(idarray4.toString());
+        healthCareData.setServiceDone(services_Id);
         healthCareData.setServiceName(idarray3);
         healthCareData.setDeviceName(id_Array1);
         healthCareData.setScreeningdate(binding.startdateofshg.getText().toString());
@@ -2298,12 +2325,14 @@ public class EditHealthActivity extends AppCompatActivity {
 
         localRepo.updateHealthCareData(healthCareData);
 
+
         Toast.makeText(this, "Health updated in locally.", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(EditHealthActivity.this, BeneficaryDetailActivity.class);
         startActivity(intent);
     }
 
     public void localbeneficaryDataCall() {
+
         HealthCareData healthCareData = new HealthCareData();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd ");
         Date date = new Date();

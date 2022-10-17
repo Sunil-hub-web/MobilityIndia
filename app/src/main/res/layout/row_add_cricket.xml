@@ -65,8 +65,8 @@
                 android:layout_marginLeft="5dp"
                 app:backgroundTint="@color/purple_700"
                 app:cornerRadius="@dimen/_12sp"
-                android:padding="10dp"
                 android:layout_marginRight="@dimen/_5dp"
+                android:textSize="@dimen/_12sp"
                 android:textAllCaps="false">
 
             </com.google.android.material.button.MaterialButton>
