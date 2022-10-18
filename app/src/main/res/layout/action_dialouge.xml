@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Outcome"/>
+        android:text="Outcome*"/>
 
     <EditText
         android:id="@+id/outcome"
@@ -59,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Remark"/>
+        android:text="Remark*"/>
 
     <EditText
         android:id="@+id/remark_txt"

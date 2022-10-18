@@ -268,7 +268,7 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/backgroundscreen"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -2014,7 +2014,7 @@
                             android:layout_gravity="center_vertical"
                             android:fontFamily="serif"
                             android:gravity="center|center_vertical"
-                            android:text="Repair"
+                            android:text="CBR Repair"
                             android:textColor="#768Ac2"
                             android:textStyle="bold" />
 
@@ -2129,7 +2129,7 @@
                             android:layout_gravity="center_vertical"
                             android:fontFamily="serif"
                             android:gravity="center|center_vertical"
-                            android:text="Repair"
+                            android:text="A&amp;A Repair"
                             android:textColor="#768Ac2"
                             android:textStyle="bold" />
 

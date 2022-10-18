@@ -659,7 +659,7 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Do you have bank account Number?"
+                            android:hint="Do you have bank account Number?*"
                             android:padding="@dimen/_5dp">
 
                             <AutoCompleteTextView

@@ -669,7 +669,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10dp"
-                            android:hint="Earning Members in the Fly(M)"
+                            android:hint="Earning Members in the Family(M)"
                             android:padding="@dimen/_5dp">
 
                             <com.google.android.material.textfield.TextInputEditText
@@ -688,7 +688,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10dp"
-                            android:hint="Earning Members in the Fly(F)"
+                            android:hint="Earning Members in the Family(F)"
                             android:padding="@dimen/_5dp">
 
                             <com.google.android.material.textfield.TextInputEditText

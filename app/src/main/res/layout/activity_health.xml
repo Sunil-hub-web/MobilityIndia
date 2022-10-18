@@ -313,13 +313,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="@dimen/_10dp"
-                            android:layout_marginTop="@dimen/_5dp"
-                            android:layout_marginRight="@dimen/_10dp"
-                            android:layout_marginBottom="@dimen/_10dp"
-                            android:background="@drawable/backgroundonoff"
+                            android:layout_height="wrap_content"
                             android:gravity="center"
                             android:weightSum="2">
 
